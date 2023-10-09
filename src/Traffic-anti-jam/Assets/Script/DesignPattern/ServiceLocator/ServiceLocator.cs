@@ -17,7 +17,7 @@ public class ServiceLocator :  IServiceLocator
 			return (T)instance;
 		}
 		Debug.LogWarningFormat("{0} is not registered",type.Name);
-		return default(T);
+		return default;
 	}
 
 	public void Register<T, T2>(T2 instance) where T2 : T
