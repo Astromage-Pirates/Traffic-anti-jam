@@ -10,8 +10,8 @@ public class CameraSystem : MonoBehaviour
     private Vector3 direction;
     private Vector2 directInputValue;
     private float rotationValue;
-    private float moveSpeed = 15f;
-    private float rotateSoeed = 10f;
+    private float moveSpeed = 35f;
+    private float rotateSoeed = 30f;
     private float axisX = 20f;
     private float axisZ = 20f;
 
@@ -19,7 +19,7 @@ public class CameraSystem : MonoBehaviour
     private CinemachineVirtualCamera vCamera;
     private CinemachineTransposer transposer;
 
-    private void Awake()
+    private void Start()
     {
         transposer = vCamera.GetCinemachineComponent<CinemachineTransposer>();
     }
@@ -35,8 +35,7 @@ public class CameraSystem : MonoBehaviour
         if (context.performed)
         {
             directInputValue = context.ReadValue<Vector2>();
-            direction =
-                transform.forward * directInputValue.y + transform.right * directInputValue.x;
+            direction = new Vector3(directInputValue.x, 0.0f, directInputValue.y);
         }
         else if (context.canceled)
         {
@@ -52,16 +51,11 @@ public class CameraSystem : MonoBehaviour
             Mathf.Clamp(transform.position.z, -axisZ + transposer.m_FollowOffset.z / 2, axisZ)
         );
 
-        transform.Translate(
-            direction.x * moveSpeed * Time.deltaTime,
-            0,
-            direction.z * moveSpeed * Time.deltaTime
-        );
+        transform.Translate(direction * moveSpeed * Time.deltaTime, Space.Self);
     }
 
     public void CameraRotateDirection(InputAction.CallbackContext context)
     {
-        Debug.Log("aaa");
         if (context.performed)
         {
             rotationValue = context.ReadValue<float>();
@@ -74,6 +68,6 @@ public class CameraSystem : MonoBehaviour
 
     private void CameraRotation()
     {
-        transform.eulerAngles += new Vector3(0, rotationValue * rotateSoeed * Time.deltaTime, 0);
+        transform.Rotate(0.0f, rotationValue * rotateSoeed * Time.deltaTime, 0.0f, Space.World);
     }
 }
