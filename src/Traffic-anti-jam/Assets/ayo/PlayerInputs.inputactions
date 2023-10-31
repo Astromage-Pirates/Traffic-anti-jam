@@ -6,10 +6,19 @@
             "id": "34d2bef1-fd0c-4bae-8fb6-d567ceda0dcb",
             "actions": [
                 {
-                    "name": "Movement",
+                    "name": "MovementDirection",
                     "type": "Value",
                     "id": "13537d01-38d9-47b1-ae28-085bc7dfbc84",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RotateDirection",
+                    "type": "Value",
+                    "id": "c550f887-e25b-4cb9-b38c-a0a04aad4595",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -23,7 +32,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementDirection",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -34,7 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -45,7 +54,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -56,7 +65,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -67,7 +76,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Rotate value",
+                    "id": "328d5626-cacf-46c5-8a36-b62cdd88be32",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateDirection",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Negative",
+                    "id": "fb380175-3fd9-4988-9af4-cd4206f35020",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Positive",
+                    "id": "1403073d-e53d-4a74-9249-332295e041c5",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
