@@ -9,7 +9,8 @@
 [Bb]uilds/
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
-
+**/.vsconfig/
+**/.vsconfig
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 [Mm]emoryCaptures/
@@ -71,7 +72,7 @@ crashlytics-build.properties
 [Aa]ssets/[Ss]treamingAssets/aa.meta
 [Aa]ssets/[Ss]treamingAssets/aa/*
 
-[Aa]ssets/[Uu]ser[Ww]ork[Ss]pace/*
-![Aa]ssets/[Uu]ser[Ww]ork[Ss]pace/.gitkeep
+src/*/[Aa]ssets/[Uu]ser[Ww]ork[Ss]pace/*
+!src/*/[Aa]ssets/[Uu]ser[Ww]ork[Ss]pace/.gitkeep
 
-![Bb]uild/.gitkeep
+!src/[Bb]uild/.gitkeep
