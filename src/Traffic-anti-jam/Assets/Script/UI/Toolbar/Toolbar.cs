@@ -6,21 +6,45 @@ using UnityEngine;
 
 public class Toolbar : MonoBehaviour
 {
-    private float targetX = 0;
+    private float targetX;
+    private float sideStep = -160;
+    private float sideSpeed = 5f;
+
+    [SerializeField]
+    private Transform sideBtn;
+
+    [SerializeField]
+    private TrafficTool trafficTool;
+
+    private void Awake()
+    {
+        targetX = transform.position.x;
+    }
+
     private void FixedUpdate()
     {
+        ToolbarHandle();
+    }
+
+    public void ShowToolbar()
+    {
+        float rotateZ = 180;
+        targetX = transform.position.x + sideStep;
+        sideBtn.Rotate(0, 0, rotateZ);
+        sideStep *= -1;
+    }
+
+    private void ToolbarHandle()
+    {
         transform.position = new Vector3(
-            Mathf.Lerp(transform.position.x, targetX, 10f * Time.deltaTime),
+            Mathf.Lerp(transform.position.x, targetX, sideSpeed * Time.deltaTime),
             transform.position.y,
             0.0f
         );
-        // if (Mathf.Abs(targetX - transform.position.x) == 0)
-        // {
-        //     targetX = 0;
-        // }
     }
-    public void ShowToolbar()
+
+    public void DragTrafficTool()
     {
-        targetX = transform.position.x - 170;
+        var newObj = Instantiate(trafficTool, Input.mousePosition, quaternion.identity);
     }
 }
