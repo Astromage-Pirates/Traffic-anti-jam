@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Toolbar : MonoBehaviour
@@ -15,6 +13,9 @@ public class Toolbar : MonoBehaviour
 
     [SerializeField]
     private TrafficTool trafficTool;
+
+    [SerializeField]
+    private Camera camera;
 
     private void Awake()
     {
@@ -45,6 +46,6 @@ public class Toolbar : MonoBehaviour
 
     public void DragTrafficTool()
     {
-        var newObj = Instantiate(trafficTool, Input.mousePosition, quaternion.identity);
+        var newObj = Instantiate(trafficTool);
     }
 }
