@@ -13,7 +13,6 @@ public class Vehicle : MonoBehaviour
     [SerializeField]
     private float speed;
 
-    private NativeSpline nativePath;
     private bool hasCrashed = false;
 
     private void FixedUpdate()
@@ -21,16 +20,10 @@ public class Vehicle : MonoBehaviour
         Move();
     }
 
-    private void Start()
-    {
-        nativePath = new NativeSpline(path.Spline);
-    }
-
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.GetComponent<Vehicle>())
         {
-            Debug.Log("Crash!!!!");
             hasCrashed = true;
 
             // TODO: [VD] set current game state to game over
@@ -44,6 +37,7 @@ public class Vehicle : MonoBehaviour
             return;
         }
 
+        var nativePath = new NativeSpline(path.Spline);
         var localToWorldMatrix = path.transform.localToWorldMatrix;
         var worldToLocalMatrix = path.transform.worldToLocalMatrix;
         float _ = SplineUtility.GetNearestPoint(
