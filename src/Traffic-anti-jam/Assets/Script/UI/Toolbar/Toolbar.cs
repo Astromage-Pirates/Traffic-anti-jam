@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using AstroPirate.DesignPatterns;
 using UnityEngine;
 
 public class Toolbar : MonoBehaviour
@@ -17,9 +18,12 @@ public class Toolbar : MonoBehaviour
     [SerializeField]
     private Camera camera;
 
+    private IEventBus eventBus;
+
     private void Awake()
     {
         targetX = transform.position.x;
+        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
     }
 
     private void FixedUpdate()
@@ -46,6 +50,10 @@ public class Toolbar : MonoBehaviour
 
     public void DragTrafficTool()
     {
-        var newObj = Instantiate(trafficTool);
+        if (eventBus is not null)
+        {
+            eventBus.Send(new SnapPointViewed() { isActive = true });
+            var newObj = Instantiate(trafficTool);
+        }
     }
 }

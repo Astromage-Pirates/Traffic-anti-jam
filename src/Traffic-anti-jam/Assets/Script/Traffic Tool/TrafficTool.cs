@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using AstroPirate.DesignPatterns;
 using UnityEngine;
 
 public class TrafficTool : MonoBehaviour
@@ -16,6 +17,13 @@ public class TrafficTool : MonoBehaviour
     [SerializeField]
     private GameObject redDisc;
 
+    private IEventBus eventBus;
+
+    private void Awake()
+    {
+        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
+    }
+
     private void Start()
     {
         camera = Camera.main;
@@ -26,10 +34,6 @@ public class TrafficTool : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("0");
-        }
         FollowingMouse();
 
     }
@@ -50,6 +54,9 @@ public class TrafficTool : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (isSnaped)
+            return;
+
         if (other.transform.TryGetComponent<SnapPoint>(out SnapPoint snapPoint))
         {
             redDisc.SetActive(false);
@@ -57,8 +64,8 @@ public class TrafficTool : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("0");
                 isSnaped = true;
+                eventBus.Send(new SnapPointViewed() { isActive = false });
                 greenDisc.SetActive(false);
                 gameObject.transform.position = snapPoint.transform.position;
                 gameObject.transform.Rotate(0, transform.rotation.y + (int)snapPoint.direction, 0);
