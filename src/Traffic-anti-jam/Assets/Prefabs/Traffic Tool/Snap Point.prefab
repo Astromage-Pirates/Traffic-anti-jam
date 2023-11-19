@@ -119,3 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 90
+  myMeshRenderer: {fileID: 2548909632450343481}
+  myCollider: {fileID: 4235975024430322628}

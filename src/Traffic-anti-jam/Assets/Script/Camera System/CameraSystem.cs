@@ -9,15 +9,15 @@ public class CameraSystem : MonoBehaviour
     private Vector3 direction;
     private Vector2 directInputValue;
     private float rotationValue;
-    private float targetFoV = 60f;
+    private float targetFoV = 40f;
     private float zoomStep = 5f;
     private float zoomSpeed = 10f;
     private float minFoV = 20f;
-    private float maxFoV = 80f;
-    private float moveSpeed = 35f;
+    private float maxFoV = 70f;
+    private float moveSpeed = 40f;
     private float axisX = 20f;
-    private float axisZ = 20f;
-    private float rotateSoeed = 30f;
+    private float axisZ = 15f;
+    private float rotateSoeed = 40f;
 
     [SerializeField]
     private CinemachineVirtualCamera vCamera;

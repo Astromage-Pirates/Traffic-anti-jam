@@ -52,8 +52,8 @@ public class Toolbar : MonoBehaviour
     {
         if (eventBus is not null)
         {
-            eventBus.Send(new SnapPointViewed() { isActive = true });
             var newObj = Instantiate(trafficTool);
+            eventBus.Send(new SnapPointViewed() { isSnapPointActive = true, isToolBarBtnActive = false });
         }
     }
 }

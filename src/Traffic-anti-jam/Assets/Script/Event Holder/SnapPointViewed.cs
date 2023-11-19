@@ -5,5 +5,6 @@ using UnityEngine;
 
 public class SnapPointViewed : EventContext
 {
-    public bool isActive;
+    public bool isSnapPointActive;
+    public bool isToolBarBtnActive;
 }
