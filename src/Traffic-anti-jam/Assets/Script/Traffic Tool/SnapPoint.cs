@@ -15,7 +15,9 @@ public class SnapPoint : MonoBehaviour
 
     private TrafficTool newTrafficTool;
 
-    private IEventBus eventBus;
+    private TrafficTool currTrafficTool;
+
+    private IEventBus OnTrafficToolGenerated;
 
     [SerializeField]
     public Direction direction;
@@ -26,19 +28,17 @@ public class SnapPoint : MonoBehaviour
     [SerializeField]
     private Collider myCollider;
 
-    private TrafficTool trafficTool;
-
     private void Awake()
     {
-        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
-        eventBus.Register<SnapPointViewed>(OnSnapPointActive);
-        eventBus.Send(new SnapPointViewed() { isSnapPointActive = false, isToolBarBtnActive = true });
+        GlobalServiceContainer.Resolve<IEventBus>(out OnTrafficToolGenerated);
+        OnTrafficToolGenerated.Register<TrafficToolGenerated>(OnSnapPointActive);
+        OnTrafficToolGenerated.Send(new TrafficToolGenerated() { isSnapPointActive = false, isToolBarBtnActive = true });
     }
 
-    private void OnSnapPointActive(SnapPointViewed snapPointViewed)
+    private void OnSnapPointActive(TrafficToolGenerated trafficToolGenerated)
     {
-        myCollider.enabled = snapPointViewed.isSnapPointActive;
-        myMeshRenderer.enabled = snapPointViewed.isSnapPointActive;
+        myCollider.enabled = trafficToolGenerated.isSnapPointActive;
+        myMeshRenderer.enabled = trafficToolGenerated.isSnapPointActive;
     }
 
     private void OnTriggerStay(Collider other)
@@ -53,16 +53,16 @@ public class SnapPoint : MonoBehaviour
 
             if (Input.GetMouseButton(0))
             {
-                if (trafficTool)
+                if (currTrafficTool)
                 {
-                    Destroy(trafficTool.gameObject);
+                    Destroy(currTrafficTool.gameObject);
 
                 }
 
-                trafficTool = newTrafficTool;
-                trafficTool.isSnaped = true;
-                TrafficToolLocated(trafficTool);
-                eventBus.Send(new SnapPointViewed() { isSnapPointActive = false, isToolBarBtnActive = true });
+                currTrafficTool = newTrafficTool;
+                currTrafficTool.isSnaped = true;
+                TrafficToolLocated(currTrafficTool);
+                OnTrafficToolGenerated.Send(new TrafficToolGenerated() { isSnapPointActive = false, isToolBarBtnActive = true });
             }
         }
     }
@@ -86,6 +86,6 @@ public class SnapPoint : MonoBehaviour
 
     private void OnDestroy()
     {
-        eventBus.UnRegister<SnapPointViewed>(OnSnapPointActive);
+        OnTrafficToolGenerated.UnRegister<TrafficToolGenerated>(OnSnapPointActive);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TrafficTool : MonoBehaviour
 {
@@ -40,5 +41,10 @@ public class TrafficTool : MonoBehaviour
             transform.position = mousePos;
             Debug.DrawRay(mousePos, (mousePos - camera.transform.position) * 100f, Color.red);
         }
+    }
+
+    public void DestroyTrafficTool()
+    {
+        Destroy(this.gameObject);
     }
 }

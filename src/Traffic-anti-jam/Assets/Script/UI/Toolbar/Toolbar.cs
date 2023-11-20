@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using AstroPirate.DesignPatterns;
+using JetBrains.Annotations;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class Toolbar : MonoBehaviour
@@ -18,12 +21,20 @@ public class Toolbar : MonoBehaviour
     [SerializeField]
     private Camera camera;
 
-    private IEventBus eventBus;
+    [SerializeField]
+    private Transform grp_TrafficTool;
+
+    private IEventBus OnTrafficToolGenerated;
+
+    private TrafficTool newTrafficTool;
+
+    public List<TrafficTool> TrafficTools = new();
 
     private void Awake()
     {
         targetX = transform.position.x;
-        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
+        GlobalServiceContainer.Resolve<IEventBus>(out OnTrafficToolGenerated);
+        OnTrafficToolGenerated.Register<TrafficToolGenerated>(OnAddTraffictoolToList);
     }
 
     private void FixedUpdate()
@@ -48,12 +59,47 @@ public class Toolbar : MonoBehaviour
         );
     }
 
-    public void DragTrafficTool()
+    public void CreateTrafficTool()
     {
-        if (eventBus is not null)
+        if (OnTrafficToolGenerated is not null)
         {
-            var newObj = Instantiate(trafficTool);
-            eventBus.Send(new SnapPointViewed() { isSnapPointActive = true, isToolBarBtnActive = false });
+            newTrafficTool = Instantiate(trafficTool, grp_TrafficTool);
+            OnTrafficToolGenerated.Send(new TrafficToolGenerated() { isSnapPointActive = true, isToolBarBtnActive = false });
         }
+    }
+
+    public void DeleteTrafficTool()
+    {
+        if (!newTrafficTool.isSnaped)
+        {
+            Destroy(newTrafficTool.gameObject);
+            OnTrafficToolGenerated.Send(new TrafficToolGenerated() { isSnapPointActive = false, isToolBarBtnActive = true });
+        }
+    }
+
+    public void OnAddTraffictoolToList(TrafficToolGenerated trafficToolGenerated)
+    {
+        if (newTrafficTool.isSnaped)
+        {
+            TrafficTools.Add(newTrafficTool);
+        }
+    }
+
+    public void DeleteAllTrafficTool()
+    {
+        foreach (TrafficTool trafficTool in TrafficTools)
+        {
+            if (trafficTool)
+            {
+                Destroy(trafficTool.gameObject);
+            }
+        }
+
+        TrafficTools.Clear();
+    }
+
+    private void OnDestroy()
+    {
+        OnTrafficToolGenerated.UnRegister<TrafficToolGenerated>(OnAddTraffictoolToList);
     }
 }

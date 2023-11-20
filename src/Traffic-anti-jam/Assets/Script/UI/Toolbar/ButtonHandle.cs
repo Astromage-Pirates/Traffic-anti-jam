@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using AstroPirate.DesignPatterns;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,22 +9,22 @@ public class ButtonHandle : MonoBehaviour
     [SerializeField]
     private Button button;
 
-    private IEventBus eventBus;
+    private IEventBus OnTrafficToolGenerated;
 
     private void Awake()
     {
-        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
-        eventBus.Register<SnapPointViewed>(OnBtnToolBarClick);
+        GlobalServiceContainer.Resolve<IEventBus>(out OnTrafficToolGenerated);
+        OnTrafficToolGenerated.Register<TrafficToolGenerated>(OnBtnToolBarClick);
 
     }
 
-    private void OnBtnToolBarClick(SnapPointViewed snapPointViewed)
+    private void OnBtnToolBarClick(TrafficToolGenerated snapPointViewed)
     {
         button.enabled = snapPointViewed.isToolBarBtnActive;
     }
 
     private void OnDestroy()
     {
-        eventBus.UnRegister<SnapPointViewed>(OnBtnToolBarClick);
+        OnTrafficToolGenerated.UnRegister<TrafficToolGenerated>(OnBtnToolBarClick);
     }
 }
