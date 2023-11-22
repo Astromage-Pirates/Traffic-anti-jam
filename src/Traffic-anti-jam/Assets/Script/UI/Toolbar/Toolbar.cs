@@ -19,7 +19,7 @@ public class Toolbar : MonoBehaviour
     private TrafficTool trafficTool;
 
     [SerializeField]
-    private Camera camera;
+    private Camera myCamera;
 
     [SerializeField]
     private Transform grp_TrafficTool;

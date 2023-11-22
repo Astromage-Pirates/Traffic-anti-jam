@@ -9,18 +9,37 @@ public class CameraSystem : MonoBehaviour
     private Vector3 direction;
     private Vector2 directInputValue;
     private float rotationValue;
+
+    [SerializeField]
     private float targetFoV = 40f;
+
+    [SerializeField]
     private float zoomStep = 5f;
+
+    [SerializeField]
     private float zoomSpeed = 10f;
+
+    [SerializeField]
     private float minFoV = 20f;
+
+    [SerializeField]
     private float maxFoV = 70f;
+
+    [SerializeField]
     private float moveSpeed = 40f;
+
+    [SerializeField]
     private float axisX = 20f;
+
+    [SerializeField]
     private float axisZ = 15f;
+
+    [SerializeField]
     private float rotateSoeed = 40f;
 
     [SerializeField]
     private CinemachineVirtualCamera vCamera;
+
     private CinemachineTransposer transposer;
 
     private void Start()

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CanvasLookAtDirection : MonoBehaviour
 {
+    private Camera myCamera;
+
+    private void Start()
+    {
+        myCamera = Camera.main;
+    }
     void Update()
     {
         Camera camera = Camera.main;
