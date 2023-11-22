@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
-using Unity.IO.LowLevel.Unsafe;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,18 +9,37 @@ public class CameraSystem : MonoBehaviour
     private Vector3 direction;
     private Vector2 directInputValue;
     private float rotationValue;
-    private float targetFoV = 60f;
+
+    [SerializeField]
+    private float targetFoV = 40f;
+
+    [SerializeField]
     private float zoomStep = 5f;
+
+    [SerializeField]
     private float zoomSpeed = 10f;
+
+    [SerializeField]
     private float minFoV = 20f;
-    private float maxFoV = 80f;
-    private float moveSpeed = 35f;
+
+    [SerializeField]
+    private float maxFoV = 70f;
+
+    [SerializeField]
+    private float moveSpeed = 40f;
+
+    [SerializeField]
     private float axisX = 20f;
-    private float axisZ = 20f;
-    private float rotateSoeed = 30f;
+
+    [SerializeField]
+    private float axisZ = 15f;
+
+    [SerializeField]
+    private float rotateSoeed = 40f;
 
     [SerializeField]
     private CinemachineVirtualCamera vCamera;
+
     private CinemachineTransposer transposer;
 
     private void Start()
