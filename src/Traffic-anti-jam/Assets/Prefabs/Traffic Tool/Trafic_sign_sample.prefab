@@ -723,9 +723,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8584052991341893878}
-  - component: {fileID: 2149186437480258659}
   - component: {fileID: 4021867360366473904}
   - component: {fileID: 934390466005295771}
+  - component: {fileID: 2149186437480258659}
+  - component: {fileID: 3434883037220987015}
   m_Layer: 0
   m_Name: Trafic_sign_sample
   m_TagString: Untagged
@@ -753,21 +754,6 @@ Transform:
   - {fileID: 7968069641370786522}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2149186437480258659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8979325512165575635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 238bbd1ad61249d498e0abafd1f5efcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSnaped: 0
-  greenDisc: {fileID: 8476028740224834679}
-  redDisc: {fileID: 4533059609133281309}
 --- !u!136 &4021867360366473904
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -787,7 +773,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.2
   m_Height: 2.85
   m_Direction: 1
   m_Center: {x: 0, y: 1.4117022, z: 0}
@@ -818,3 +804,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2149186437480258659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979325512165575635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238bbd1ad61249d498e0abafd1f5efcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSnaped: 0
+  greenDisc: {fileID: 8476028740224834679}
+  redDisc: {fileID: 4533059609133281309}
+  delBtn: {fileID: 6408168458866080951}
+  outline: {fileID: 3434883037220987015}
+--- !u!114 &3434883037220987015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979325512165575635}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 0.655246, b: 1, a: 0.87058824}
+  outlineWidth: 1
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

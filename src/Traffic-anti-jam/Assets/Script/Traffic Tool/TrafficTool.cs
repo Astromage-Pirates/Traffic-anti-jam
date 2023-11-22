@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework.Constraints;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class TrafficTool : MonoBehaviour
+public class TrafficTool : MonoBehaviour, IPointerClickHandler
 {
     private Camera camera;
 
@@ -11,11 +13,19 @@ public class TrafficTool : MonoBehaviour
 
     public bool isSnaped = false;
 
+    private int isShowedCheck = 1;
+
     [SerializeField]
     public GameObject greenDisc;
 
     [SerializeField]
     public GameObject redDisc;
+
+    [SerializeField]
+    private GameObject delBtn;
+
+    [SerializeField]
+    private Outline outline;
 
     private void Start()
     {
@@ -43,8 +53,30 @@ public class TrafficTool : MonoBehaviour
         }
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (isSnaped)
+        {
+            bool isShowed = isShowedCheck > 0;
+            isShowedCheck *= -1;
+            ShowUI(isShowed);
+        }
+    }
+
     public void DestroyTrafficTool()
     {
         Destroy(this.gameObject);
     }
+
+    public void ShowUI(bool isShowed)
+    {
+        delBtn.SetActive(isShowed);
+        outline.enabled = isShowed;
+    }
+
+    private void OnShowUIGameStarted()
+    {
+        ShowUI(false);
+    }
+
 }
