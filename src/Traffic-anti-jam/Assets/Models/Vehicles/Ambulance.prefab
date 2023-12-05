@@ -257,6 +257,14 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 85654bd4f5ed8d0469e2b2ad73a416db,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3868977445577498023}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 85654bd4f5ed8d0469e2b2ad73a416db,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -454936504347110058}
     - targetCorrespondingSourceObject: {fileID: -4819223349682164798, guid: 85654bd4f5ed8d0469e2b2ad73a416db,
         type: 3}
       insertIndex: -1
@@ -359,6 +367,54 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.049999997, y: 0.038551748, z: 0.12}
   m_Center: {x: 0.035000086, y: -0.04072412, z: 0.0000004758366}
+--- !u!1 &6737948133431394422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 85654bd4f5ed8d0469e2b2ad73a416db,
+    type: 3}
+  m_PrefabInstance: {fileID: 5855640425194487079}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &-3868977445577498023
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6737948133431394422}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-454936504347110058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6737948133431394422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044859e35a7ad450bb4656658435f9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: {fileID: 0}
+  rgbody: {fileID: -3868977445577498023}
+  speed: 0.2
 --- !u!1 &7808612921806640869 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4819223349682164798, guid: 85654bd4f5ed8d0469e2b2ad73a416db,
