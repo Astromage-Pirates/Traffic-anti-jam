@@ -4,6 +4,9 @@ using UnityEngine.Splines;
 [RequireComponent(typeof(Rigidbody))]
 public class Vehicle : MonoBehaviour
 {
+    private const float MaxPercentage = 1f;
+    private const float NextPositionOffset = 0.05f;
+
     [SerializeField]
     private SplineContainer path;
 
@@ -11,13 +14,17 @@ public class Vehicle : MonoBehaviour
     private Rigidbody rgbody;
 
     [SerializeField]
-    private float speed;
+    private float velocity = 0.6f;
 
     private bool hasCrashed = false;
 
-    private void FixedUpdate()
+    private float distancePercentage;
+
+    private void Update()
     {
+        // TODO: [VD] check if game state is not game over.
         Move();
+        CheckIsAtDestination();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -26,7 +33,7 @@ public class Vehicle : MonoBehaviour
         {
             hasCrashed = true;
 
-            // TODO: [VD] set current game state to game over
+            // TODO: [VD] set current game state to game over.
         }
     }
 
@@ -37,21 +44,23 @@ public class Vehicle : MonoBehaviour
             return;
         }
 
-        var nativePath = new NativeSpline(path.Spline);
-        var localToWorldMatrix = path.transform.localToWorldMatrix;
-        var worldToLocalMatrix = path.transform.worldToLocalMatrix;
-        float _ = SplineUtility.GetNearestPoint(
-            nativePath,
-            worldToLocalMatrix.MultiplyPoint(transform.position),
-            out var nearest,
-            out var t
-        );
-        var forward = Vector3.Normalize(path.EvaluateTangent(t));
-        var up = path.EvaluateUpVector(t);
+        distancePercentage += velocity * Time.deltaTime / path.CalculateLength();
 
-        rgbody.position = localToWorldMatrix.MultiplyPoint(nearest);
-        rgbody.rotation = Quaternion.LookRotation(forward, up);
-        rgbody.velocity = rgbody.velocity.magnitude * transform.forward;
-        rgbody.AddForce(transform.forward * speed);
+        var currentPosition = path.EvaluatePosition(distancePercentage);
+        transform.position = currentPosition;
+
+        var nextPosition = path.EvaluatePosition(distancePercentage + NextPositionOffset);
+        var direction = nextPosition - currentPosition;
+        transform.rotation = Quaternion.LookRotation(direction);
     }
+
+    private void CheckIsAtDestination()
+    {
+        if (IsAtDestination)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private bool IsAtDestination => distancePercentage >= MaxPercentage;
 }
