@@ -1,5 +1,5 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Splines;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Vehicle : MonoBehaviour
@@ -8,17 +8,31 @@ public class Vehicle : MonoBehaviour
     private const float NextPositionOffset = 0.05f;
 
     [SerializeField]
-    private SplineContainer path;
-
-    [SerializeField]
     private Rigidbody rgbody;
+
+    [Tooltip("Distance to check for collision with other object.")]
+    [SerializeField]
+    private float collisionCheckDistance = 0.15f;
 
     [SerializeField]
     private float velocity = 0.6f;
 
-    private bool hasCrashed = false;
+    [SerializeField]
+    private Transform raycastAnchor;
+
+    /// <summary>
+    /// The path for <see cref="Vehicle"/> to move.
+    /// </summary>
+    public Path Path { get; set; }
 
     private float distancePercentage;
+    private bool stopByCollision;
+    private bool stopBySign;
+
+    private void Start()
+    {
+        distancePercentage = 0f;
+    }
 
     private void Update()
     {
@@ -27,31 +41,70 @@ public class Vehicle : MonoBehaviour
         CheckIsAtDestination();
     }
 
+    private void FixedUpdate()
+    {
+        CheckForCollision();
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.GetComponent<Vehicle>())
         {
-            hasCrashed = true;
+            stopByCollision = true;
 
             // TODO: [VD] set current game state to game over.
         }
     }
 
+    private async void OnTriggerEnter(Collider other)
+    {
+        stopBySign = true;
+
+        await UniTask.Delay(10000);
+
+        stopBySign = false;
+    }
+
+    private void CheckForCollision()
+    {
+        if (
+            Physics.Raycast(
+                raycastAnchor.position,
+                raycastAnchor.forward,
+                out var hitInfo,
+                collisionCheckDistance,
+                LayerMask.GetMask("Vehicle")
+            )
+        )
+        {
+            stopByCollision = true;
+        }
+        else
+        {
+            stopByCollision = false;
+        }
+    }
+
     private void Move()
     {
-        if (hasCrashed)
+        if (stopByCollision || stopBySign)
         {
             return;
         }
 
-        distancePercentage += velocity * Time.deltaTime / path.CalculateLength();
+        distancePercentage += velocity * Time.deltaTime / Path.Length;
 
-        var currentPosition = path.EvaluatePosition(distancePercentage);
+        var currentPosition = Path.EvaluatePosition(distancePercentage);
         transform.position = currentPosition;
 
-        var nextPosition = path.EvaluatePosition(distancePercentage + NextPositionOffset);
-        var direction = nextPosition - currentPosition;
-        transform.rotation = Quaternion.LookRotation(direction);
+        var nextPosition = Path.EvaluatePosition(distancePercentage + NextPositionOffset);
+
+        Vector3 direction = nextPosition - currentPosition;
+
+        if (direction != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
     }
 
     private void CheckIsAtDestination()

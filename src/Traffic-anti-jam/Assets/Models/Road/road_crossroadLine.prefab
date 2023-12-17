@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8060992212197718991}
-  - component: {fileID: 8314136657569130783}
   m_Layer: 0
   m_Name: Marker3
   m_TagString: Untagged
@@ -32,21 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3364189997545351935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8314136657569130783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69334336891667674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc0ba44aac3b484b8a0a4d8cbad8d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adjacentMarkers:
-  - {fileID: 0}
-  <OpenForConnections>k__BackingField: 1
 --- !u!1 &517097422124513756
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1108413200470096378}
-  - component: {fileID: 673204159062402546}
   m_Layer: 0
   m_Name: Marker2
   m_TagString: Untagged
@@ -79,21 +62,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3364189997545351935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &673204159062402546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517097422124513756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc0ba44aac3b484b8a0a4d8cbad8d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adjacentMarkers:
-  - {fileID: 0}
-  <OpenForConnections>k__BackingField: 1
 --- !u!1 &1759941807634891618
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +71,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6085003881012249472}
-  - component: {fileID: 4325218458449077108}
   m_Layer: 0
   m_Name: Marker7
   m_TagString: Untagged
@@ -126,21 +93,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3364189997545351935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4325218458449077108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1759941807634891618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc0ba44aac3b484b8a0a4d8cbad8d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adjacentMarkers:
-  - {fileID: 0}
-  <OpenForConnections>k__BackingField: 1
 --- !u!1 &3707736744408639153
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +102,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6291185768533188304}
-  - component: {fileID: 4773078345665937903}
   m_Layer: 0
   m_Name: Marker6
   m_TagString: Untagged
@@ -173,21 +124,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3364189997545351935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4773078345665937903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3707736744408639153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc0ba44aac3b484b8a0a4d8cbad8d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adjacentMarkers:
-  - {fileID: 0}
-  <OpenForConnections>k__BackingField: 1
 --- !u!1 &3753679929322476158
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +133,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5757438840329449746}
-  - component: {fileID: 8629575816363721119}
   m_Layer: 0
   m_Name: Marker4
   m_TagString: Untagged
@@ -220,21 +155,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3364189997545351935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8629575816363721119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3753679929322476158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc0ba44aac3b484b8a0a4d8cbad8d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adjacentMarkers:
-  - {fileID: 0}
-  <OpenForConnections>k__BackingField: 1
 --- !u!1 &6436666768857165115
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +164,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5285118185211826912}
-  - component: {fileID: 2091775450647129886}
   m_Layer: 0
   m_Name: Marker8
   m_TagString: Untagged
@@ -267,21 +186,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3364189997545351935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2091775450647129886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6436666768857165115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc0ba44aac3b484b8a0a4d8cbad8d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adjacentMarkers:
-  - {fileID: 0}
-  <OpenForConnections>k__BackingField: 1
 --- !u!1 &8101777491391082824
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +195,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5670189999090085703}
-  - component: {fileID: 3027670259640877750}
   m_Layer: 0
   m_Name: Marker1
   m_TagString: Untagged
@@ -314,21 +217,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3364189997545351935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3027670259640877750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8101777491391082824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc0ba44aac3b484b8a0a4d8cbad8d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adjacentMarkers:
-  - {fileID: 0}
-  <OpenForConnections>k__BackingField: 1
 --- !u!1 &8365746822506587494
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +226,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3079723857210935838}
-  - component: {fileID: 5740977155317559368}
   m_Layer: 0
   m_Name: Marker5
   m_TagString: Untagged
@@ -361,21 +248,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3364189997545351935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5740977155317559368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8365746822506587494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc0ba44aac3b484b8a0a4d8cbad8d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adjacentMarkers:
-  - {fileID: 0}
-  <OpenForConnections>k__BackingField: 1
 --- !u!1001 &2970890897939598612
 PrefabInstance:
   m_ObjectHideFlags: 0
