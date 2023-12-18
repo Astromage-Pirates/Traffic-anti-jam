@@ -1,6 +1,10 @@
-using System.Linq;
+using System;
+using System.Collections;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Splines;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// A helper component to spawn <see cref="Vehicle"/>.
@@ -8,17 +12,19 @@ using UnityEngine.Splines;
 public class VehicleSpawner : MonoBehaviour
 {
     [SerializeField]
-    private float spawningSeconds = 2f;
+    private float spawningSeconds = 3f;
 
     [Tooltip("The distance to check for spawning to prevent from it's on top of other object.")]
     [SerializeField]
-    private float spawningDistance = 0.5f;
+    private float spawningDistance = 1f;
 
     [SerializeField]
     private PathSystem pathSystem;
 
     [SerializeField]
     private Vehicle[] vehiclePrefabs;
+
+    private Vehicle lastSpawnedVehicle;
 
     private void Start()
     {
@@ -28,21 +34,20 @@ public class VehicleSpawner : MonoBehaviour
     private void SpawnVehicle()
     {
         var availablePaths = pathSystem.AvailablePaths;
-        var vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
         var pathIndex = Random.Range(0, availablePaths.Length);
 
-        if (!ShouldSpawnVehicle(availablePaths[pathIndex]))
+        if (ShouldSpawnVehicle(availablePaths[pathIndex]))
         {
-            return;
+            var vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
+
+            lastSpawnedVehicle = Instantiate(
+                vehiclePrefabs[vehicleIndex],
+                availablePaths[pathIndex].transform,
+                true
+            );
+
+            lastSpawnedVehicle.Path = availablePaths[pathIndex];
         }
-
-        var vehicle = Instantiate(
-            vehiclePrefabs[vehicleIndex],
-            availablePaths[pathIndex].transform,
-            true
-        );
-
-        vehicle.Path = availablePaths[pathIndex];
     }
 
     private bool ShouldSpawnVehicle(Path path)
@@ -52,10 +57,9 @@ public class VehicleSpawner : MonoBehaviour
             return true;
         }
 
-        var lastSpawnVehicle = path.VehiclesOnPath.Last();
         var pathStartPosition = path.EvaluatePosition(0);
+        var distance = Vector3.Distance(lastSpawnedVehicle.transform.position, pathStartPosition);
 
-        return Vector3.Distance(lastSpawnVehicle.transform.position, pathStartPosition)
-            >= spawningDistance;
+        return distance >= spawningDistance;
     }
 }

@@ -6898,6 +6898,16 @@ PrefabInstance:
       propertyPath: pathSystem
       value: 
       objectReference: {fileID: 826153100}
+    - target: {fileID: 7070079663965602507, guid: 8ac3bdb426a06441da47530fff746f85,
+        type: 3}
+      propertyPath: spawningSeconds
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7070079663965602507, guid: 8ac3bdb426a06441da47530fff746f85,
+        type: 3}
+      propertyPath: spawningDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

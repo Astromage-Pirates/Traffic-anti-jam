@@ -50,11 +50,26 @@ public class Path : MonoBehaviour
     {
         // TODO: [VD] check if game is stop
         meshRenderer.enabled = Available;
-
-        Debug.Log($"{gameObject.name} contains {VehiclesOnPath}");
     }
 
     private void OnTriggerEnter(Collider other)
+    {
+        Available = pathType switch
+        {
+            // TODO: [VD] check for collision with no Turn Left sign.
+            PathType.TurnLeft
+                => false,
+            // TODO: [VD] check for collision with no Turn Right sign.
+            PathType.TurnRight
+                => false,
+            // TODO: [VD] check for collision with no Straight sign.
+            PathType.Straight
+                => false,
+            _ => throw new InvalidEnumArgumentException()
+        };
+    }
+
+    private void OnTriggerExit(Collider other)
     {
         Available = pathType switch
         {

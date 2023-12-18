@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb4209c41290444298355aa426ea9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawningSeconds: 2
-  spawnDistanceThreshold: 0.5
+  spawningSeconds: 3
+  spawningDistance: 1
   pathSystem: {fileID: 0}
   vehiclePrefabs:
   - {fileID: 7137166894235970334, guid: 92a4cdf7dc7504be38a75d292387e180, type: 3}
