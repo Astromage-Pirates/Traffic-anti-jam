@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -19,6 +20,9 @@ public class Vehicle : MonoBehaviour
 
     [SerializeField]
     private Transform raycastAnchor;
+
+    [SerializeField]
+    private AudioSource audioSource;
 
     /// <summary>
     /// The path for <see cref="Vehicle"/> to move.
@@ -53,6 +57,7 @@ public class Vehicle : MonoBehaviour
         if (other.gameObject.GetComponent<Vehicle>())
         {
             isAccidentCalled = true;
+            audioSource.Play();
 
             // TODO: [VD] set current game state to game over.
         }
