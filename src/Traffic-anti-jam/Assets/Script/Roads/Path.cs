@@ -19,8 +19,6 @@ public enum PathType
 [RequireComponent(typeof(SplineContainer), typeof(SplineExtrude))]
 public class Path : MonoBehaviour
 {
-    private readonly Color[] colors = new[] { Color.red, Color.green, Color.yellow, Color.magenta };
-
     /// <summary>
     /// The <see cref="SplineContainer"/> that contains defined <see cref="Path"/>.
     /// </summary>
@@ -33,6 +31,9 @@ public class Path : MonoBehaviour
     [SerializeField]
     private PathType pathType;
 
+    [SerializeField]
+    private Color color;
+
     private List<BezierKnot> waypoints;
 
     /// <summary>
@@ -43,7 +44,7 @@ public class Path : MonoBehaviour
 
     private void Start()
     {
-        meshRenderer.material.color = colors[Random.Range(0, colors.Length)];
+        meshRenderer.material.color = color;
     }
 
     private void Update()

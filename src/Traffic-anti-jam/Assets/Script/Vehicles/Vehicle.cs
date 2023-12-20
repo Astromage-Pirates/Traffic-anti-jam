@@ -12,7 +12,7 @@ public class Vehicle : MonoBehaviour
 
     [Tooltip("Distance to check for collision with other object.")]
     [SerializeField]
-    private float collisionCheckDistance = 0.15f;
+    private float collisionCheckDistance = 0.2f;
 
     [SerializeField]
     private float velocity = 0.6f;
@@ -28,6 +28,8 @@ public class Vehicle : MonoBehaviour
     private float distancePercentage;
     private bool stopByCollision;
     private bool stopBySign;
+
+    private bool isAccidentCalled;
 
     private void Start()
     {
@@ -50,7 +52,7 @@ public class Vehicle : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Vehicle>())
         {
-            stopByCollision = true;
+            isAccidentCalled = true;
 
             // TODO: [VD] set current game state to game over.
         }
@@ -87,7 +89,7 @@ public class Vehicle : MonoBehaviour
 
     private void Move()
     {
-        if (stopByCollision || stopBySign)
+        if (stopByCollision || stopBySign || isAccidentCalled)
         {
             return;
         }
