@@ -34,6 +34,9 @@ public class Path : MonoBehaviour
     [SerializeField]
     private Color color;
 
+    [field: SerializeField]
+    public int MaxVehicleEfficiency { get; private set; }
+
     /// <summary>
     /// Whether <see cref="Path"/> is available for <see cref="Vehicle"/> to move.
     /// </summary>

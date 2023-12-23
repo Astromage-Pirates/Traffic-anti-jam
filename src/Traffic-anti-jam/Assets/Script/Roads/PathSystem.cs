@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PathSystem : MonoBehaviour
 {
-    /// <summary>
-    /// List of <see cref="Path"/>s available.
-    /// </summary>
-    public List<Path> Paths { get; private set; }
-
     [SerializeField]
     private Path pathPrefab;
+
+    /// <summary>
+    /// List of available <see cref="Path"/>s.
+    /// </summary>
+    [field: SerializeField]
+    public List<Path> Paths { get; private set; }
 
     /// <summary>
     /// Get list of available <see cref="Path"/>s.
@@ -21,9 +22,7 @@ public class PathSystem : MonoBehaviour
     [NaughtyAttributes.Button]
     private void AddNewPath()
     {
-        var path = Instantiate(pathPrefab, transform);
-
-        Paths.Add(path);
+        Instantiate(pathPrefab, transform);
     }
 #endif
 }
