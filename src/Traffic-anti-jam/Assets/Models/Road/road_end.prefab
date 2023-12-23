@@ -327,42 +327,8 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7573030216659778370}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e9e136a488795254f8b396315b75fa24,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7070079663965602507}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e136a488795254f8b396315b75fa24, type: 3}
---- !u!1 &448011733129890351 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e9e136a488795254f8b396315b75fa24,
-    type: 3}
-  m_PrefabInstance: {fileID: 790031668267661182}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7070079663965602507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448011733129890351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fb4209c41290444298355aa426ea9c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawningSeconds: 3
-  spawningDistance: 1
-  pathSystem: {fileID: 0}
-  vehiclePrefabs:
-  - {fileID: 7137166894235970334, guid: 92a4cdf7dc7504be38a75d292387e180, type: 3}
-  - {fileID: 2892428339375565677, guid: e2778a625230a49a397ba702a2d0417f, type: 3}
-  - {fileID: 1142724034257785598, guid: 09b736ed4f1d94aafbd7a1b59159887a, type: 3}
-  - {fileID: 13669983426758728, guid: 3a3a31bd5b2b0462d8d8c57f84038903, type: 3}
-  - {fileID: 4835631872232465360, guid: e0cc86fc402e448169472c652635a8c0, type: 3}
-  - {fileID: 1073983857467500552, guid: ec00602683422415cb7d285500830b53, type: 3}
-  - {fileID: 8440202449974522045, guid: 41325000d07034278a250d1b8b91d918, type: 3}
-  - {fileID: 255774319909578164, guid: de382e01906bf45438017d5030fb088d, type: 3}
 --- !u!4 &971784525939626133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e9e136a488795254f8b396315b75fa24,
