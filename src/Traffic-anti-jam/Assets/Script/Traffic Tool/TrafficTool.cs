@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework.Constraints;
+using AstroPirate.DesignPatterns;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TrafficTool : MonoBehaviour, IPointerClickHandler
 {
-    private Camera camera;
+    private Camera myCamera;
 
     private LayerMask layer;
 
@@ -16,41 +17,78 @@ public class TrafficTool : MonoBehaviour, IPointerClickHandler
     private int isShowedCheck = 1;
 
     [SerializeField]
-    public GameObject greenDisc;
+    public List<Material> greenDisc;
 
     [SerializeField]
-    public GameObject redDisc;
+    public List<Material> redDisc;
 
     [SerializeField]
-    private GameObject delBtn;
+    public GameObject disc;
+
+    [SerializeField]
+    protected Canvas traficToolCanvas;
 
     [SerializeField]
     private Outline outline;
 
+    [SerializeField]
+    public int cost;
+
+    protected IEventBus eventBus;
+
+    protected virtual void Awake()
+    {
+        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
+    }
+
     private void Start()
     {
-        camera = Camera.main;
+        myCamera = Camera.main;
         layer = LayerMask.GetMask("Pavement");
     }
 
     private void FixedUpdate()
     {
         FollowingMouse();
-
     }
 
     public void FollowingMouse()
     {
         if (!isSnaped)
         {
-            Vector3 mousePos = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, camera.nearClipPlane + 10));
-            if (Physics.Raycast(mousePos, mousePos - camera.transform.position, out var hit, 100f, layer))
+            Vector3 mousePos = myCamera.ScreenToWorldPoint(
+                new Vector3(
+                    Input.mousePosition.x,
+                    Input.mousePosition.y,
+                    myCamera.nearClipPlane + 10
+                )
+            );
+            if (
+                Physics.Raycast(
+                    mousePos,
+                    mousePos - myCamera.transform.position,
+                    out var hit,
+                    100f,
+                    layer
+                )
+            )
             {
                 mousePos = hit.point;
             }
             transform.position = mousePos;
-            Debug.DrawRay(mousePos, (mousePos - camera.transform.position) * 100f, Color.red);
+            Debug.DrawRay(mousePos, (mousePos - myCamera.transform.position) * 100f, Color.red);
         }
+    }
+
+    public void DiscColor(List<Material> material)
+    {
+        if (material is null)
+        {
+            disc.gameObject.SetActive(false);
+            return;
+        }
+
+        disc.GetComponent<MeshRenderer>().SetMaterials(material);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -63,14 +101,15 @@ public class TrafficTool : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void DestroyTrafficTool()
+    public virtual void DestroyTrafficTool()
     {
+        eventBus.Send(new BudgetCost() { trafficTool = this, intSign = -1 });
         Destroy(this.gameObject);
     }
 
     public void ShowUI(bool isShowed)
     {
-        delBtn.SetActive(isShowed);
+        traficToolCanvas.enabled = isShowed;
         outline.enabled = isShowed;
     }
 
@@ -78,5 +117,4 @@ public class TrafficTool : MonoBehaviour, IPointerClickHandler
     {
         ShowUI(false);
     }
-
 }

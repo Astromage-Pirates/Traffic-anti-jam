@@ -9,22 +9,31 @@ public class ButtonHandle : MonoBehaviour
     [SerializeField]
     private Button button;
 
-    private IEventBus OnTrafficToolGenerated;
+    private IEventBus EventBus;
 
     private void Awake()
     {
-        GlobalServiceContainer.Resolve<IEventBus>(out OnTrafficToolGenerated);
-        OnTrafficToolGenerated.Register<TrafficToolGenerated>(OnBtnToolBarClick);
-
+        GlobalServiceContainer.Resolve<IEventBus>(out EventBus);
+        EventBus.Register<TrafficSignUIInteracted>(OnBtnToolBarClick);
+        EventBus.Register<TrafficLightUIInteracted>(OnBtnToolBarClick);
     }
 
-    private void OnBtnToolBarClick(TrafficToolGenerated snapPointViewed)
+    private void OnBtnToolBarClick(TrafficToolUIInteracted trafficToolUIInteracted)
     {
-        button.enabled = snapPointViewed.isToolBarBtnActive;
+        if (trafficToolUIInteracted is TrafficSignUIInteracted trafficSignUIInteracted)
+        {
+            button.enabled = trafficSignUIInteracted.isToolBarBtnActive;
+        }
+
+        if (trafficToolUIInteracted is TrafficLightUIInteracted trafficLightUIInteracted)
+        {
+            button.enabled = trafficLightUIInteracted.isToolBarBtnActive;
+        }
     }
 
     private void OnDestroy()
     {
-        OnTrafficToolGenerated.UnRegister<TrafficToolGenerated>(OnBtnToolBarClick);
+        EventBus.UnRegister<TrafficSignUIInteracted>(OnBtnToolBarClick);
+        EventBus.UnRegister<TrafficLightUIInteracted>(OnBtnToolBarClick);
     }
 }
