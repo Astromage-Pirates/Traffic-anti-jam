@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using AstroPirate.DesignPatterns;
-using JetBrains.Annotations;
-using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class Toolbar : MonoBehaviour
@@ -16,25 +14,26 @@ public class Toolbar : MonoBehaviour
     private Transform sideBtn;
 
     [SerializeField]
-    private TrafficTool trafficTool;
+    private TrafficSign trafficSign_prefab;
 
     [SerializeField]
-    private Camera myCamera;
+    private TrafficLight trafficLight_prefab;
 
     [SerializeField]
     private Transform grp_TrafficTool;
 
-    private IEventBus OnTrafficToolGenerated;
+    private IEventBus eventBus;
 
     private TrafficTool newTrafficTool;
 
-    public List<TrafficTool> TrafficTools = new();
+    [SerializeField]
+    private List<TrafficTool> TrafficTools = new();
 
     private void Awake()
     {
         targetX = transform.position.x;
-        GlobalServiceContainer.Resolve<IEventBus>(out OnTrafficToolGenerated);
-        OnTrafficToolGenerated.Register<TrafficToolGenerated>(OnAddTraffictoolToList);
+        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
+        eventBus.Register<TrafficToolUIInteracted>(OnAddTraffictoolToList);
     }
 
     private void FixedUpdate()
@@ -59,29 +58,68 @@ public class Toolbar : MonoBehaviour
         );
     }
 
-    public void CreateTrafficTool()
+    public void CreateTrafficSign()
     {
-        if (OnTrafficToolGenerated is not null)
+        if (eventBus is not null)
         {
-            newTrafficTool = Instantiate(trafficTool, grp_TrafficTool);
-            OnTrafficToolGenerated.Send(new TrafficToolGenerated() { isSnapPointActive = true, isToolBarBtnActive = false });
+            newTrafficTool = Instantiate(trafficSign_prefab, grp_TrafficTool);
+            eventBus.Send(
+                new TrafficSignUIInteracted()
+                {
+                    isSnapPointActive = true,
+                    isToolBarBtnActive = false
+                }
+            );
+        }
+    }
+
+    public void CreateTrafficLight()
+    {
+        if (eventBus is not null)
+        {
+            newTrafficTool = Instantiate(trafficLight_prefab, grp_TrafficTool);
+            eventBus.Send(
+                new TrafficLightUIInteracted()
+                {
+                    isSnapPointActive = true,
+                    isToolBarBtnActive = false
+                }
+            );
         }
     }
 
     public void DeleteTrafficTool()
     {
-        if (!newTrafficTool.isSnaped)
+        if (newTrafficTool)
         {
-            Destroy(newTrafficTool.gameObject);
-            OnTrafficToolGenerated.Send(new TrafficToolGenerated() { isSnapPointActive = false, isToolBarBtnActive = true });
+            if (!newTrafficTool.isSnaped)
+            {
+                Destroy(newTrafficTool.gameObject);
+                eventBus.Send(
+                    new TrafficSignUIInteracted()
+                    {
+                        isSnapPointActive = false,
+                        isToolBarBtnActive = true
+                    }
+                );
+
+                eventBus.Send(
+                    new TrafficLightUIInteracted()
+                    {
+                        isSnapPointActive = false,
+                        isToolBarBtnActive = true
+                    }
+                );
+            }
         }
     }
 
-    public void OnAddTraffictoolToList(TrafficToolGenerated trafficToolGenerated)
+    public void OnAddTraffictoolToList(TrafficToolUIInteracted trafficToolUIInteracted)
     {
         if (newTrafficTool.isSnaped)
         {
             TrafficTools.Add(newTrafficTool);
+            newTrafficTool = null;
         }
     }
 
@@ -91,6 +129,7 @@ public class Toolbar : MonoBehaviour
         {
             if (trafficTool)
             {
+                eventBus.Send(new BudgetCost() { trafficTool = trafficTool, intSign = -1 });
                 Destroy(trafficTool.gameObject);
             }
         }
@@ -100,6 +139,6 @@ public class Toolbar : MonoBehaviour
 
     private void OnDestroy()
     {
-        OnTrafficToolGenerated.UnRegister<TrafficToolGenerated>(OnAddTraffictoolToList);
+        eventBus.UnRegister<TrafficSignUIInteracted>(OnAddTraffictoolToList);
     }
 }
