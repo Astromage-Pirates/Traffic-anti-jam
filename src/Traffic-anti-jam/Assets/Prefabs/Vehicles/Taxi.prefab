@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rgbody: {fileID: 4850655986812211511}
-  collisionCheckDistance: 0.15
+  collisionCheckDistance: 0.2
   velocity: 0.6
   raycastAnchor: {fileID: 6430207489482387540}
   audioSource: {fileID: -8029767124298269512}
