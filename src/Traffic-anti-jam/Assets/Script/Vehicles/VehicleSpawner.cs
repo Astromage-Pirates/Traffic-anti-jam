@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Threading;
-using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,14 +7,14 @@ using Random = UnityEngine.Random;
 public class VehicleSpawner : MonoBehaviour
 {
     [SerializeField]
-    private float spawningSeconds = 3f;
+    private PathSystem pathSystem;
+
+    [SerializeField]
+    private float spawningSeconds = 2f;
 
     [Tooltip("The distance to check for spawning to prevent from it's on top of other object.")]
     [SerializeField]
     private float spawningDistance = 1f;
-
-    [SerializeField]
-    private PathSystem pathSystem;
 
     [SerializeField]
     private Vehicle[] vehiclePrefabs;
