@@ -14,7 +14,25 @@ public class Toolbar : MonoBehaviour
     private Transform sideBtn;
 
     [SerializeField]
-    private TrafficSign trafficSign_prefab;
+    private TrafficSign forwardSign_prefab;
+
+    [SerializeField]
+    private TrafficSign minSpeedSign_prefab;
+
+    [SerializeField]
+    private TrafficSign noLeftSign_prefab;
+
+    [SerializeField]
+    private TrafficSign noRightSign_prefab;
+
+    [SerializeField]
+    private TrafficSign oneWaySign_prefab;
+
+    [SerializeField]
+    private TrafficSign leftSign_prefab;
+
+    [SerializeField]
+    private TrafficSign rightSign_prefab;
 
     [SerializeField]
     private TrafficLight trafficLight_prefab;
@@ -58,11 +76,101 @@ public class Toolbar : MonoBehaviour
         );
     }
 
-    public void CreateTrafficSign()
+    public void CreateForwardSign()
     {
         if (eventBus is not null)
         {
-            newTrafficTool = Instantiate(trafficSign_prefab, grp_TrafficTool);
+            newTrafficTool = Instantiate(forwardSign_prefab, grp_TrafficTool);
+            eventBus.Send(
+                new TrafficSignUIInteracted()
+                {
+                    isSnapPointActive = true,
+                    isToolBarBtnActive = false
+                }
+            );
+        }
+    }
+
+    public void CreateMinSpeedSign()
+    {
+        if (eventBus is not null)
+        {
+            newTrafficTool = Instantiate(minSpeedSign_prefab, grp_TrafficTool);
+            eventBus.Send(
+                new TrafficSignUIInteracted()
+                {
+                    isSnapPointActive = true,
+                    isToolBarBtnActive = false
+                }
+            );
+        }
+    }
+
+    public void CreateNoLeftSign()
+    {
+        if (eventBus is not null)
+        {
+            newTrafficTool = Instantiate(noLeftSign_prefab, grp_TrafficTool);
+            eventBus.Send(
+                new TrafficSignUIInteracted()
+                {
+                    isSnapPointActive = true,
+                    isToolBarBtnActive = false
+                }
+            );
+        }
+    }
+
+    public void CreateNoRightSign()
+    {
+        if (eventBus is not null)
+        {
+            newTrafficTool = Instantiate(noRightSign_prefab, grp_TrafficTool);
+            eventBus.Send(
+                new TrafficSignUIInteracted()
+                {
+                    isSnapPointActive = true,
+                    isToolBarBtnActive = false
+                }
+            );
+        }
+    }
+
+    public void CreateOneWaySign()
+    {
+        if (eventBus is not null)
+        {
+            newTrafficTool = Instantiate(oneWaySign_prefab, grp_TrafficTool);
+            eventBus.Send(
+                new TrafficSignUIInteracted()
+                {
+                    isSnapPointActive = true,
+                    isToolBarBtnActive = false
+                }
+            );
+        }
+    }
+
+    public void CreateLeftSign()
+    {
+        if (eventBus is not null)
+        {
+            newTrafficTool = Instantiate(leftSign_prefab, grp_TrafficTool);
+            eventBus.Send(
+                new TrafficSignUIInteracted()
+                {
+                    isSnapPointActive = true,
+                    isToolBarBtnActive = false
+                }
+            );
+        }
+    }
+
+    public void CreateRightSign()
+    {
+        if (eventBus is not null)
+        {
+            newTrafficTool = Instantiate(rightSign_prefab, grp_TrafficTool);
             eventBus.Send(
                 new TrafficSignUIInteracted()
                 {
