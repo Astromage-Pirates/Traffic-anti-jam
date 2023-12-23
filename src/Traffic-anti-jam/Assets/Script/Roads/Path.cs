@@ -34,8 +34,6 @@ public class Path : MonoBehaviour
     [SerializeField]
     private Color color;
 
-    private List<BezierKnot> waypoints;
-
     /// <summary>
     /// Whether <see cref="Path"/> is available for <see cref="Vehicle"/> to move.
     /// </summary>
