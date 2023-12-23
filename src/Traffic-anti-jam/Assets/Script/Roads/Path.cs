@@ -104,6 +104,26 @@ public class Path : MonoBehaviour
     }
 
     /// <summary>
+    /// Evaluates the tangent vector of a point, t, on a spline in world space.
+    /// </summary>
+    /// <param name="t">A value between 0 and 1 representing a percentage of entire spline.</param>
+    /// <returns>The computed tangent vector.</returns>
+    public Vector3 EvaluateTangent(float t)
+    {
+        return Container.EvaluateTangent(t);
+    }
+
+    /// <summary>
+    /// Evaluates the up vector of a point, t, on a spline in world space.
+    /// </summary>
+    /// <param name="t">A value between 0 and 1 representing a percentage of entire spline.</param>
+    /// <returns>The computed up direction.</returns>
+    public Vector3 EvaluateUpVector(float t)
+    {
+        return Container.EvaluateUpVector(t);
+    }
+
+    /// <summary>
     /// The length of this <see cref="Path"/>.
     /// </summary>
     public float Length => Container.Spline.GetLength();
