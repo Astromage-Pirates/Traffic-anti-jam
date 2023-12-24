@@ -4,9 +4,9 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TrafficEficiency : MonoBehaviour
+public class TrafficEfficiency : MonoBehaviour
 {
-    private const float BadEfficiencyPercentage = 1 / 3;
+    private const float BadEfficiencyPercentage = 1f / 3f;
 
     [SerializeField]
     private PathSystem pathSystem;
@@ -16,6 +16,12 @@ public class TrafficEficiency : MonoBehaviour
 
     [SerializeField]
     private Image img_Fill;
+
+    [SerializeField]
+    private Material badEfficiencyMaterial;
+
+    [SerializeField]
+    private Material goodEfficiencyMaterial;
 
     [SerializeField]
     private float transitionDuration = 0.2f;
@@ -60,7 +66,11 @@ public class TrafficEficiency : MonoBehaviour
     {
         if (value <= BadEfficiencyPercentage)
         {
-            img_Fill.color = Color.red;
+            img_Fill.material = badEfficiencyMaterial;
+        }
+        else
+        {
+            img_Fill.material = goodEfficiencyMaterial;
         }
     }
 }
