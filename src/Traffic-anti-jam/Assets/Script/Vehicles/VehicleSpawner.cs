@@ -1,3 +1,5 @@
+using System.Globalization;
+using AstroPirate.DesignPatterns;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -18,6 +20,14 @@ public class VehicleSpawner : MonoBehaviour
 
     [SerializeField]
     private Vehicle[] vehiclePrefabs;
+
+    private IEventBus eventBus;
+    private int currentVehicleCount;
+
+    private void Awake()
+    {
+        GlobalServiceContainer.Resolve(out eventBus);
+    }
 
     private void Start()
     {
@@ -40,6 +50,10 @@ public class VehicleSpawner : MonoBehaviour
             );
 
             vehicle.Path = availablePaths[pathIndex];
+
+            currentVehicleCount += 1;
+
+            eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount });
         }
     }
 
