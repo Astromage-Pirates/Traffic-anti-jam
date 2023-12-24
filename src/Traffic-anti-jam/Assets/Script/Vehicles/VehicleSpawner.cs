@@ -19,8 +19,6 @@ public class VehicleSpawner : MonoBehaviour
     [SerializeField]
     private Vehicle[] vehiclePrefabs;
 
-    private Vehicle lastSpawnedVehicle;
-
     private void Start()
     {
         InvokeRepeating(nameof(SpawnVehicle), 0f, spawningSeconds);
@@ -35,13 +33,13 @@ public class VehicleSpawner : MonoBehaviour
         {
             var vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
 
-            lastSpawnedVehicle = Instantiate(
+            var vehicle = Instantiate(
                 vehiclePrefabs[vehicleIndex],
                 availablePaths[pathIndex].transform,
                 true
             );
 
-            lastSpawnedVehicle.Path = availablePaths[pathIndex];
+            vehicle.Path = availablePaths[pathIndex];
         }
     }
 
@@ -53,8 +51,17 @@ public class VehicleSpawner : MonoBehaviour
         }
 
         var pathStartPosition = path.EvaluatePosition(0);
-        var distance = Vector3.Distance(lastSpawnedVehicle.transform.position, pathStartPosition);
 
-        return distance >= spawningDistance;
+        foreach (var vehicle in path.VehiclesOnPath)
+        {
+            var distance = Vector3.Distance(vehicle.transform.position, pathStartPosition);
+
+            if (distance < spawningDistance)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
