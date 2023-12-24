@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -22,7 +23,8 @@ public class PathSystem : MonoBehaviour
     [NaughtyAttributes.Button]
     private void AddNewPath()
     {
-        Instantiate(pathPrefab, transform);
+        var path = Instantiate(pathPrefab, transform);
+        path.MeshFilter.mesh = null;
     }
 #endif
 }

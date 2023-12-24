@@ -26,9 +26,6 @@ public class Path : MonoBehaviour
     public SplineContainer Container { get; private set; }
 
     [SerializeField]
-    private MeshRenderer meshRenderer;
-
-    [SerializeField]
     private PathType pathType;
 
     [SerializeField]
@@ -42,6 +39,16 @@ public class Path : MonoBehaviour
     /// </summary>
     [field: SerializeField]
     public bool Available { get; private set; } = true;
+
+    [Header("Path Render")]
+    [SerializeField]
+    private MeshRenderer meshRenderer;
+
+    /// <summary>
+    /// The <see cref="UnityEngine.MeshFilter"/> of this <see cref="GameObject"/>.
+    /// </summary>
+    [field: SerializeField]
+    public MeshFilter MeshFilter { get; private set; }
 
     private void Start()
     {
