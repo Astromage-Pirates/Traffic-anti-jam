@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rgbody: {fileID: 6237518671226163107}
   collisionCheckDistance: 0.2
-  velocity: 5
+  velocity: 10
   raycastAnchor: {fileID: 876529408019845122}
 --- !u!1 &6977204956649749162
 GameObject:

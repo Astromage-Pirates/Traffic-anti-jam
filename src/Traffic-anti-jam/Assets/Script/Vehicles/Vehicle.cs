@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Vehicle : MonoBehaviour
 {
-    private const float MinVelocity = 6f;
+    private const float MinVelocity = 15f;
     private const float MaxPercentage = 1f;
     private const float NextPositionOffset = 0.05f;
 

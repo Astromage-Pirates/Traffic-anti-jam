@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31297147, g: 0.5498512, b: 0.82179445, a: 1}
+  m_IndirectSpecularColor: {r: 0.31281835, g: 0.5498868, b: 0.82140774, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -791,11 +791,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb4209c41290444298355aa426ea9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathSystem: {fileID: 0}
   spawningSeconds: 2
   spawningDistance: 1
-  pathSystem: {fileID: 1828566924}
   vehiclePrefabs:
   - {fileID: 7137166894235970334, guid: 92a4cdf7dc7504be38a75d292387e180, type: 3}
+  isLevelPlayed: 0
 --- !u!23 &25159053
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2299,7 +2300,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167365441}
-  m_Mesh: {fileID: 4300000, guid: 6c4981cccefc04b2387c321820abea43, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 6c3a47580ea28426f93ec3b58baa2613, type: 2}
 --- !u!114 &167365446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3730,10 +3731,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Container>k__BackingField: {fileID: 167365446}
-  meshRenderer: {fileID: 167365444}
   pathType: 0
   color: {r: 1, g: 0, b: 0, a: 0}
+  <MaxVehicleEfficiency>k__BackingField: 0
   <Available>k__BackingField: 1
+  meshRenderer: {fileID: 167365444}
+  <MeshFilter>k__BackingField: {fileID: 0}
 --- !u!1 &171749875
 GameObject:
   m_ObjectHideFlags: 0
@@ -8293,7 +8296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 150, y: 0}
   m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &632300172
@@ -19378,10 +19381,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Container>k__BackingField: {fileID: 1719077887}
-  meshRenderer: {fileID: 1719077886}
   pathType: 0
   color: {r: 1, g: 0, b: 0.99721146, a: 0}
+  <MaxVehicleEfficiency>k__BackingField: 0
   <Available>k__BackingField: 1
+  meshRenderer: {fileID: 1719077886}
+  <MeshFilter>k__BackingField: {fileID: 0}
 --- !u!23 &1719077886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20929,7 +20934,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719077884}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222dc08d484f16869bdd89edd9d368fc, type: 3}
   m_Name: 
@@ -20950,7 +20955,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719077884}
-  m_Mesh: {fileID: 4300000, guid: 9462c9a370bf541f7b6327b0b34c6a46, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 236b6987f18024e0dad0e8e5521b8360, type: 2}
 --- !u!4 &1719077890
 Transform:
   m_ObjectHideFlags: 0
@@ -21921,7 +21926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f344d0f8a5f0b4a80a47e9946d8e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PathDectectThreshold>k__BackingField: 0.01
+  pathPrefab: {fileID: 0}
   <Paths>k__BackingField:
   - {fileID: 167365447}
 --- !u!4 &1828566925
@@ -21952,9 +21957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb4209c41290444298355aa426ea9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathSystem: {fileID: 1828566924}
   spawningSeconds: 1
   spawningDistance: 1
-  pathSystem: {fileID: 1828566924}
   vehiclePrefabs:
   - {fileID: 2892428339375565677, guid: e2778a625230a49a397ba702a2d0417f, type: 3}
   - {fileID: 1142724034257785598, guid: 09b736ed4f1d94aafbd7a1b59159887a, type: 3}
@@ -21964,6 +21969,7 @@ MonoBehaviour:
   - {fileID: 7137166894235970334, guid: 92a4cdf7dc7504be38a75d292387e180, type: 3}
   - {fileID: 8440202449974522045, guid: 41325000d07034278a250d1b8b91d918, type: 3}
   - {fileID: 255774319909578164, guid: de382e01906bf45438017d5030fb088d, type: 3}
+  isLevelPlayed: 1
 --- !u!1001 &1837083163
 PrefabInstance:
   m_ObjectHideFlags: 0

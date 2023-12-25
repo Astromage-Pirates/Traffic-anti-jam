@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rgbody: {fileID: 9039105389482870476}
   collisionCheckDistance: 0.2
-  velocity: 5
+  velocity: 10
   raycastAnchor: {fileID: 3763726342912355369}
 --- !u!65 &5528707640662729248
 BoxCollider:

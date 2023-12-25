@@ -216,6 +216,7 @@ MonoBehaviour:
   - {fileID: 6193383208128184513}
   - {fileID: 7192705462615786597}
   - {fileID: 3032963431994918629}
+  btn_Play: {fileID: 8362644028104767514}
 --- !u!1 &1820828832961803787
 GameObject:
   m_ObjectHideFlags: 0
