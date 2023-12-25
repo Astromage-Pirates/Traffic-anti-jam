@@ -13,6 +13,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private ScrollRect scrollView_Toolbar;
 
+    [SerializeField]
+    private AudioSource ambientSoundAudioSource;
+
     private IEventBus eventBus;
 
     private void Awake()
@@ -32,6 +35,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnBtnPlayPressed()
     {
+        ambientSoundAudioSource.Play();
         btn_Play.interactable = false;
         scrollView_Toolbar.gameObject.SetActive(false);
         eventBus.Send(new LevelStateChanged { IsPlay = true });
