@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   highestScore: 0
-  runTimeStage: 0
-  totalBudget: 0
+  runTimeStage: 10
+  totalBudget: 300
