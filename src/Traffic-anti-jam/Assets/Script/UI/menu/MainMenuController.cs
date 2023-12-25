@@ -6,9 +6,7 @@ using UnityEngine.UI;
 public class MainMenuController : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] Animator levelSelectAnimator;
-    [SerializeField] Animator settingAnimator;
-    [SerializeField] Animator mainMenuAnimator;
+    [SerializeField] Animator animator;
 
 
     [SerializeField] LevelWidget levelWidgetPrefab;
@@ -17,9 +15,7 @@ public class MainMenuController : MonoBehaviour
 	private void Start()
 	{
         LoadLevelSelect();
-		mainMenuAnimator.SetBool("show", true);
-		settingAnimator.SetBool("show", false);
-		levelSelectAnimator.SetBool("show", false);
+		animator.SetTrigger("MainMenu");
 	}
 	public void LoadLevelSelect()
     {
@@ -32,24 +28,26 @@ public class MainMenuController : MonoBehaviour
 
     public void Play()
     {
-        mainMenuAnimator.SetBool("show", false);
-		settingAnimator.SetBool("show", false);
-        levelSelectAnimator.SetBool("show", true);
+        animator.SetTrigger("MainMenu");
+        animator.SetTrigger("LevelSelect");
 	}
 
     public void Setting()
     {
-		mainMenuAnimator.SetBool("show", false);
-		settingAnimator.SetBool("show", true);
-		levelSelectAnimator.SetBool("show", false);
+		animator.SetTrigger("MainMenu");
+		animator.SetTrigger("Setting");
 	}
 
-    public void Back()
+    public void BackFromPlay()
     {
-		mainMenuAnimator.SetBool("show", true);
-		settingAnimator.SetBool("show", false);
-		levelSelectAnimator.SetBool("show", false);
-	}
+        animator.SetTrigger("MainMenu");
+        animator.SetTrigger("LevelSelect");
+    }
+    public void BackFromSetting()
+    {
+        animator.SetTrigger("MainMenu");
+        animator.SetTrigger("Setting");
+    }
 
     public void Exit()
     {
