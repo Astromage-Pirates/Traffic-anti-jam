@@ -1,4 +1,3 @@
-using System;
 using AstroPirate.DesignPatterns;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -9,6 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Vehicle : MonoBehaviour
 {
+    private const float MinVelocity = 6f;
     private const float MaxPercentage = 1f;
     private const float NextPositionOffset = 0.05f;
 
@@ -34,8 +34,8 @@ public class Vehicle : MonoBehaviour
     private bool stopByCollision;
     private bool stopBySign;
     private int currentVehicleCount;
-    private bool isAccidentCalled;
     private IEventBus eventBus;
+    private float oldVelocity;
 
     private void Awake()
     {
@@ -65,24 +65,33 @@ public class Vehicle : MonoBehaviour
         CheckForCollision();
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Vehicle>(out var otherVehicle))
+        if (other.GetComponent<MinSpeedSign>())
         {
-            isAccidentCalled = true;
-
-            // TODO: [VD] set current game state to game over.
+            velocity = MinVelocity;
         }
     }
 
-    private async void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        stopBySign = true;
-
-        await UniTask.Delay(10000);
-
-        stopBySign = false;
+        if (other.TryGetComponent<TrafficLight>(out var trafficLight))
+        {
+            if (trafficLight.LightStage == TrafficLight.LightMode.red)
+            {
+                stopBySign = true;
+            }
+            else
+            {
+                stopBySign = false;
+            }
+        }
     }
+
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     velocity = oldVelocity;
+    // }
 
     private void CheckForCollision()
     {
@@ -106,7 +115,7 @@ public class Vehicle : MonoBehaviour
 
     private void Move()
     {
-        if (stopByCollision || stopBySign || isAccidentCalled)
+        if (stopByCollision || stopBySign)
         {
             return;
         }
