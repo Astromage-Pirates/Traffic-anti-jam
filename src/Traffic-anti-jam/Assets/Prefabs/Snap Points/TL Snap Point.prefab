@@ -123,4 +123,9 @@ MonoBehaviour:
   myCollider: {fileID: 7956843949113644040}
   tlLocator_Prefab: {fileID: 696026114737716610, guid: c245e9c0f12429f4b8b64f75abb34cc4,
     type: 3}
-  ammountOfSnapPoints: 2
+  ammountOfSnapPoints: 4
+  TLLocators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
