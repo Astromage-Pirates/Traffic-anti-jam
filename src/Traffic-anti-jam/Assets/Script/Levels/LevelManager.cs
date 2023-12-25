@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnBtnPlayPressed()
     {
+        btn_Play.interactable = false;
         eventBus.Send(new LevelStateChanged { IsPlay = true });
     }
 }
