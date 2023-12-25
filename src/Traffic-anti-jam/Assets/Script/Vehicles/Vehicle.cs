@@ -25,15 +25,6 @@ public class Vehicle : MonoBehaviour
     [SerializeField]
     private Transform raycastAnchor;
 
-    [SerializeField]
-    private AudioSource audioSource;
-
-    /// <summary>
-    /// The <see cref="Canvas"/> represents the status of <see cref="Vehicle"/>.
-    /// </summary>
-    [field: SerializeField]
-    public Canvas Cnv_Status { get; private set; }
-
     /// <summary>
     /// The path for <see cref="Vehicle"/> to move.
     /// </summary>
@@ -79,9 +70,6 @@ public class Vehicle : MonoBehaviour
         if (other.gameObject.TryGetComponent<Vehicle>(out var otherVehicle))
         {
             isAccidentCalled = true;
-            audioSource.Play();
-            Cnv_Status.enabled = true;
-            otherVehicle.Cnv_Status.enabled = true;
 
             // TODO: [VD] set current game state to game over.
         }
