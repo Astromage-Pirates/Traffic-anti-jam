@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using AstroPirate.DesignPatterns;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -49,6 +49,19 @@ public class Path : MonoBehaviour
     /// </summary>
     [field: SerializeField]
     public MeshFilter MeshFilter { get; private set; }
+    private IEventBus eventBus;
+    private bool isLevelPlayed;
+
+    private void Awake()
+    {
+        GlobalServiceContainer.Resolve(out eventBus);
+        eventBus.Register<LevelStateChanged>(OnLevelStateChanged);
+    }
+
+    private void OnDestroy()
+    {
+        eventBus.UnRegister<LevelStateChanged>(OnLevelStateChanged);
+    }
 
     private void Start()
     {
@@ -57,8 +70,7 @@ public class Path : MonoBehaviour
 
     private void Update()
     {
-        // TODO: [VD] check if game is stop
-        meshRenderer.enabled = Available;
+        meshRenderer.enabled = !isLevelPlayed;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -93,6 +105,11 @@ public class Path : MonoBehaviour
                 => true,
             _ => throw new InvalidEnumArgumentException()
         };
+    }
+
+    private void OnLevelStateChanged(LevelStateChanged levelState)
+    {
+        isLevelPlayed = levelState.IsPlay;
     }
 
     /// <summary>

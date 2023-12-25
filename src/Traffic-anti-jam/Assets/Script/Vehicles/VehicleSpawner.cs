@@ -23,10 +23,22 @@ public class VehicleSpawner : MonoBehaviour
 
     private IEventBus eventBus;
     private int currentVehicleCount;
+    private bool isLevelPlayed;
 
     private void Awake()
     {
         GlobalServiceContainer.Resolve(out eventBus);
+        eventBus.Register<LevelStateChanged>(OnLevelPlayed);
+    }
+
+    private void OnDestroy()
+    {
+        eventBus.Register<LevelStateChanged>(OnLevelPlayed);
+    }
+
+    private void OnLevelPlayed(LevelStateChanged levelState)
+    {
+        isLevelPlayed = levelState.IsPlay;
     }
 
     private void Start()
@@ -36,24 +48,28 @@ public class VehicleSpawner : MonoBehaviour
 
     private void SpawnVehicle()
     {
-        var availablePaths = pathSystem.AvailablePaths;
-        var pathIndex = Random.Range(0, availablePaths.Length);
-
-        if (ShouldSpawnVehicle(availablePaths[pathIndex]))
+        if (isLevelPlayed)
         {
-            var vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
+            var availablePaths = pathSystem.AvailablePaths;
+            var pathIndex = Random.Range(0, availablePaths.Length);
 
-            var vehicle = Instantiate(
-                vehiclePrefabs[vehicleIndex],
-                availablePaths[pathIndex].transform,
-                true
-            );
+            if (ShouldSpawnVehicle(availablePaths[pathIndex]))
+            {
+                var vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
 
-            vehicle.Path = availablePaths[pathIndex];
+                var vehicle = Instantiate(
+                    vehiclePrefabs[vehicleIndex],
+                    availablePaths[pathIndex].EvaluatePosition(0),
+                    Quaternion.identity,
+                    availablePaths[pathIndex].transform
+                );
 
-            currentVehicleCount += 1;
+                vehicle.Path = availablePaths[pathIndex];
 
-            eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount });
+                currentVehicleCount += 1;
+
+                eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount });
+            }
         }
     }
 

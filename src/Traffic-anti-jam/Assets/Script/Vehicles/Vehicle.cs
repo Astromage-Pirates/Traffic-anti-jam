@@ -1,6 +1,6 @@
+using System;
 using AstroPirate.DesignPatterns;
 using Cysharp.Threading.Tasks;
-using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
 
 /// <summary>
