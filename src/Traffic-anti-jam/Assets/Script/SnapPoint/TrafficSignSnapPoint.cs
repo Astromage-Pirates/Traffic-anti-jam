@@ -5,11 +5,9 @@ using UnityEngine;
 
 public class TrafficSignSnapPoint : SnapPoint<TrafficSign>
 {
-    private IEventBus eventBus;
-
-    private void Awake()
+    protected override void Awake()
     {
-        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
+        base.Awake();
         eventBus.Register<TrafficSignUIInteracted>(OnTrafficSignSnapPointActive);
         OnTrafficSignSnapPointActive(
             new TrafficSignUIInteracted() { isSnapPointActive = false, isToolBarBtnActive = true }

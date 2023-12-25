@@ -16,6 +16,11 @@ public class TrafficLight : TrafficTool
     [SerializeField]
     private GameObject grp_Light;
 
+    [SerializeField]
+    private BoxCollider areaZone;
+
+    [SerializeField]
+    private GameObject trafficLightCanvas;
     public List<TrafficLight> trafficLightChildren = new();
 
     public TrafficLight trafficLightHolder;
@@ -24,7 +29,8 @@ public class TrafficLight : TrafficTool
     {
         TL_Model.SetActive(false);
         grp_Light.SetActive(false);
-        traficToolCanvas.enabled = false;
+        trafficLightCanvas.SetActive(false);
+        areaZone.enabled = false;
         disc.SetActive(false);
         gameObject.GetComponent<Collider>().enabled = false;
     }
@@ -63,6 +69,7 @@ public class TrafficLight : TrafficTool
 
     [SerializeField]
     private int lightStageDuration;
+
     private CancellationToken cts;
 
     public LightMode LightStage
@@ -74,6 +81,7 @@ public class TrafficLight : TrafficTool
     {
         GreenLigthStage();
         base.Awake();
+        eventBus.Register<LevelStateChanged>(OnLevelStateChanged);
     }
 
     private LightMode GreenLigthStage()
@@ -104,11 +112,16 @@ public class TrafficLight : TrafficTool
         RedLightStage();
     }
 
-    public async UniTaskVoid ChangeLightStage()
+    private void OnLevelStateChanged(LevelStateChanged levelStateChanged)
+    {
+        ChangeLightStage(levelStateChanged).Forget();
+    }
+
+    private async UniTaskVoid ChangeLightStage(LevelStateChanged levelStateChanged)
     {
         cts = new();
 
-        while (true)
+        while (levelStateChanged.IsPlay)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(lightStageDuration), cancellationToken: cts);
 
@@ -125,6 +138,7 @@ public class TrafficLight : TrafficTool
 
     private void OnDestroy()
     {
+        eventBus.UnRegister<LevelStateChanged>(OnLevelStateChanged);
         foreach (TrafficLight trafficLight in trafficLightChildren)
         {
             Destroy(trafficLight.gameObject);

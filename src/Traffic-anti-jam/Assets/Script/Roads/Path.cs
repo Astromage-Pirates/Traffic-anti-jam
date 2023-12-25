@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using AstroPirate.DesignPatterns;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -26,21 +26,42 @@ public class Path : MonoBehaviour
     public SplineContainer Container { get; private set; }
 
     [SerializeField]
-    private MeshRenderer meshRenderer;
-
-    [SerializeField]
     private PathType pathType;
 
     [SerializeField]
     private Color color;
 
-    private List<BezierKnot> waypoints;
+    [field: SerializeField]
+    public int MaxVehicleEfficiency { get; private set; }
 
     /// <summary>
     /// Whether <see cref="Path"/> is available for <see cref="Vehicle"/> to move.
     /// </summary>
     [field: SerializeField]
     public bool Available { get; private set; } = true;
+
+    [Header("Path Render")]
+    [SerializeField]
+    private MeshRenderer meshRenderer;
+
+    /// <summary>
+    /// The <see cref="UnityEngine.MeshFilter"/> of this <see cref="GameObject"/>.
+    /// </summary>
+    [field: SerializeField]
+    public MeshFilter MeshFilter { get; private set; }
+    private IEventBus eventBus;
+    private bool isLevelPlayed;
+
+    private void Awake()
+    {
+        GlobalServiceContainer.Resolve(out eventBus);
+        eventBus.Register<LevelStateChanged>(OnLevelStateChanged);
+    }
+
+    private void OnDestroy()
+    {
+        eventBus.UnRegister<LevelStateChanged>(OnLevelStateChanged);
+    }
 
     private void Start()
     {
@@ -49,8 +70,7 @@ public class Path : MonoBehaviour
 
     private void Update()
     {
-        // TODO: [VD] check if game is stop
-        meshRenderer.enabled = Available;
+        meshRenderer.enabled = !isLevelPlayed;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -87,6 +107,11 @@ public class Path : MonoBehaviour
         };
     }
 
+    private void OnLevelStateChanged(LevelStateChanged levelState)
+    {
+        isLevelPlayed = levelState.IsPlay;
+    }
+
     /// <summary>
     /// Get the number of <see cref="Vehicle"/> on the current <see cref="Path"/>.
     /// </summary>
@@ -100,6 +125,26 @@ public class Path : MonoBehaviour
     public Vector3 EvaluatePosition(float t)
     {
         return Container.EvaluatePosition(t);
+    }
+
+    /// <summary>
+    /// Evaluates the tangent vector of a point, t, on a spline in world space.
+    /// </summary>
+    /// <param name="t">A value between 0 and 1 representing a percentage of entire spline.</param>
+    /// <returns>The computed tangent vector.</returns>
+    public Vector3 EvaluateTangent(float t)
+    {
+        return Container.EvaluateTangent(t);
+    }
+
+    /// <summary>
+    /// Evaluates the up vector of a point, t, on a spline in world space.
+    /// </summary>
+    /// <param name="t">A value between 0 and 1 representing a percentage of entire spline.</param>
+    /// <returns>The computed up direction.</returns>
+    public Vector3 EvaluateUpVector(float t)
+    {
+        return Container.EvaluateUpVector(t);
     }
 
     /// <summary>
