@@ -21,9 +21,11 @@ public class VehicleSpawner : MonoBehaviour
     [SerializeField]
     private Vehicle[] vehiclePrefabs;
 
+    [SerializeField]
+    private bool isLevelPlayed;
+
     private IEventBus eventBus;
     private int currentVehicleCount;
-    private bool isLevelPlayed;
 
     private void Awake()
     {

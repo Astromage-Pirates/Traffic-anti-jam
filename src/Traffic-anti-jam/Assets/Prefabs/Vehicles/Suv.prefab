@@ -175,10 +175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rgbody: {fileID: 6237518671226163107}
   collisionCheckDistance: 0.2
-  velocity: 2.5
+  velocity: 10
   raycastAnchor: {fileID: 876529408019845122}
-  audioSource: {fileID: 0}
-  <Cnv_Status>k__BackingField: {fileID: 4599639757597341703}
 --- !u!1 &6977204956649749162
 GameObject:
   m_ObjectHideFlags: 0
