@@ -10,12 +10,14 @@ using UnityEngine.UI;
 public enum EfficiencyStatus
 {
     Bad,
+    Medium,
     Good,
 }
 
 public class TrafficEfficiency : MonoBehaviour
 {
     private const float BadEfficiencyPercentage = 1f / 3f;
+    private const float GoodEfficiencyPercentage = 2f / 3f;
 
     [SerializeField]
     private PathSystem pathSystem;
@@ -30,6 +32,9 @@ public class TrafficEfficiency : MonoBehaviour
     private Material badEfficiencyMaterial;
 
     [SerializeField]
+    private Material mediumEfficiencyMaterial;
+
+    [SerializeField]
     private Material goodEfficiencyMaterial;
 
     [SerializeField]
@@ -37,11 +42,27 @@ public class TrafficEfficiency : MonoBehaviour
 
     private int efficiencyVehicleCount;
     private IEventBus eventBus;
+    private float efficiencyPercentage;
 
     /// <summary>
     /// The status of traffic efficiency.
     /// </summary>
-    public EfficiencyStatus EfficiencyStatus;
+    public EfficiencyStatus EfficiencyStatus
+    {
+        get
+        {
+            if (efficiencyPercentage <= BadEfficiencyPercentage)
+            {
+                return EfficiencyStatus.Bad;
+            }
+            else if (efficiencyPercentage <= GoodEfficiencyPercentage)
+            {
+                return EfficiencyStatus.Medium;
+            }
+
+            return EfficiencyStatus.Good;
+        }
+    }
 
     private void Awake()
     {
@@ -54,11 +75,6 @@ public class TrafficEfficiency : MonoBehaviour
         efficiencyVehicleCount = pathSystem.AvailablePaths.Sum(x => x.MaxVehicleEfficiency);
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void OnDestroy()
     {
         eventBus.UnRegister<VehicleSpawned>(OnVehicleSpawned);
@@ -67,7 +83,7 @@ public class TrafficEfficiency : MonoBehaviour
     private void OnVehicleSpawned(VehicleSpawned vehicleSpawned)
     {
         var leastEfficiency = (efficiencyVehicleCount + 1) * 3f / 2f;
-        var efficiencyPercentage = 1f - vehicleSpawned.CurrentVehicleCount / leastEfficiency;
+        efficiencyPercentage = 1f - vehicleSpawned.CurrentVehicleCount / leastEfficiency;
 
         DOVirtual.Float(
             sld_EfficencyBar.value,
@@ -86,6 +102,10 @@ public class TrafficEfficiency : MonoBehaviour
         if (value <= BadEfficiencyPercentage)
         {
             img_Fill.material = badEfficiencyMaterial;
+        }
+        else if (value <= GoodEfficiencyPercentage)
+        {
+            img_Fill.material = mediumEfficiencyMaterial;
         }
         else
         {

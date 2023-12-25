@@ -4915,10 +4915,11 @@ MonoBehaviour:
   img_Fill: {fileID: 4964007458712706071}
   badEfficiencyMaterial: {fileID: 2100000, guid: aaeddec88a29a484dbbe45256c549d14,
     type: 2}
+  mediumEfficiencyMaterial: {fileID: 2100000, guid: 21b541bc7ed3ee9448cd104808062dbe,
+    type: 2}
   goodEfficiencyMaterial: {fileID: 2100000, guid: 3fff758d2c49de1488479bbc4fb3af14,
     type: 2}
   transitionDuration: 0.2
-  EfficiencyStatus: 0
 --- !u!1001 &8666072849942800302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4980,27 +4981,27 @@ PrefabInstance:
     - target: {fileID: 2650036643300342287, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000015389857
+      value: -0.000000015389855
       objectReference: {fileID: 0}
     - target: {fileID: 2650036643300342287, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000007694929
+      value: 0.000000007694927
       objectReference: {fileID: 0}
     - target: {fileID: 2998989612915326897, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: field of view
-      value: 40.00001
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7774866415081372419, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015389857
+      value: -0.000000015389855
       objectReference: {fileID: 0}
     - target: {fileID: 7774866415081372419, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007694929
+      value: 0.000000007694927
       objectReference: {fileID: 0}
     - target: {fileID: 8950615663495322119, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
