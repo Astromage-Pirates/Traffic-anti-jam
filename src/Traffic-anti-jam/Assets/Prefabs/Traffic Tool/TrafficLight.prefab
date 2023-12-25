@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 4646677815879460781}
   - component: {fileID: 6824603043175411779}
   - component: {fileID: 3482316139520001673}
+  - component: {fileID: 5821140455722034121}
   - component: {fileID: 3186346287451790074}
   - component: {fileID: 7405265207540181437}
   m_Layer: 0
@@ -197,6 +198,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &5821140455722034121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2517178456265221839}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.186163, y: 0.7, z: 1.9}
+  m_Center: {x: -1.5430816, y: -0.099999994, z: -0.40000004}
 --- !u!114 &3186346287451790074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +242,8 @@ MonoBehaviour:
   cost: 150
   TL_Model: {fileID: 4131915725022021748}
   grp_Light: {fileID: 1431806186991991875}
+  areaZone: {fileID: 5821140455722034121}
+  trafficLightCanvas: {fileID: 4585275898515120212}
   trafficLightChildren: []
   trafficLightHolder: {fileID: 3186346287451790074}
   redLight: {fileID: 3228695108916522982}
