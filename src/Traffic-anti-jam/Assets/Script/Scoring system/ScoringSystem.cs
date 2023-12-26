@@ -53,6 +53,7 @@ public class ScoringSystem : MonoBehaviour
         }
 
         levelData.highestScore = Mathf.Max(levelData.highestScore, score);
+        PlayerPrefs.SetInt(levelData.name + ".highScore", levelData.highestScore);
 
         return levelData.currScore = score;
     }
