@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class EcoSystem : MonoBehaviour
 {
-    [SerializeField]
     private int totalBudget;
 
     [SerializeField]
@@ -23,8 +22,12 @@ public class EcoSystem : MonoBehaviour
 
     private IEventBus eventBus;
 
+    [SerializeField]
+    private LevelData levelData;
+
     private void Awake()
     {
+        totalBudget = levelData.totalBudget;
         GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
         eventBus.Register<BudgetCost>(OnBudgetCost);
         txt_totalBudget.text = totalBudget + "$";
@@ -44,6 +47,18 @@ public class EcoSystem : MonoBehaviour
         else if (useBudget < totalBudget)
         {
             txt_useBudget.color = Color.white;
+        }
+    }
+
+    public bool CheckUseBudgetWinning()
+    {
+        if (useBudget <= totalBudget)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

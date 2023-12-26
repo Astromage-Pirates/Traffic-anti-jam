@@ -14,6 +14,13 @@ public abstract class SnapPoint<T> : DirectionPoint
 
     protected T currTrafficTool;
 
+    protected IEventBus eventBus;
+
+    protected virtual void Awake()
+    {
+        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
+    }
+
     protected void OnTriggerStay(Collider other)
     {
         CheckTrafficToolSnapIn(other);
@@ -34,6 +41,7 @@ public abstract class SnapPoint<T> : DirectionPoint
             {
                 if (currTrafficTool)
                 {
+                    eventBus.Send(new BudgetCost() { trafficTool = currTrafficTool, intSign = -1 });
                     Destroy(currTrafficTool.gameObject);
                 }
 

@@ -1,10 +1,14 @@
+using AstroPirate.DesignPatterns;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using UnityEngine;
 
+/// <summary>
+/// Represents transporting means.
+/// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class Vehicle : MonoBehaviour
 {
+    private const float MinVelocity = 15f;
     private const float MaxPercentage = 1f;
     private const float NextPositionOffset = 0.05f;
 
@@ -21,9 +25,6 @@ public class Vehicle : MonoBehaviour
     [SerializeField]
     private Transform raycastAnchor;
 
-    [SerializeField]
-    private AudioSource audioSource;
-
     /// <summary>
     /// The path for <see cref="Vehicle"/> to move.
     /// </summary>
@@ -32,8 +33,20 @@ public class Vehicle : MonoBehaviour
     private float distancePercentage;
     private bool stopByCollision;
     private bool stopBySign;
+    private int currentVehicleCount;
+    private IEventBus eventBus;
+    private float oldVelocity;
 
-    private bool isAccidentCalled;
+    private void Awake()
+    {
+        GlobalServiceContainer.Resolve(out eventBus);
+        eventBus.Register<VehicleSpawned>(OnVehicleSpawned);
+    }
+
+    private void OnDestroy()
+    {
+        eventBus.UnRegister<VehicleSpawned>(OnVehicleSpawned);
+    }
 
     private void Start()
     {
@@ -52,25 +65,33 @@ public class Vehicle : MonoBehaviour
         CheckForCollision();
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Vehicle>())
+        if (other.GetComponent<MinSpeedSign>())
         {
-            isAccidentCalled = true;
-            audioSource.Play();
-
-            // TODO: [VD] set current game state to game over.
+            velocity = MinVelocity;
         }
     }
 
-    private async void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        stopBySign = true;
-
-        await UniTask.Delay(10000);
-
-        stopBySign = false;
+        if (other.TryGetComponent<TrafficLight>(out var trafficLight))
+        {
+            if (trafficLight.LightStage == TrafficLight.LightMode.red)
+            {
+                stopBySign = true;
+            }
+            else
+            {
+                stopBySign = false;
+            }
+        }
     }
+
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     velocity = oldVelocity;
+    // }
 
     private void CheckForCollision()
     {
@@ -94,7 +115,7 @@ public class Vehicle : MonoBehaviour
 
     private void Move()
     {
-        if (stopByCollision || stopBySign || isAccidentCalled)
+        if (stopByCollision || stopBySign)
         {
             return;
         }
@@ -108,10 +129,10 @@ public class Vehicle : MonoBehaviour
 
         Vector3 direction = nextPosition - currentPosition;
 
-        if (direction != Vector3.zero)
-        {
-            transform.rotation = Quaternion.LookRotation(direction);
-        }
+        var forward = Vector3.Normalize(Path.EvaluateTangent(distancePercentage));
+        var up = Path.EvaluateUpVector(distancePercentage);
+
+        transform.rotation = Quaternion.LookRotation(forward, up);
     }
 
     private void CheckIsAtDestination()
@@ -119,7 +140,13 @@ public class Vehicle : MonoBehaviour
         if (IsAtDestination)
         {
             Destroy(gameObject);
+            eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount - 1 });
         }
+    }
+
+    private void OnVehicleSpawned(VehicleSpawned vehicleSpawned)
+    {
+        currentVehicleCount = vehicleSpawned.CurrentVehicleCount;
     }
 
     private bool IsAtDestination => distancePercentage >= MaxPercentage;

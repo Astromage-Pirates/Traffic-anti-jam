@@ -17,8 +17,6 @@ public class TrafficLightSnapPoint : SnapPoint<TrafficLight>
 
     private int reviewChecked = -1;
 
-    private IEventBus eventBus;
-
     #region Editor
 #if UNITY_EDITOR
     [NaughtyAttributes.Button]
@@ -56,9 +54,9 @@ public class TrafficLightSnapPoint : SnapPoint<TrafficLight>
 #endif
     #endregion
 
-    private void Awake()
+    protected override void Awake()
     {
-        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
+        base.Awake();
         eventBus.Register<TrafficLightUIInteracted>(OnTrafficLightSnapPointActive);
         OnTrafficLightSnapPointActive(
             new TrafficLightUIInteracted() { isSnapPointActive = false, isToolBarBtnActive = true }

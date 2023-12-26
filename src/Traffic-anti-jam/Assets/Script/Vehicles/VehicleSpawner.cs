@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Threading;
-using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
+using System.Globalization;
+using AstroPirate.DesignPatterns;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,19 +9,39 @@ using Random = UnityEngine.Random;
 public class VehicleSpawner : MonoBehaviour
 {
     [SerializeField]
-    private float spawningSeconds = 3f;
+    private PathSystem pathSystem;
+
+    [SerializeField]
+    private float spawningSeconds = 2f;
 
     [Tooltip("The distance to check for spawning to prevent from it's on top of other object.")]
     [SerializeField]
     private float spawningDistance = 1f;
 
     [SerializeField]
-    private PathSystem pathSystem;
-
-    [SerializeField]
     private Vehicle[] vehiclePrefabs;
 
-    private Vehicle lastSpawnedVehicle;
+    [SerializeField]
+    private bool isLevelPlayed;
+
+    private IEventBus eventBus;
+    private int currentVehicleCount;
+
+    private void Awake()
+    {
+        GlobalServiceContainer.Resolve(out eventBus);
+        eventBus.Register<LevelStateChanged>(OnLevelPlayed);
+    }
+
+    private void OnDestroy()
+    {
+        eventBus.Register<LevelStateChanged>(OnLevelPlayed);
+    }
+
+    private void OnLevelPlayed(LevelStateChanged levelState)
+    {
+        isLevelPlayed = levelState.IsPlay;
+    }
 
     private void Start()
     {
@@ -33,20 +50,28 @@ public class VehicleSpawner : MonoBehaviour
 
     private void SpawnVehicle()
     {
-        var availablePaths = pathSystem.AvailablePaths;
-        var pathIndex = Random.Range(0, availablePaths.Length);
-
-        if (ShouldSpawnVehicle(availablePaths[pathIndex]))
+        if (isLevelPlayed)
         {
-            var vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
+            var availablePaths = pathSystem.AvailablePaths;
+            var pathIndex = Random.Range(0, availablePaths.Length);
 
-            lastSpawnedVehicle = Instantiate(
-                vehiclePrefabs[vehicleIndex],
-                availablePaths[pathIndex].transform,
-                true
-            );
+            if (ShouldSpawnVehicle(availablePaths[pathIndex]))
+            {
+                var vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
 
-            lastSpawnedVehicle.Path = availablePaths[pathIndex];
+                var vehicle = Instantiate(
+                    vehiclePrefabs[vehicleIndex],
+                    availablePaths[pathIndex].EvaluatePosition(0),
+                    Quaternion.identity,
+                    availablePaths[pathIndex].transform
+                );
+
+                vehicle.Path = availablePaths[pathIndex];
+
+                currentVehicleCount += 1;
+
+                eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount });
+            }
         }
     }
 
@@ -58,8 +83,17 @@ public class VehicleSpawner : MonoBehaviour
         }
 
         var pathStartPosition = path.EvaluatePosition(0);
-        var distance = Vector3.Distance(lastSpawnedVehicle.transform.position, pathStartPosition);
 
-        return distance >= spawningDistance;
+        foreach (var vehicle in path.VehiclesOnPath)
+        {
+            var distance = Vector3.Distance(vehicle.transform.position, pathStartPosition);
+
+            if (distance < spawningDistance)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
