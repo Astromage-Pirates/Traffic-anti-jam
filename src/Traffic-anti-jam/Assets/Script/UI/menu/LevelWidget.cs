@@ -11,6 +11,8 @@ public class LevelWidget : MonoBehaviour
     [SerializeField]
     private Button btn_Play;
 
+    private LevelData data;
+
     private void OnEnable()
     {
         btn_Play.onClick.AddListener(OnBtnPlayClicked);
@@ -23,11 +25,13 @@ public class LevelWidget : MonoBehaviour
 
     private void OnBtnPlayClicked()
     {
-        SceneManager.LoadScene("VehicelTestScene");
+        SceneManager.LoadScene(data.name);
     }
 
-    public void Init(int stars, bool unlocked)
+    public void Init(LevelData data)
     {
+        this.data = data;
+        int stars = PlayerPrefs.GetInt($"{data.name}.highScore",0);
         for (int i = 0; i < stars; i++)
         {
             this.stars[i].isOn = true;

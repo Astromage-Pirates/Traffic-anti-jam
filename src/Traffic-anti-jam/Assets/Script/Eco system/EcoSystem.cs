@@ -23,10 +23,14 @@ public class EcoSystem : MonoBehaviour
     private IEventBus eventBus;
 
     [SerializeField]
+    private LevelManager levelManager;
+
     private LevelData levelData;
 
-    private void Awake()
-    {
+
+	private void Start()
+	{
+        levelData = levelManager.LevelData;
         totalBudget = levelData.totalBudget;
         GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
         eventBus.Register<BudgetCost>(OnBudgetCost);

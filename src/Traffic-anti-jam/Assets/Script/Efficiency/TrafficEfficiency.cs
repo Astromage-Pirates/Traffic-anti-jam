@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using System.Linq;
 using AstroPirate.DesignPatterns;
 using DG.Tweening;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,13 +31,13 @@ public class TrafficEfficiency : MonoBehaviour
     private Image img_Fill;
 
     [SerializeField]
-    private Material badEfficiencyMaterial;
+    private Color badEfficiencyMaterial;
 
     [SerializeField]
-    private Material mediumEfficiencyMaterial;
+    private Color mediumEfficiencyMaterial;
 
     [SerializeField]
-    private Material goodEfficiencyMaterial;
+    private Color goodEfficiencyMaterial;
 
     [SerializeField]
     private float transitionDuration = 0.2f;
@@ -101,15 +103,15 @@ public class TrafficEfficiency : MonoBehaviour
     {
         if (value <= BadEfficiencyPercentage)
         {
-            img_Fill.material = badEfficiencyMaterial;
+            img_Fill.color = badEfficiencyMaterial;
         }
         else if (value <= GoodEfficiencyPercentage)
         {
-            img_Fill.material = mediumEfficiencyMaterial;
+            img_Fill.color = mediumEfficiencyMaterial;
         }
         else
         {
-            img_Fill.material = goodEfficiencyMaterial;
+            img_Fill.color = goodEfficiencyMaterial;
         }
     }
 }

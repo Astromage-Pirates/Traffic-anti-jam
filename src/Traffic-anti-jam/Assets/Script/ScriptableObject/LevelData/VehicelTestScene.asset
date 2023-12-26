@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ec17859b85e0dc42b9b978445c32eee, type: 3}
-  m_Name: Level1
+  m_Name: VehicelTestScene
   m_EditorClassIdentifier: 
-  levelName: Level1
   highestScore: 3
-  currScore: 3
-  runTimeStage: 40
+  currScore: 2
+  runTimeStage: 10000
   totalBudget: 300
