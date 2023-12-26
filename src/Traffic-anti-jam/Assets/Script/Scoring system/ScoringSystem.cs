@@ -16,6 +16,8 @@ public class ScoringSystem : MonoBehaviour
     private TrafficEfficiency trafficEfficiency;
 
     [SerializeField]
+    private LevelManager levelManager;
+
     private LevelData levelData;
 
     private IEventBus eventBus;
@@ -26,7 +28,12 @@ public class ScoringSystem : MonoBehaviour
         eventBus.Register<PlayStageEnded>(OnPlayStageEnded);
     }
 
-    private void OnPlayStageEnded(PlayStageEnded playStageEnded)
+	private void Start()
+	{
+        levelData = levelManager.LevelData;
+	}
+
+	private void OnPlayStageEnded(PlayStageEnded playStageEnded)
     {
         ScoreCaluculated();
     }

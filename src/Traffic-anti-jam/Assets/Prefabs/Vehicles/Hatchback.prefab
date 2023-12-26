@@ -214,7 +214,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &13669983426758728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +228,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rgbody: {fileID: 9039105389482870476}
-  collisionCheckDistance: 0.2
+  collisionCheckDistance: 7
+  minDistance: 0.8
+  boxHalfExtent: {x: 0.3, y: 1, z: 0.2}
   velocity: 10
   raycastAnchor: {fileID: 3763726342912355369}
 --- !u!65 &5528707640662729248
@@ -392,7 +394,7 @@ Transform:
   m_GameObject: {fileID: 9143344015024313191}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0581, z: 0.1301}
+  m_LocalPosition: {x: 0, y: 0.0581, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

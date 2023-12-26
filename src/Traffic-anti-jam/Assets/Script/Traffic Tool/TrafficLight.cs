@@ -141,7 +141,10 @@ public class TrafficLight : TrafficTool
         eventBus.UnRegister<LevelStateChanged>(OnLevelStateChanged);
         foreach (TrafficLight trafficLight in trafficLightChildren)
         {
-            Destroy(trafficLight.gameObject);
+            if(trafficLight.gameObject != null)
+            {
+                Destroy(trafficLight.gameObject);
+            }
         }
     }
 }

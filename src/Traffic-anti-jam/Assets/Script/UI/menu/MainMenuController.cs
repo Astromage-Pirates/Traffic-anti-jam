@@ -7,6 +7,7 @@ public class MainMenuController : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] Animator animator;
+    [SerializeField] List<LevelData> levelData;
 
 
     [SerializeField] LevelWidget levelWidgetPrefab;
@@ -19,10 +20,11 @@ public class MainMenuController : MonoBehaviour
 	}
 	public void LoadLevelSelect()
     {
-        for(int i =0; i < 6; i++)
+        foreach(var data in levelData)
         {
             var go = Instantiate<LevelWidget>(levelWidgetPrefab,levelSelectGrid.transform);
-            go.Init(Random.Range(0,3),true);
+
+            go.Init(data);
         }
     }
 

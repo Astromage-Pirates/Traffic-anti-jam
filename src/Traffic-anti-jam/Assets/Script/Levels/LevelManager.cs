@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using AstroPirate.DesignPatterns;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -23,8 +24,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private LevelData levelData;
 
+    public LevelData LevelData => levelData;
+
     [SerializeField]
     private GameObject overCanvas;
+    
+    [SerializeField]
+    private List<Toggle> stars;
 
     private void Awake()
     {
@@ -60,8 +66,15 @@ public class LevelManager : MonoBehaviour
 
     private void OnShowOverCanvas(PlayStageEnded playStageEnded)
     {
-        overCanvas.SetActive(true);
-        Debug.Log("aaa");
+		for (int i = 0; i < levelData.currScore; i++)
+		{
+			this.stars[i].isOn = true;
+		}
+		for (int i = levelData.currScore; i < this.stars.Count; i++)
+		{
+			this.stars[i].isOn = false;
+		}
+		overCanvas.SetActive(true);
     }
 
     private void OnDestroy()

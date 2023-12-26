@@ -23309,6 +23309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1934727187}
+  levelData:
+  - {fileID: 11400000, guid: 60a76360f52b1d946a6f10b4ed4ad9a5, type: 2}
   levelWidgetPrefab: {fileID: 306812901321902228, guid: b96f69f99234451428fdabf264a4ffec,
     type: 3}
   levelSelectGrid: {fileID: 124693333}
