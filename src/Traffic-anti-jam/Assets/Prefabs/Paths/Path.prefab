@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Sides: 8
   m_SegmentsPerUnit: 100
   m_Capped: 1
-  m_Radius: 0.03
+  m_Radius: 0.3
   m_Range: {x: 0, y: 1}
 --- !u!114 &7258746964836329429
 MonoBehaviour:
@@ -160,10 +160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Container>k__BackingField: {fileID: 2194833583937419382}
-  meshRenderer: {fileID: 3640813290111301131}
-  <MeshFilter>k__BackingField: {fileID: 3751252918405034073}
-  <Extrude>k__BackingField: {fileID: 1143347951110552189}
   pathType: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   <MaxVehicleEfficiency>k__BackingField: 0
   <Available>k__BackingField: 1
+  meshRenderer: {fileID: 3640813290111301131}
+  <MeshFilter>k__BackingField: {fileID: 3751252918405034073}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AstroPirate.DesignPatterns;
@@ -16,8 +17,19 @@ public enum EfficiencyStatus
     Good,
 }
 
+/// <summary>
+/// The traffic efficiency.
+/// </summary>
 public class TrafficEfficiency : MonoBehaviour
 {
+    [Serializable]
+    private struct EfficiencyColor
+    {
+        public Color Bad;
+        public Color Medium;
+        public Color Good;
+    }
+
     private const float BadEfficiencyPercentage = 1f / 3f;
     private const float GoodEfficiencyPercentage = 2f / 3f;
 
@@ -31,16 +43,10 @@ public class TrafficEfficiency : MonoBehaviour
     private Image img_Fill;
 
     [SerializeField]
-    private Color badEfficiencyMaterial;
-
-    [SerializeField]
-    private Color mediumEfficiencyMaterial;
-
-    [SerializeField]
-    private Color goodEfficiencyMaterial;
-
-    [SerializeField]
     private float transitionDuration = 0.2f;
+
+    [SerializeField]
+    private EfficiencyColor efficiencyColor;
 
     private int efficiencyVehicleCount;
     private IEventBus eventBus;
@@ -75,6 +81,7 @@ public class TrafficEfficiency : MonoBehaviour
     private void Start()
     {
         efficiencyVehicleCount = pathSystem.AvailablePaths.Sum(x => x.MaxVehicleEfficiency);
+        img_Fill.color = efficiencyColor.Good;
     }
 
     private void OnDestroy()
@@ -103,15 +110,15 @@ public class TrafficEfficiency : MonoBehaviour
     {
         if (value <= BadEfficiencyPercentage)
         {
-            img_Fill.color = badEfficiencyMaterial;
+            img_Fill.color = efficiencyColor.Bad;
         }
         else if (value <= GoodEfficiencyPercentage)
         {
-            img_Fill.color = mediumEfficiencyMaterial;
+            img_Fill.color = efficiencyColor.Medium;
         }
         else
         {
-            img_Fill.color = goodEfficiencyMaterial;
+            img_Fill.color = efficiencyColor.Good;
         }
     }
 }

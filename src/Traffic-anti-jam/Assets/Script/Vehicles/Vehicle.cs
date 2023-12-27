@@ -1,3 +1,4 @@
+using System;
 using AstroPirate.DesignPatterns;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -40,11 +41,24 @@ public class Vehicle : MonoBehaviour
     private int currentVehicleCount;
     private IEventBus eventBus;
     private float velocityModifier;
+    private bool isLevelPlayed;
 
     private void Awake()
     {
         GlobalServiceContainer.Resolve(out eventBus);
         eventBus.Register<VehicleSpawned>(OnVehicleSpawned);
+        eventBus.Register<LevelStateChanged>(OnLevelStageChanged);
+        eventBus.Register<PlayStageEnded>(OnPlayStageEnded);
+    }
+
+    private void OnLevelStageChanged(LevelStateChanged levelState)
+    {
+        isLevelPlayed = levelState.IsPlay;
+    }
+
+    private void OnPlayStageEnded(PlayStageEnded ended)
+    {
+        isLevelPlayed = false;
     }
 
     private void OnDestroy()
@@ -59,7 +73,6 @@ public class Vehicle : MonoBehaviour
 
     private void Update()
     {
-        // TODO: [VD] check if game state is not game over.
         Move();
         CheckIsAtDestination();
     }
@@ -182,7 +195,11 @@ public class Vehicle : MonoBehaviour
         if (IsAtDestination)
         {
             Destroy(gameObject);
-            eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount - 1 });
+
+            if (isLevelPlayed)
+            {
+                eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount - 1 });
+            }
         }
     }
 

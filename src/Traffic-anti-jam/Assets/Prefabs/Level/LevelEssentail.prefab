@@ -1398,7 +1398,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3310,7 +3310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4900,7 +4900,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.6666667
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5253,8 +5253,8 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
-    topLeft: {r: 0.754717, g: 0.0035599943, b: 0.0035599943, a: 1}
-    topRight: {r: 0.754717, g: 0.0035599943, b: 0.0035599943, a: 1}
+    topLeft: {r: 1, g: 0.09648319, b: 0, a: 1}
+    topRight: {r: 1, g: 0.09648319, b: 0, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
@@ -7337,10 +7337,11 @@ MonoBehaviour:
   pathSystem: {fileID: 0}
   sld_EfficencyBar: {fileID: 4859916876851564744}
   img_Fill: {fileID: 4964007458712706071}
-  badEfficiencyMaterial: {r: 0, g: 0, b: 0, a: 0}
-  mediumEfficiencyMaterial: {r: 0, g: 0, b: 0, a: 0}
-  goodEfficiencyMaterial: {r: 0, g: 0, b: 0, a: 0}
   transitionDuration: 0.2
+  efficiencyColor:
+    Bad: {r: 0.9528302, g: 0.12135102, b: 0.12135102, a: 1}
+    Medium: {r: 0.9622642, g: 0.8248307, b: 0.09531862, a: 1}
+    Good: {r: 0.28571823, g: 0.8867924, b: 0.13803846, a: 1}
 --- !u!1001 &8666072849942800302
 PrefabInstance:
   m_ObjectHideFlags: 0
