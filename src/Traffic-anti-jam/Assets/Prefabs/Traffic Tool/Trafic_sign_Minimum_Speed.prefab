@@ -730,6 +730,7 @@ MonoBehaviour:
   traficToolCanvas: {fileID: 4670790641894073502}
   outline: {fileID: 3434883037220987015}
   cost: 100
+  minSpeed: 20
 --- !u!1001 &1418836729874162173
 PrefabInstance:
   m_ObjectHideFlags: 0
