@@ -1328,10 +1328,12 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 91605073}
   pathType: 0
   color: {r: 1, g: 0, b: 0, a: 0}
-  <MaxVehicleEfficiency>k__BackingField: 20
+  <MaxVehicleEfficiency>k__BackingField: 15
   <Available>k__BackingField: 1
   meshRenderer: {fileID: 91605074}
   <MeshFilter>k__BackingField: {fileID: 91605075}
+  cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
+    type: 3}
 --- !u!114 &91605072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9265,6 +9267,8 @@ MonoBehaviour:
   <Available>k__BackingField: 1
   meshRenderer: {fileID: 370353012}
   <MeshFilter>k__BackingField: {fileID: 370353013}
+  cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
+    type: 3}
 --- !u!114 &370353010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19601,10 +19605,12 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 787504371}
   pathType: 0
   color: {r: 1, g: 0.84232986, b: 0, a: 0}
-  <MaxVehicleEfficiency>k__BackingField: 10
+  <MaxVehicleEfficiency>k__BackingField: 20
   <Available>k__BackingField: 1
   meshRenderer: {fileID: 787504372}
   <MeshFilter>k__BackingField: {fileID: 787504373}
+  cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
+    type: 3}
 --- !u!114 &787504370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38931,12 +38937,12 @@ PrefabInstance:
     - target: {fileID: 1414636711806590125, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000015389855
+      value: -0.000000015389857
       objectReference: {fileID: 0}
     - target: {fileID: 1414636711806590125, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000007694927
+      value: 0.000000007694929
       objectReference: {fileID: 0}
     - target: {fileID: 1713176433168631950, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -39171,7 +39177,7 @@ PrefabInstance:
     - target: {fileID: 5659916493828174716, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 69.99998
+      value: 40.00001
       objectReference: {fileID: 0}
     - target: {fileID: 5797317679534034262, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -39206,7 +39212,7 @@ PrefabInstance:
     - target: {fileID: 5898200928021387295, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: field of view
-      value: 69.99998
+      value: 40.00001
       objectReference: {fileID: 0}
     - target: {fileID: 5930530848945535882, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -39271,12 +39277,12 @@ PrefabInstance:
     - target: {fileID: 6666102736407240097, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000015389855
+      value: -0.000000015389857
       objectReference: {fileID: 0}
     - target: {fileID: 6666102736407240097, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000007694927
+      value: 0.000000007694929
       objectReference: {fileID: 0}
     - target: {fileID: 6875551491302267360, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -39291,7 +39297,7 @@ PrefabInstance:
     - target: {fileID: 7072980283734009755, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0006070488
+      value: -0.000025472442
       objectReference: {fileID: 0}
     - target: {fileID: 8794049315304800030, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
