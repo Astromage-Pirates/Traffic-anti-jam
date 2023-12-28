@@ -1,3 +1,4 @@
+using AstroPirate.DesignPatterns;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -8,20 +9,22 @@ using UnityEngine.UI;
 public class VolumeSlider : MonoBehaviour
 {
     [SerializeField]
-    private SoundGroup mixerGroup;
-
-    [SerializeField]
-    private AudioMixer audioMixer;
+    private SoundGroup soundGroup;
 
     [SerializeField]
     private Slider slider;
 
-    private float volumePercentage;
+    private IEventBus eventBus;
+
+    private void Awake()
+    {
+        GlobalServiceContainer.Resolve(out eventBus);
+    }
 
     private void Start()
     {
-        volumePercentage = mixerGroup.SetVolume(audioMixer);
-        slider.value = volumePercentage;
+        var volume = PlayerPrefs.GetFloat(soundGroup.ToString(), 1f);
+        SetVolume(volume);
     }
 
     private void OnEnable()
@@ -37,13 +40,14 @@ public class VolumeSlider : MonoBehaviour
     private void OnSliderValueChanged(float value)
     {
         SetVolume(value);
+        eventBus.Send(new AudioVolumeChanged());
     }
 
     private void SetVolume(float value)
     {
-        var key = mixerGroup.ToString();
+        var key = soundGroup.ToString();
 
         PlayerPrefs.SetFloat(key, value);
-        audioMixer.SetFloat(key, value.ConvertToMixerValue());
+        slider.value = value;
     }
 }

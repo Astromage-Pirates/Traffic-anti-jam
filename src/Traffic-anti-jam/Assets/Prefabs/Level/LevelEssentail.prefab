@@ -909,8 +909,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c4aa4355c72b43f1b6ccb6eba7fe795, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   btn_LoadScene: {fileID: 3278977770146970363}
   sceneName: MainMenu
 --- !u!1 &938116928990977245
@@ -2054,6 +2054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2434005056488821850}
   - component: {fileID: 9184148900297094593}
+  - component: {fileID: 1876405383247651493}
   m_Layer: 0
   m_Name: Background Music
   m_TagString: Untagged
@@ -2089,7 +2090,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 40488e5fa0333486f9ec052bb3ec96fe, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2173,6 +2174,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1876405383247651493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144530629316604213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902c2d00465f44d39b4eaa24e9380d43, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  soundGroup: 1
+  audioSource: {fileID: 9184148900297094593}
 --- !u!1 &2211795732895306841
 GameObject:
   m_ObjectHideFlags: 0
@@ -3526,8 +3541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b858ec050ee1a455f9b88c18792337b7, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  mixerGroup: 0
-  audioMixer: {fileID: 24100000, guid: 99f91e062c64641c1954ced865da9766, type: 2}
+  soundGroup: 0
   slider: {fileID: 2693669179513863880}
 --- !u!1 &2967388801779000802
 GameObject:
@@ -4852,6 +4866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1669417265732606007}
   - component: {fileID: 744821193818514539}
+  - component: {fileID: 1172007707422878974}
   m_Layer: 0
   m_Name: Ambient Sound
   m_TagString: Untagged
@@ -4887,7 +4902,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f734e8b9184074220961ee75effdf4b3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4971,6 +4986,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1172007707422878974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4623352062751336781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902c2d00465f44d39b4eaa24e9380d43, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  soundGroup: 2
+  audioSource: {fileID: 744821193818514539}
 --- !u!1 &4626672370575844351
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,8 +5132,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c4aa4355c72b43f1b6ccb6eba7fe795, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   btn_LoadScene: {fileID: 879398280140632642}
   sceneName: MainMenu
 --- !u!1 &4860079073422019228
@@ -5605,10 +5634,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c4aa4355c72b43f1b6ccb6eba7fe795, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   btn_LoadScene: {fileID: 660565644252147091}
-  sceneName: 
+  sceneName:
 --- !u!1 &5044541092399694743
 GameObject:
   m_ObjectHideFlags: 0
@@ -6365,8 +6394,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4faf76bee44f491481ae35c9b1cb436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   btn_Restart: {fileID: 699701898216072379}
 --- !u!1 &5479717679553384558
 GameObject:
@@ -6845,8 +6874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b858ec050ee1a455f9b88c18792337b7, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  mixerGroup: 3
-  audioMixer: {fileID: 24100000, guid: 99f91e062c64641c1954ced865da9766, type: 2}
+  soundGroup: 3
   slider: {fileID: 2851431870837455505}
 --- !u!1 &5925926923248563980
 GameObject:
@@ -7059,8 +7087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b858ec050ee1a455f9b88c18792337b7, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  mixerGroup: 1
-  audioMixer: {fileID: 24100000, guid: 99f91e062c64641c1954ced865da9766, type: 2}
+  soundGroup: 1
   slider: {fileID: 8165284858013865910}
 --- !u!1 &6017585161064486677
 GameObject:
@@ -7749,8 +7776,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4faf76bee44f491481ae35c9b1cb436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   btn_Restart: {fileID: 8072104688646424548}
 --- !u!1 &6728666475446054534
 GameObject:
@@ -9590,8 +9617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b858ec050ee1a455f9b88c18792337b7, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  mixerGroup: 2
-  audioMixer: {fileID: 24100000, guid: 99f91e062c64641c1954ced865da9766, type: 2}
+  soundGroup: 2
   slider: {fileID: 6096407134515786047}
 --- !u!1 &7713798762012545826
 GameObject:
@@ -11139,17 +11165,17 @@ PrefabInstance:
     - target: {fileID: 2650036643300342287, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015426222
+      value: -0.00000001538531
       objectReference: {fileID: 0}
     - target: {fileID: 2650036643300342287, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007713111
+      value: 0.000000007692655
       objectReference: {fileID: 0}
     - target: {fileID: 2998989612915326897, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: field of view
-      value: 40
+      value: 69.99998
       objectReference: {fileID: 0}
     - target: {fileID: 6209764150752604079, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
@@ -11179,12 +11205,12 @@ PrefabInstance:
     - target: {fileID: 7774866415081372419, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015389857
+      value: 0.000000015389857
       objectReference: {fileID: 0}
     - target: {fileID: 7774866415081372419, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007694929
+      value: -0.000000007694929
       objectReference: {fileID: 0}
     - target: {fileID: 8950615663495322119, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
