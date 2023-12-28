@@ -38958,6 +38958,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.000000007694929
       objectReference: {fileID: 0}
+    - target: {fileID: 1455018505009259815, guid: 9bde8630c89a486449bddae4da1b423a,
+        type: 3}
+      propertyPath: sceneName
+      value: Level2
+      objectReference: {fileID: 0}
     - target: {fileID: 1550372742347149495, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -39231,7 +39236,7 @@ PrefabInstance:
     - target: {fileID: 5659916493828174716, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 39.99999
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5797317679534034262, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -39266,7 +39271,7 @@ PrefabInstance:
     - target: {fileID: 5898200928021387295, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: field of view
-      value: 39.99999
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5930530848945535882, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -39356,7 +39361,7 @@ PrefabInstance:
     - target: {fileID: 7072980283734009755, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00006453322
+      value: -0.000053411804
       objectReference: {fileID: 0}
     - target: {fileID: 7269032722640797658, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -39418,7 +39423,8 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6251091132806279810, guid: 9bde8630c89a486449bddae4da1b423a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7181661510280993286, guid: 9bde8630c89a486449bddae4da1b423a,
