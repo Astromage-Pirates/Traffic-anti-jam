@@ -39231,7 +39231,7 @@ PrefabInstance:
     - target: {fileID: 5659916493828174716, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 69.99998
+      value: 39.99999
       objectReference: {fileID: 0}
     - target: {fileID: 5797317679534034262, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -39266,7 +39266,7 @@ PrefabInstance:
     - target: {fileID: 5898200928021387295, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: field of view
-      value: 69.99998
+      value: 39.99999
       objectReference: {fileID: 0}
     - target: {fileID: 5930530848945535882, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
