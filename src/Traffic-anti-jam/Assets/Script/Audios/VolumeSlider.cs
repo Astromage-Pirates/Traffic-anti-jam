@@ -46,10 +46,6 @@ public class VolumeSlider : MonoBehaviour
 
         slider.value = value;
         PlayerPrefs.SetFloat(key, value);
-        if (audioMixer.SetFloat(key, value.ConvertToMixerValue()))
-        {
-            Debug.Log("Fail to set audio value");
-        }
-        ;
+        audioMixer.SetFloat(key, value.ConvertToMixerValue());
     }
 }
