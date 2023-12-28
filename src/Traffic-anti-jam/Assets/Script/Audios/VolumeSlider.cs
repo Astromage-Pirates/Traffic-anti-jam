@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using static AudioMixerExtensions;
 
 /// <summary>
 /// A <see cref="Slider"/> to control volume values.
@@ -21,7 +20,7 @@ public class VolumeSlider : MonoBehaviour
 
     private void Start()
     {
-        volumePercentage = PlayerPrefs.GetFloat(MixerExposedParams[mixerGroup], 1f);
+        volumePercentage = PlayerPrefs.GetFloat(mixerGroup.ToString(), 1f);
 
         SetVolume(volumePercentage);
     }
@@ -43,10 +42,14 @@ public class VolumeSlider : MonoBehaviour
 
     private void SetVolume(float value)
     {
-        var key = MixerExposedParams[mixerGroup];
+        var key = mixerGroup.ToString();
 
-        PlayerPrefs.SetFloat(key, value);
         slider.value = value;
-        audioMixer.SetFloat(key, value.ConvertToMixerValue());
+        PlayerPrefs.SetFloat(key, value);
+        if (audioMixer.SetFloat(key, value.ConvertToMixerValue()))
+        {
+            Debug.Log("Fail to set audio value");
+        }
+        ;
     }
 }

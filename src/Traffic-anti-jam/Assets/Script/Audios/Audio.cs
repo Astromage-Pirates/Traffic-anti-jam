@@ -9,9 +9,9 @@ public class Audio : MonoBehaviour
 
     private void Start()
     {
-        Ambient.SetVolume(audioMixer);
-        Master.SetVolume(audioMixer);
-        Background.SetVolume(audioMixer);
-        Sfx.SetVolume(audioMixer);
+        AmbientVolume.SetVolume(audioMixer);
+        MasterVolume.SetVolume(audioMixer);
+        BackgroundVolume.SetVolume(audioMixer);
+        SfxVolume.SetVolume(audioMixer);
     }
 }
