@@ -1496,7 +1496,7 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 91605073}
   pathType: 0
   color: {r: 1, g: 0, b: 0, a: 0}
-  <MaxVehicleEfficiency>k__BackingField: 15
+  <MaxVehicleEfficiency>k__BackingField: 50
   <Available>k__BackingField: 1
   meshRenderer: {fileID: 91605074}
   <MeshFilter>k__BackingField: {fileID: 91605075}
@@ -9431,7 +9431,7 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 370353011}
   pathType: 0
   color: {r: 0.00465703, g: 1, b: 0, a: 0}
-  <MaxVehicleEfficiency>k__BackingField: 15
+  <MaxVehicleEfficiency>k__BackingField: 30
   <Available>k__BackingField: 1
   meshRenderer: {fileID: 370353012}
   <MeshFilter>k__BackingField: {fileID: 370353013}
@@ -19773,7 +19773,7 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 787504371}
   pathType: 0
   color: {r: 1, g: 0.84232986, b: 0, a: 0}
-  <MaxVehicleEfficiency>k__BackingField: 20
+  <MaxVehicleEfficiency>k__BackingField: 80
   <Available>k__BackingField: 1
   meshRenderer: {fileID: 787504372}
   <MeshFilter>k__BackingField: {fileID: 787504373}
