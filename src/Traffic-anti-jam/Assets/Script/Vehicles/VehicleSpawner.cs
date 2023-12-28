@@ -1,4 +1,3 @@
-using System.Globalization;
 using AstroPirate.DesignPatterns;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -30,17 +29,24 @@ public class VehicleSpawner : MonoBehaviour
     private void Awake()
     {
         GlobalServiceContainer.Resolve(out eventBus);
-        eventBus.Register<LevelStateChanged>(OnLevelPlayed);
+        eventBus.Register<PlayStageEnded>(OnPlayStageEnded);
+        eventBus.Register<LevelStateChanged>(OnLevelStateChanged);
     }
 
     private void OnDestroy()
     {
-        eventBus.Register<LevelStateChanged>(OnLevelPlayed);
+        eventBus.UnRegister<PlayStageEnded>(OnPlayStageEnded);
+        eventBus.UnRegister<LevelStateChanged>(OnLevelStateChanged);
     }
 
-    private void OnLevelPlayed(LevelStateChanged levelState)
+    private void OnLevelStateChanged(LevelStateChanged levelState)
     {
         isLevelPlayed = levelState.IsPlay;
+    }
+
+    private void OnPlayStageEnded(PlayStageEnded playState)
+    {
+        isLevelPlayed = false;
     }
 
     private void Start()

@@ -1,3 +1,4 @@
+using System;
 using AstroPirate.DesignPatterns;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -6,24 +7,20 @@ using UnityEngine.UIElements;
 /// <summary>
 /// Represents transporting means.
 /// </summary>
-[RequireComponent(typeof(Rigidbody))]
 public class Vehicle : MonoBehaviour
 {
     private const float MinVelocity = 15f;
     private const float MaxPercentage = 1f;
     private const float NextPositionOffset = 0.05f;
 
-    [SerializeField]
-    private Rigidbody rgbody;
-
     [Tooltip("Distance to check for collision with other object.")]
     [SerializeField]
     private float collisionCheckDistance = 0.2f;
-    
+
     [Tooltip("Distance to check for collision with other object.")]
     [SerializeField]
     private float minDistance = 0.2f;
-    
+
     [Tooltip("Distance to check for collision with other object.")]
     [SerializeField]
     private Vector3 boxHalfExtent;
@@ -40,16 +37,28 @@ public class Vehicle : MonoBehaviour
     public Path Path { get; set; }
 
     private float distancePercentage;
-    private bool stopByCollision;
     private bool stopBySign;
     private int currentVehicleCount;
     private IEventBus eventBus;
     private float velocityModifier;
+    private bool isLevelPlayed;
 
     private void Awake()
     {
         GlobalServiceContainer.Resolve(out eventBus);
         eventBus.Register<VehicleSpawned>(OnVehicleSpawned);
+        eventBus.Register<LevelStateChanged>(OnLevelStageChanged);
+        eventBus.Register<PlayStageEnded>(OnPlayStageEnded);
+    }
+
+    private void OnLevelStageChanged(LevelStateChanged levelState)
+    {
+        isLevelPlayed = levelState.IsPlay;
+    }
+
+    private void OnPlayStageEnded(PlayStageEnded ended)
+    {
+        isLevelPlayed = false;
     }
 
     private void OnDestroy()
@@ -64,7 +73,6 @@ public class Vehicle : MonoBehaviour
 
     private void Update()
     {
-        // TODO: [VD] check if game state is not game over.
         Move();
         CheckIsAtDestination();
     }
@@ -97,33 +105,21 @@ public class Vehicle : MonoBehaviour
         }
     }
 
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     velocity = oldVelocity;
-    // }
-
     private void CheckForCollision()
     {
-		//var collisionResult = Physics.Raycast(
-		//        raycastAnchor.position,
-		//        raycastAnchor.forward,
-		//        out var hitInfo,
-		//        collisionCheckDistance,
-		//        LayerMask.GetMask("Vehicle")
-		//    );
-		var collisionResult = Physics.BoxCast(
-				raycastAnchor.position - raycastAnchor.forward*raycastAnchor.localPosition.y,
-				boxHalfExtent,
-				raycastAnchor.forward,
-				out var hitInfo,
-				raycastAnchor.rotation,
-				collisionCheckDistance,
-				LayerMask.GetMask("Vehicle")
-			);
+        var collisionResult = Physics.BoxCast(
+            raycastAnchor.position - raycastAnchor.forward * raycastAnchor.localPosition.y,
+            boxHalfExtent,
+            raycastAnchor.forward,
+            out var hitInfo,
+            raycastAnchor.rotation,
+            collisionCheckDistance,
+            LayerMask.GetMask("Vehicle")
+        );
 
-		if ( collisionResult )
+        if (collisionResult)
         {
-            if(hitInfo.distance < minDistance)
+            if (hitInfo.distance < minDistance)
             {
                 velocityModifier = 0.0f;
             }
@@ -131,34 +127,37 @@ public class Vehicle : MonoBehaviour
             {
                 velocityModifier = hitInfo.distance / collisionCheckDistance;
             }
-		}
+        }
         else
         {
             velocityModifier = 1.0f;
-
-		}
+        }
     }
 
-	private void OnDrawGizmos()
-	{
-		var collisionResult = Physics.BoxCast(
-				raycastAnchor.position,
-				boxHalfExtent,
-				raycastAnchor.forward,
-                out var hitInfo,
-				raycastAnchor.rotation,
-				collisionCheckDistance,
-				LayerMask.GetMask("Vehicle")
-			);
+    private void OnDrawGizmos()
+    {
+        var collisionResult = Physics.BoxCast(
+            raycastAnchor.position,
+            boxHalfExtent,
+            raycastAnchor.forward,
+            out var hitInfo,
+            raycastAnchor.rotation,
+            collisionCheckDistance,
+            LayerMask.GetMask("Vehicle")
+        );
+
         Gizmos.DrawWireSphere(raycastAnchor.position + raycastAnchor.forward * minDistance, 0.1f);
-		if ( collisionResult )
+
+        if (collisionResult)
         {
-
-
             Gizmos.color = Color.green;
             var old = Gizmos.matrix;
-		    Gizmos.matrix = Matrix4x4.TRS(raycastAnchor.position, raycastAnchor.rotation, Vector3.one);
-            Gizmos.DrawWireCube(Vector3.forward* hitInfo.distance, boxHalfExtent*2.0f);
+            Gizmos.matrix = Matrix4x4.TRS(
+                raycastAnchor.position,
+                raycastAnchor.rotation,
+                Vector3.one
+            );
+            Gizmos.DrawWireCube(Vector3.forward * hitInfo.distance, boxHalfExtent * 2.0f);
             Gizmos.matrix = old;
             Gizmos.DrawRay(raycastAnchor.position, raycastAnchor.forward * hitInfo.distance);
         }
@@ -166,11 +165,10 @@ public class Vehicle : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawRay(raycastAnchor.position, raycastAnchor.forward * collisionCheckDistance);
-
         }
-	}
+    }
 
-	private void Move()
+    private void Move()
     {
         if (stopBySign)
         {
@@ -197,7 +195,11 @@ public class Vehicle : MonoBehaviour
         if (IsAtDestination)
         {
             Destroy(gameObject);
-            eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount - 1 });
+
+            if (isLevelPlayed)
+            {
+                eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount - 1 });
+            }
         }
     }
 

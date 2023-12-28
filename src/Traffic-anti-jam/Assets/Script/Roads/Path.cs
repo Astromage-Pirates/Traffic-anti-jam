@@ -49,6 +49,10 @@ public class Path : MonoBehaviour
     /// </summary>
     [field: SerializeField]
     public MeshFilter MeshFilter { get; private set; }
+
+    [SerializeField]
+    private Canvas cnv_Destination;
+
     private IEventBus eventBus;
     private bool isLevelPlayed;
 
@@ -66,6 +70,19 @@ public class Path : MonoBehaviour
     private void Start()
     {
         meshRenderer.material.color = color;
+
+        SetDestinationIcon();
+    }
+
+    private void SetDestinationIcon()
+    {
+        cnv_Destination.transform.position = new Vector3(
+            EvaluatePosition(1).x,
+            cnv_Destination.transform.position.y,
+            EvaluatePosition(1).z
+        );
+
+        Instantiate(cnv_Destination, transform, true);
     }
 
     private void Update()
