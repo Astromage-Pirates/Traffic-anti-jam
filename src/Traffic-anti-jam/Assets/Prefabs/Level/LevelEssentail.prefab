@@ -763,6 +763,7 @@ GameObject:
   - component: {fileID: 7280898990480358305}
   - component: {fileID: 3278977770146970363}
   - component: {fileID: 8570357568527177748}
+  - component: {fileID: 5232569690601345190}
   m_Layer: 5
   m_Name: btn_BackToMainMenu
   m_TagString: Untagged
@@ -898,6 +899,20 @@ MonoBehaviour:
   m_EditorClassIdentifier:
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &5232569690601345190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814875619802571046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4aa4355c72b43f1b6ccb6eba7fe795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn_LoadScene: {fileID: 3278977770146970363}
+  sceneName: MainMenu
 --- !u!1 &938116928990977245
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,6 +4983,7 @@ GameObject:
   - component: {fileID: 537544699195077444}
   - component: {fileID: 153423366393106192}
   - component: {fileID: 879398280140632642}
+  - component: {fileID: 1730423805847138924}
   m_Layer: 5
   m_Name: btn_level
   m_TagString: Untagged
@@ -5077,6 +5093,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1730423805847138924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4626672370575844351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4aa4355c72b43f1b6ccb6eba7fe795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn_LoadScene: {fileID: 879398280140632642}
+  sceneName: MainMenu
 --- !u!1 &4860079073422019228
 GameObject:
   m_ObjectHideFlags: 0
@@ -5455,6 +5485,7 @@ GameObject:
   - component: {fileID: 2212122703365573256}
   - component: {fileID: 5060292142271834343}
   - component: {fileID: 660565644252147091}
+  - component: {fileID: 1455018505009259815}
   m_Layer: 5
   m_Name: btn_next
   m_TagString: Untagged
@@ -5564,6 +5595,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1455018505009259815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4933312987221806704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4aa4355c72b43f1b6ccb6eba7fe795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn_LoadScene: {fileID: 660565644252147091}
+  sceneName: 
 --- !u!1 &5044541092399694743
 GameObject:
   m_ObjectHideFlags: 0
@@ -6126,7 +6171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4798269792987051618
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6200,6 +6245,7 @@ GameObject:
   - component: {fileID: 6649826171225602222}
   - component: {fileID: 415448770198328692}
   - component: {fileID: 699701898216072379}
+  - component: {fileID: 2771922876168638947}
   m_Layer: 5
   m_Name: btn_restart
   m_TagString: Untagged
@@ -6309,6 +6355,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2771922876168638947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439692882521621704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4faf76bee44f491481ae35c9b1cb436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn_Restart: {fileID: 699701898216072379}
 --- !u!1 &5479717679553384558
 GameObject:
   m_ObjectHideFlags: 0
@@ -6680,8 +6739,6 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier:
   btn_Close: {fileID: 345997954722752799}
-  btn_Exit: {fileID: 3278977770146970363}
-  btn_Restart: {fileID: 8072104688646424548}
   grp_MainMenu: {fileID: 5792379816527335567}
   btn_Settings: {fileID: 6610867718190733305}
   grp_Settings: {fileID: 5162150399763483074}
@@ -7560,6 +7617,7 @@ GameObject:
   - component: {fileID: 969752747545683661}
   - component: {fileID: 8581210986533555701}
   - component: {fileID: 8072104688646424548}
+  - component: {fileID: 4490906969395818527}
   m_Layer: 5
   m_Name: btn_Restart
   m_TagString: Untagged
@@ -7681,6 +7739,19 @@ MonoBehaviour:
           m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4490906969395818527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6630557570856478412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4faf76bee44f491481ae35c9b1cb436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn_Restart: {fileID: 8072104688646424548}
 --- !u!1 &6728666475446054534
 GameObject:
   m_ObjectHideFlags: 0
@@ -11068,12 +11139,12 @@ PrefabInstance:
     - target: {fileID: 2650036643300342287, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015389857
+      value: -0.000000015426222
       objectReference: {fileID: 0}
     - target: {fileID: 2650036643300342287, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007694929
+      value: 0.000000007713111
       objectReference: {fileID: 0}
     - target: {fileID: 2998989612915326897, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
