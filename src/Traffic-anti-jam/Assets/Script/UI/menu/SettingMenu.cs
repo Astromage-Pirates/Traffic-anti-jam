@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The setting menu to control game stuff.
+/// </summary>
 public class SettingMenu : MonoBehaviour
 {
     [SerializeField]
