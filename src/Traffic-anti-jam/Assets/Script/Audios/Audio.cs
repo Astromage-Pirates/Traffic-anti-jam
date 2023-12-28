@@ -1,17 +1,37 @@
+using AstroPirate.DesignPatterns;
 using UnityEngine;
-using UnityEngine.Audio;
-using static SoundGroup;
 
+/// <summary>
+/// A components used to control audio.
+/// </summary>
 public class Audio : MonoBehaviour
 {
     [SerializeField]
-    private AudioMixer audioMixer;
+    private SoundGroup soundGroup;
+
+    [SerializeField]
+    private AudioSource audioSource;
+
+    private IEventBus eventBus;
+
+    private void Awake()
+    {
+        GlobalServiceContainer.Resolve(out eventBus);
+        eventBus.Register<AudioVolumeChanged>(OnAudioVolumeChanged);
+    }
+
+    private void OnDestroy()
+    {
+        eventBus.UnRegister<AudioVolumeChanged>(OnAudioVolumeChanged);
+    }
 
     private void Start()
     {
-        AmbientVolume.SetVolume(audioMixer);
-        MasterVolume.SetVolume(audioMixer);
-        BackgroundVolume.SetVolume(audioMixer);
-        SfxVolume.SetVolume(audioMixer);
+        soundGroup.SetVolume(audioSource);
+    }
+
+    private void OnAudioVolumeChanged(AudioVolumeChanged audioVolume)
+    {
+        soundGroup.SetVolume(audioSource);
     }
 }
