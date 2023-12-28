@@ -20,9 +20,8 @@ public class VolumeSlider : MonoBehaviour
 
     private void Start()
     {
-        volumePercentage = PlayerPrefs.GetFloat(mixerGroup.ToString(), 1f);
-
-        SetVolume(volumePercentage);
+        volumePercentage = mixerGroup.SetVolume(audioMixer);
+        slider.value = volumePercentage;
     }
 
     private void OnEnable()
@@ -44,7 +43,6 @@ public class VolumeSlider : MonoBehaviour
     {
         var key = mixerGroup.ToString();
 
-        slider.value = value;
         PlayerPrefs.SetFloat(key, value);
         audioMixer.SetFloat(key, value.ConvertToMixerValue());
     }
