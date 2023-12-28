@@ -1,6 +1,9 @@
 using UnityEngine;
 
-interface IMenuManager
+/// <summary>
+/// The interface represents for menu manager.
+/// </summary>
+public interface IMenuManager
 {
     /// <summary>
     /// Change menu UI to specified menu and disable the opened one.

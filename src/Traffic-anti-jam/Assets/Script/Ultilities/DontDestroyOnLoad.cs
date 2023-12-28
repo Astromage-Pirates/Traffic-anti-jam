@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Helper class to prevent <see cref="Object"/> from being destroy when loading new <see cref="Scene"/>.
+/// </summary>
 public class DontDestroyOnLoad : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        DontDestroyOnLoad(this);
     }
 }

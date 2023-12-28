@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// The manager to handle opening and exiting menu.
+/// </summary>
 public class MenuManager : IMenuManager
 {
     /// <inheritdoc/>
