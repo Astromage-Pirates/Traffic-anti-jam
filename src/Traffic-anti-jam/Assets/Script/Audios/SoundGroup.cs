@@ -24,10 +24,10 @@ public static class SoundGroupExtensions
 
     public static float ConvertToMixerValue(this float value)
     {
-        // Assert.IsTrue(
-        //     value >= MinSliderValue && value <= MaxSliderValue,
-        //     $"Value must be in range ({MinSliderValue}, {MaxSliderValue})"
-        // );
+        Assert.IsTrue(
+            value >= MinSliderValue && value <= MaxSliderValue,
+            $"Value must be in range ({MinSliderValue}, {MaxSliderValue})"
+        );
 
         return Mathf.Log10(value) * AmplitudeFactor;
     }
