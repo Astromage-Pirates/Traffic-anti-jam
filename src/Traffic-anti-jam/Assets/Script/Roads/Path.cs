@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using AstroPirate.DesignPatterns;
 using UnityEngine;
 using UnityEngine.Splines;
@@ -34,11 +35,24 @@ public class Path : MonoBehaviour
     [field: SerializeField]
     public int MaxVehicleEfficiency { get; private set; }
 
+    private bool _available;
+
+    // [NonSerialized]
+    public bool Available
+    {
+        get { return _available; }
+        set
+        {
+            gameObject.SetActive(value);
+            _available = value;
+        }
+    }
+
     /// <summary>
-    /// Whether <see cref="Path"/> is available for <see cref="Vehicle"/> to move.
+    ///  Default Available setting.
     /// </summary>
     [field: SerializeField]
-    public bool Available { get; private set; } = true;
+    public bool InitAvailable { get; private set; }
 
     [Header("Path Render")]
     [SerializeField]
@@ -60,6 +74,7 @@ public class Path : MonoBehaviour
     {
         GlobalServiceContainer.Resolve(out eventBus);
         eventBus.Register<LevelStateChanged>(OnLevelStateChanged);
+        Available = InitAvailable;
     }
 
     private void OnDestroy()

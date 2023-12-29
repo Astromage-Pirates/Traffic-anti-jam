@@ -65,7 +65,6 @@ public class TrafficLightSnapPoint : SnapPoint<TrafficLight>
 
     private void OnTrafficLightSnapPointActive(TrafficLightUIInteracted trafficLightUIInteracted)
     {
-        myCollider.enabled = trafficLightUIInteracted.isSnapPointActive;
         myMeshRenderer.enabled = trafficLightUIInteracted.isSnapPointActive;
     }
 

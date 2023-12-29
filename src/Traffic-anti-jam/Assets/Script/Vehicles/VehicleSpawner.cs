@@ -58,21 +58,22 @@ public class VehicleSpawner : MonoBehaviour
     {
         if (isLevelPlayed)
         {
-            var availablePaths = pathSystem.AvailablePaths;
-            var pathIndex = Random.Range(0, availablePaths.Length);
+            // var pathIndex = Random.Range(0, availablePaths.Length);
+            var path = pathSystem.AvailablePath;
 
-            if (ShouldSpawnVehicle(availablePaths[pathIndex]))
+            if (ShouldSpawnVehicle(path))
             {
                 var vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
 
                 var vehicle = Instantiate(
                     vehiclePrefabs[vehicleIndex],
-                    availablePaths[pathIndex].EvaluatePosition(0),
+                    path.EvaluatePosition(0),
                     Quaternion.identity,
-                    availablePaths[pathIndex].transform
+                    path.transform
+                    
                 );
 
-                vehicle.Path = availablePaths[pathIndex];
+                vehicle.Path = path; 
 
                 currentVehicleCount += 1;
 
