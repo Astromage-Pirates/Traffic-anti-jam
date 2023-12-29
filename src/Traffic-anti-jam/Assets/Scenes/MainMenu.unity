@@ -3764,7 +3764,7 @@ MonoBehaviour:
   pathType: 0
   color: {r: 1, g: 0, b: 0, a: 0}
   <MaxVehicleEfficiency>k__BackingField: 0
-  <Available>k__BackingField: 1
+  <InitAvailable>k__BackingField: 1
   meshRenderer: {fileID: 167365444}
   <MeshFilter>k__BackingField: {fileID: 0}
   cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
@@ -19622,7 +19622,7 @@ MonoBehaviour:
   pathType: 0
   color: {r: 1, g: 0, b: 0.99721146, a: 0}
   <MaxVehicleEfficiency>k__BackingField: 0
-  <Available>k__BackingField: 1
+  <InitAvailable>k__BackingField: 1
   meshRenderer: {fileID: 1719077886}
   <MeshFilter>k__BackingField: {fileID: 0}
   cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
@@ -22169,6 +22169,7 @@ MonoBehaviour:
   pathPrefab: {fileID: 0}
   <Paths>k__BackingField:
   - {fileID: 167365447}
+  - {fileID: 1719077885}
 --- !u!4 &1828566925
 Transform:
   m_ObjectHideFlags: 0
