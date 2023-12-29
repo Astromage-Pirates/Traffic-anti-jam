@@ -23,14 +23,26 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField]
     private LevelData levelData;
+    
+    [SerializeField]
+    private LevelData nextlevelData;
 
     public LevelData LevelData => levelData;
+    public LevelData NextLevelData => nextlevelData;
 
     [SerializeField]
     private GameObject overCanvas;
     
     [SerializeField]
+    private GameObject victoryOverCanvas;
+
+    [SerializeField]
+    private GameObject trafficJamOverCanvas;
+    
+    [SerializeField]
     private List<Toggle> stars;
+    [SerializeField]
+    private List<GameObject> medals;
 
     private void Awake()
     {
@@ -74,6 +86,14 @@ public class LevelManager : MonoBehaviour
 		{
 			this.stars[i].isOn = false;
 		}
+        
+        for (int i = 0; i < medals.Count; i++)
+		{
+            medals[i].SetActive(i == levelData.currScore - 1);
+		}
+
+		victoryOverCanvas.SetActive(levelData.currScore > 0);
+		trafficJamOverCanvas.SetActive(levelData.currScore == 0);
 		overCanvas.SetActive(true);
     }
 
