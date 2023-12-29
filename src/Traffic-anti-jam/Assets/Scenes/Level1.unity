@@ -1497,7 +1497,7 @@ MonoBehaviour:
   pathType: 0
   color: {r: 1, g: 0, b: 0, a: 0}
   <MaxVehicleEfficiency>k__BackingField: 50
-  <Available>k__BackingField: 1
+  <InitAvailable>k__BackingField: 0
   meshRenderer: {fileID: 91605074}
   <MeshFilter>k__BackingField: {fileID: 91605075}
   cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
@@ -9432,7 +9432,7 @@ MonoBehaviour:
   pathType: 0
   color: {r: 0.00465703, g: 1, b: 0, a: 0}
   <MaxVehicleEfficiency>k__BackingField: 30
-  <Available>k__BackingField: 1
+  <InitAvailable>k__BackingField: 0
   meshRenderer: {fileID: 370353012}
   <MeshFilter>k__BackingField: {fileID: 370353013}
   cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
@@ -19774,7 +19774,7 @@ MonoBehaviour:
   pathType: 0
   color: {r: 1, g: 0.84232986, b: 0, a: 0}
   <MaxVehicleEfficiency>k__BackingField: 80
-  <Available>k__BackingField: 1
+  <InitAvailable>k__BackingField: 0
   meshRenderer: {fileID: 787504372}
   <MeshFilter>k__BackingField: {fileID: 787504373}
   cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
@@ -38956,12 +38956,12 @@ PrefabInstance:
     - target: {fileID: 1414636711806590125, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015389855
+      value: 0.000000015389857
       objectReference: {fileID: 0}
     - target: {fileID: 1414636711806590125, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007694927
+      value: -0.000000007694929
       objectReference: {fileID: 0}
     - target: {fileID: 1455018505009259815, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -38983,6 +38983,12 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1599593899689537183, guid: 9bde8630c89a486449bddae4da1b423a,
+        type: 3}
+      propertyPath: nextlevelData
+      value: 
+      objectReference: {fileID: 11400000, guid: cdf02578187bd4a77b5393db97acd577,
+        type: 2}
     - target: {fileID: 1713176433168631950, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -39351,12 +39357,12 @@ PrefabInstance:
     - target: {fileID: 6666102736407240097, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015389855
+      value: 0.000000015389857
       objectReference: {fileID: 0}
     - target: {fileID: 6666102736407240097, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007694927
+      value: -0.000000007694929
       objectReference: {fileID: 0}
     - target: {fileID: 6875551491302267360, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}

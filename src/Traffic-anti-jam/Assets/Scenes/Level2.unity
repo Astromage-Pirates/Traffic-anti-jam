@@ -492,17 +492,17 @@ PrefabInstance:
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[0]'
-      value: 
+      value:
       objectReference: {fileID: 711375572}
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[1]'
-      value: 
+      value:
       objectReference: {fileID: 0}
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[2]'
-      value: 
+      value:
       objectReference: {fileID: 0}
     - target: {fileID: 257434366583518621, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
@@ -738,17 +738,17 @@ PrefabInstance:
     - target: {fileID: 7757463005133746415, guid: 8bf6c20ca2c882f43a8906e2bea1b9bb,
         type: 3}
       propertyPath: 'TLLocators.Array.data[0]'
-      value: 
+      value:
       objectReference: {fileID: 236601511}
     - target: {fileID: 7757463005133746415, guid: 8bf6c20ca2c882f43a8906e2bea1b9bb,
         type: 3}
       propertyPath: 'TLLocators.Array.data[1]'
-      value: 
+      value:
       objectReference: {fileID: 1514979454}
     - target: {fileID: 7757463005133746415, guid: 8bf6c20ca2c882f43a8906e2bea1b9bb,
         type: 3}
       propertyPath: 'TLLocators.Array.data[2]'
-      value: 
+      value:
       objectReference: {fileID: 597504618}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -848,12 +848,12 @@ PrefabInstance:
     - target: {fileID: 4878441181005907586, guid: bcdc7f7b59ae01c4c9baa99f6cc7abc8,
         type: 3}
       propertyPath: 'leftPaths.Array.data[0]'
-      value: 
+      value:
       objectReference: {fileID: 618699227}
     - target: {fileID: 4878441181005907586, guid: bcdc7f7b59ae01c4c9baa99f6cc7abc8,
         type: 3}
       propertyPath: 'forwardPaths.Array.data[0]'
-      value: 
+      value:
       objectReference: {fileID: 286346868}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2010,17 +2010,17 @@ PrefabInstance:
     - target: {fileID: 7757463005133746415, guid: 8bf6c20ca2c882f43a8906e2bea1b9bb,
         type: 3}
       propertyPath: 'TLLocators.Array.data[0]'
-      value: 
+      value:
       objectReference: {fileID: 467764905}
     - target: {fileID: 7757463005133746415, guid: 8bf6c20ca2c882f43a8906e2bea1b9bb,
         type: 3}
       propertyPath: 'TLLocators.Array.data[1]'
-      value: 
+      value:
       objectReference: {fileID: 1201863042}
     - target: {fileID: 7757463005133746415, guid: 8bf6c20ca2c882f43a8906e2bea1b9bb,
         type: 3}
       propertyPath: 'TLLocators.Array.data[2]'
-      value: 
+      value:
       objectReference: {fileID: 2068941222}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2801,8 +2801,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4abd84bbb09dfe34eaaf7955a526d46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   direction: 90
 --- !u!23 &113307757
 MeshRenderer:
@@ -5313,8 +5313,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4abd84bbb09dfe34eaaf7955a526d46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   direction: -90
 --- !u!23 &236601514
 MeshRenderer:
@@ -6213,8 +6213,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69c0d85471449dd49be2e12eca329466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   <Container>k__BackingField: {fileID: 286346870}
   pathType: 0
   color: {r: 0.03964877, g: 1, b: 0, a: 1}
@@ -6234,8 +6234,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222dc08d484f16869bdd89edd9d368fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Container: {fileID: 286346870}
   m_RebuildOnSplineChange: 0
   m_RebuildFrequency: 30
@@ -6255,8 +6255,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Spline:
     m_EditModeType: 1
     m_Knots: []
@@ -10011,8 +10011,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4abd84bbb09dfe34eaaf7955a526d46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   direction: -90
 --- !u!23 &467764908
 MeshRenderer:
@@ -11415,17 +11415,17 @@ PrefabInstance:
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[0]'
-      value: 
+      value:
       objectReference: {fileID: 2035266068}
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[1]'
-      value: 
+      value:
       objectReference: {fileID: 2035266068}
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[2]'
-      value: 
+      value:
       objectReference: {fileID: 0}
     - target: {fileID: 257434366583518621, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
@@ -11807,8 +11807,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4abd84bbb09dfe34eaaf7955a526d46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   direction: 90
 --- !u!23 &597504621
 MeshRenderer:
@@ -11980,8 +11980,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69c0d85471449dd49be2e12eca329466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   <Container>k__BackingField: {fileID: 618699230}
   pathType: 0
   color: {r: 0.03964877, g: 1, b: 0, a: 1}
@@ -12051,8 +12051,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Spline:
     m_EditModeType: 1
     m_Knots: []
@@ -13549,8 +13549,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222dc08d484f16869bdd89edd9d368fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Container: {fileID: 618699230}
   m_RebuildOnSplineChange: 0
   m_RebuildFrequency: 30
@@ -13591,17 +13591,17 @@ PrefabInstance:
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[0]'
-      value: 
+      value:
       objectReference: {fileID: 1382530664}
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[1]'
-      value: 
+      value:
       objectReference: {fileID: 814188639}
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[2]'
-      value: 
+      value:
       objectReference: {fileID: 0}
     - target: {fileID: 257434366583518621, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
@@ -14523,8 +14523,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69c0d85471449dd49be2e12eca329466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   <Container>k__BackingField: {fileID: 711375574}
   pathType: 0
   color: {r: 0, g: 0.3137255, b: 1, a: 0}
@@ -14544,8 +14544,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222dc08d484f16869bdd89edd9d368fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Container: {fileID: 711375574}
   m_RebuildOnSplineChange: 0
   m_RebuildFrequency: 30
@@ -14565,8 +14565,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Spline:
     m_EditModeType: 1
     m_Knots: []
@@ -17760,8 +17760,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69c0d85471449dd49be2e12eca329466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   <Container>k__BackingField: {fileID: 814188642}
   pathType: 0
   color: {r: 1, g: 0, b: 0, a: 0}
@@ -17831,8 +17831,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Spline:
     m_EditModeType: 1
     m_Knots: []
@@ -18033,8 +18033,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222dc08d484f16869bdd89edd9d368fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Container: {fileID: 814188642}
   m_RebuildOnSplineChange: 0
   m_RebuildFrequency: 30
@@ -19754,12 +19754,12 @@ PrefabInstance:
     - target: {fileID: 4878441181005907586, guid: bcdc7f7b59ae01c4c9baa99f6cc7abc8,
         type: 3}
       propertyPath: 'leftPaths.Array.data[0]'
-      value: 
+      value:
       objectReference: {fileID: 1382530664}
     - target: {fileID: 4878441181005907586, guid: bcdc7f7b59ae01c4c9baa99f6cc7abc8,
         type: 3}
       propertyPath: 'forwardPaths.Array.data[0]'
-      value: 
+      value:
       objectReference: {fileID: 814188639}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24132,8 +24132,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4abd84bbb09dfe34eaaf7955a526d46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   direction: 0
 --- !u!23 &1104832857
 MeshRenderer:
@@ -26015,8 +26015,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4abd84bbb09dfe34eaaf7955a526d46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   direction: 90
 --- !u!23 &1201863045
 MeshRenderer:
@@ -28906,17 +28906,17 @@ PrefabInstance:
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[0]'
-      value: 
+      value:
       objectReference: {fileID: 618699227}
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[1]'
-      value: 
+      value:
       objectReference: {fileID: 286346868}
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: '<Paths>k__BackingField.Array.data[2]'
-      value: 
+      value:
       objectReference: {fileID: 0}
     - target: {fileID: 257434366583518621, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
@@ -30283,8 +30283,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69c0d85471449dd49be2e12eca329466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   <Container>k__BackingField: {fileID: 1382530666}
   pathType: 0
   color: {r: 1, g: 0, b: 0, a: 0}
@@ -30304,8 +30304,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222dc08d484f16869bdd89edd9d368fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Container: {fileID: 1382530666}
   m_RebuildOnSplineChange: 0
   m_RebuildFrequency: 30
@@ -30325,8 +30325,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Spline:
     m_EditModeType: 1
     m_Knots: []
@@ -32082,8 +32082,14 @@ PrefabInstance:
     - target: {fileID: 1599593899689537183, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: levelData
-      value: 
+      value:
       objectReference: {fileID: 11400000, guid: cdf02578187bd4a77b5393db97acd577,
+        type: 2}
+    - target: {fileID: 1599593899689537183, guid: 9bde8630c89a486449bddae4da1b423a,
+        type: 3}
+      propertyPath: nextlevelData
+      value:
+      objectReference: {fileID: 11400000, guid: 905f54bf421a9fc4096018d35de3b1c5,
         type: 2}
     - target: {fileID: 1713176433168631950, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -32398,7 +32404,7 @@ PrefabInstance:
     - target: {fileID: 6875551491302267360, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: pathSystem
-      value: 
+      value:
       objectReference: {fileID: 1501039075}
     - target: {fileID: 7072980283734009755, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -34394,8 +34400,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29f344d0f8a5f0b4a80a47e9946d8e85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!4 &1501039076 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8394549189987490690, guid: 8abd537f887854b84b25653b5c15593c,
@@ -34802,8 +34808,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4abd84bbb09dfe34eaaf7955a526d46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   direction: 180
 --- !u!23 &1514979457
 MeshRenderer:
@@ -36196,8 +36202,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &1561897737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36208,8 +36214,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7065c7f1dc32e5d44a5317a34721fa8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   button: {fileID: 1561897734}
 --- !u!1001 &1576284230
 PrefabInstance:
@@ -40655,8 +40661,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4abd84bbb09dfe34eaaf7955a526d46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   direction: -90
 --- !u!23 &1843146227
 MeshRenderer:
@@ -40991,8 +40997,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
@@ -44203,8 +44209,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69c0d85471449dd49be2e12eca329466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   <Container>k__BackingField: {fileID: 2035266071}
   pathType: 0
   color: {r: 1, g: 0.9557635, b: 0, a: 1}
@@ -44274,8 +44280,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Spline:
     m_EditModeType: 1
     m_Knots: []
@@ -45610,8 +45616,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222dc08d484f16869bdd89edd9d368fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Container: {fileID: 2035266071}
   m_RebuildOnSplineChange: 0
   m_RebuildFrequency: 30
@@ -46652,8 +46658,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4abd84bbb09dfe34eaaf7955a526d46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   direction: 0
 --- !u!23 &2068941225
 MeshRenderer:
@@ -47137,17 +47143,17 @@ PrefabInstance:
     - target: {fileID: 7757463005133746415, guid: 8bf6c20ca2c882f43a8906e2bea1b9bb,
         type: 3}
       propertyPath: 'TLLocators.Array.data[0]'
-      value: 
+      value:
       objectReference: {fileID: 1843146224}
     - target: {fileID: 7757463005133746415, guid: 8bf6c20ca2c882f43a8906e2bea1b9bb,
         type: 3}
       propertyPath: 'TLLocators.Array.data[1]'
-      value: 
+      value:
       objectReference: {fileID: 113307754}
     - target: {fileID: 7757463005133746415, guid: 8bf6c20ca2c882f43a8906e2bea1b9bb,
         type: 3}
       propertyPath: 'TLLocators.Array.data[2]'
-      value: 
+      value:
       objectReference: {fileID: 1104832854}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
