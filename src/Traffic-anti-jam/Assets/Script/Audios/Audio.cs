@@ -32,6 +32,9 @@ public class Audio : MonoBehaviour
 
     private void OnAudioVolumeChanged(AudioVolumeChanged audioVolume)
     {
-        soundGroup.SetVolume(audioSource);
+        if (soundGroup == audioVolume.SoundGroup)
+        {
+            soundGroup.SetVolume(audioSource);
+        }
     }
 }

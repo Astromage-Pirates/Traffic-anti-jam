@@ -40,7 +40,7 @@ public class VolumeSlider : MonoBehaviour
     private void OnSliderValueChanged(float value)
     {
         SetVolume(value);
-        eventBus.Send(new AudioVolumeChanged());
+        eventBus.Send(new AudioVolumeChanged() { SoundGroup = soundGroup });
     }
 
     private void SetVolume(float value)
