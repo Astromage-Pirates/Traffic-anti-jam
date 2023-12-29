@@ -31,6 +31,7 @@ public class TrafficSignSnapPoint : SnapPoint<TrafficSign>
 
     protected override void OnSnap(TrafficSign trafficSign)
     {
+        trafficSign.isSnaped = true;
         eventBus.Send(new TrafficToolUIInteracted());
         eventBus.Send(new BudgetCost() { trafficTool = trafficSign, intSign = 1 });
         trafficSign.DiscColor(null);
@@ -41,41 +42,44 @@ public class TrafficSignSnapPoint : SnapPoint<TrafficSign>
         );
 
         TrafficSignEffect(currTrafficTool);
-        trafficSign.isSnaped = true;
     }
 
     private void TrafficSignEffect(TrafficSign trafficSign)
     {
         switch (trafficSign)
         {
-            // case ForwardSign _:
-            //     TurnOffPath(leftPaths, rightPaths);
-            //     break;
+            case ForwardSign _:
+                SetPath(false, leftPaths, rightPaths);
+                SetPath(true, forwardPaths);
+                break;
 
-            // case LeftSign _:
-            //     TurnOffPath(forwardPaths, rightPaths);
-            //     break;
+            case LeftSign _:
+                SetPath(false, forwardPaths, rightPaths);
+                SetPath(true, leftPaths);
+                break;
 
-            // case RightSign _:
-            //     TurnOffPath(forwardPaths, leftPaths);
-            //     break;
+            case RightSign _:
+                SetPath(false, forwardPaths, leftPaths);
+                SetPath(true, rightPaths);
+                break;
 
-            // case NoLeftSign _:
-            //     TurnOffPath(leftPaths);
-            //     break;
+            case NoLeftSign _:
+                SetPath(false, leftPaths);
+                SetPath(true, rightPaths, forwardPaths);
+                break;
 
             case NoRightSign _:
-                TurnOffPath(false, rightPaths);
-                TurnOffPath(true, leftPaths, forwardPaths);
+                SetPath(false, rightPaths);
+                SetPath(true, leftPaths, forwardPaths);
                 break;
 
             case OneWaySign _:
-                TurnOffPath(false, leftPaths, rightPaths, forwardPaths);
+                SetPath(false, leftPaths, rightPaths, forwardPaths);
                 break;
         }
     }
 
-    private void TurnOffPath(bool available, params Path[][] arrPaths)
+    private void SetPath(bool available, params Path[][] arrPaths)
     {
         foreach (Path[] paths in arrPaths)
         {
@@ -96,6 +100,7 @@ public class TrafficSignSnapPoint : SnapPoint<TrafficSign>
             UnDoPath(leftPaths, rightPaths, forwardPaths);
             return;
         }
+
         foreach (Path[] paths in arrPaths)
         {
             foreach (Path path in paths)

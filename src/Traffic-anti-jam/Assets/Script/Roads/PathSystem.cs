@@ -20,6 +20,7 @@ public class PathSystem : MonoBehaviour
     public Path[] AvailablePaths => Paths.Where(s => s.Available).ToArray();
 
     public Path AvailablePath => Paths.FirstOrDefault(s => s.Available);
+    
 #if UNITY_EDITOR
     [NaughtyAttributes.Button]
     private void AddNewPath()

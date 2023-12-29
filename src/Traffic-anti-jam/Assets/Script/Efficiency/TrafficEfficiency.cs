@@ -80,8 +80,11 @@ public class TrafficEfficiency : MonoBehaviour
 
     private void Start()
     {
-        efficiencyVehicleCount = pathSystem.AvailablePaths.Sum(x => x.MaxVehicleEfficiency);
-        img_Fill.color = efficiencyColor.Good;
+        if (pathSystem)
+        {
+            efficiencyVehicleCount = pathSystem.AvailablePaths.Sum(x => x.MaxVehicleEfficiency);
+            img_Fill.color = efficiencyColor.Good;
+        }
     }
 
     private void OnDestroy()
