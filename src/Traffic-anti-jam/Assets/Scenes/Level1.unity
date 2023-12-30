@@ -39889,7 +39889,7 @@ PrefabInstance:
     - target: {fileID: 5659916493828174716, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 39.99999
+      value: 65.10341
       objectReference: {fileID: 0}
     - target: {fileID: 5778232095559889509, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -39929,7 +39929,7 @@ PrefabInstance:
     - target: {fileID: 5898200928021387295, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: field of view
-      value: 39.99999
+      value: 65.10341
       objectReference: {fileID: 0}
     - target: {fileID: 5930530848945535882, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -55294,7 +55294,7 @@ PrefabInstance:
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: <MaxVehicleEfficiency>k__BackingField
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 257434366583518621, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
