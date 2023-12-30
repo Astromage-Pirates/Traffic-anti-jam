@@ -241,12 +241,11 @@ public class Toolbar : MonoBehaviour
                 Destroy(trafficTool.gameObject);
             }
         }
-
         TrafficTools.Clear();
     }
 
     private void OnDestroy()
     {
-        eventBus.UnRegister<TrafficSignUIInteracted>(OnAddTraffictoolToList);
+        eventBus.UnRegister<TrafficToolUIInteracted>(OnAddTraffictoolToList);
     }
 }

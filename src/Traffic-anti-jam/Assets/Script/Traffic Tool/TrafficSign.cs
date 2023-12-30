@@ -16,6 +16,9 @@ public class TrafficSign : TrafficTool
 
     private void OnDestroy()
     {
-        trafficSignSnapPoint.UnDoPath();
+        if (trafficSignSnapPoint)
+        {
+            trafficSignSnapPoint.UnDoPath();
+        }
     }
 }

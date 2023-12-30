@@ -11259,6 +11259,31 @@ PrefabInstance:
       propertyPath: field of view
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 6209764150752604079, guid: 887fad59fd5ef544390c8f71d48f02b0,
+        type: 3}
+      propertyPath: axisX
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209764150752604079, guid: 887fad59fd5ef544390c8f71d48f02b0,
+        type: 3}
+      propertyPath: axisZ
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209764150752604079, guid: 887fad59fd5ef544390c8f71d48f02b0,
+        type: 3}
+      propertyPath: maxFoV
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209764150752604079, guid: 887fad59fd5ef544390c8f71d48f02b0,
+        type: 3}
+      propertyPath: minFoV
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209764150752604079, guid: 887fad59fd5ef544390c8f71d48f02b0,
+        type: 3}
+      propertyPath: rotateSoeed
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 7774866415081372419, guid: 887fad59fd5ef544390c8f71d48f02b0,
         type: 3}
       propertyPath: m_LocalRotation.y
