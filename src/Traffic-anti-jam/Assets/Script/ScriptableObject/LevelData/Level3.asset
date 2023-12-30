@@ -15,4 +15,4 @@ MonoBehaviour:
   highestScore: 0
   currScore: 0
   runTimeStage: 60
-  totalBudget: 60
+  totalBudget: 600
