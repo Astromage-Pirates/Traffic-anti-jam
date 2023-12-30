@@ -10,15 +10,15 @@ public class LoadSceneButton : MonoBehaviour
     [SerializeField]
     private Button btn_LoadScene;
 
-    [SerializeField] 
+    [SerializeField]
     private LevelManager levelManager;
 
     private void OnEnable()
     {
         btn_LoadScene.onClick.AddListener(OnBtnLoadSceneClicked);
-        if(levelManager.LevelData.currScore == 0)
+        if(levelManager)
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(levelManager.LevelData.currScore == 0  && levelManager.NextLevelData != null);
         }
     }
 
@@ -32,6 +32,7 @@ public class LoadSceneButton : MonoBehaviour
         if(levelManager == null)
         {
 			SceneManager.LoadScene("MainMenu");
+            return;
 		}
         if (levelManager.NextLevelData == null) return;
         SceneManager.LoadScene(levelManager.NextLevelData.name);
