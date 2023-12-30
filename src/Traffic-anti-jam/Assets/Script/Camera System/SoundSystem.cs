@@ -19,7 +19,10 @@ public class SoundSystem : MonoBehaviour
 
     private void ONAudioPlayed(AudioPlayed audioPlayed)
     {
-        audioSource.PlayOneShot(audioPlayed.audioClip);
+        audioSource.PlayOneShot(
+            audioPlayed.audioClip,
+            PlayerPrefs.GetFloat(SoundGroup.SfxVolume.ToString())
+        );
     }
 
     private void OnDestroy()
