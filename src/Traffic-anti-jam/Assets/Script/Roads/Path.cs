@@ -32,9 +32,6 @@ public class Path : MonoBehaviour
     [SerializeField]
     private Color color;
 
-    [field: SerializeField]
-    public int MaxVehicleEfficiency { get; private set; }
-
     private bool _available;
 
     // [NonSerialized]
