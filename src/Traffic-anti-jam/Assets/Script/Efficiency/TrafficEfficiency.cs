@@ -34,7 +34,7 @@ public class TrafficEfficiency : MonoBehaviour
     private const float GoodEfficiencyPercentage = 2f / 3f;
 
     [SerializeField]
-    private PathSystem pathSystem;
+    private PathSystem[] pathSystems;
 
     [SerializeField]
     private Slider sld_EfficencyBar;
@@ -80,9 +80,9 @@ public class TrafficEfficiency : MonoBehaviour
 
     private void Start()
     {
-        if (pathSystem)
+        if (pathSystems != null)
         {
-            efficiencyVehicleCount = pathSystem.AvailablePaths.Sum(x => x.MaxVehicleEfficiency);
+            efficiencyVehicleCount = pathSystems.Sum(x => x.MaxVehicleEfficiency);
             img_Fill.color = efficiencyColor.Good;
         }
     }
