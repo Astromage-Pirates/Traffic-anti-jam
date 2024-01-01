@@ -2255,7 +2255,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167365441}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3733,8 +3733,7 @@ MonoBehaviour:
   <InitAvailable>k__BackingField: 1
   meshRenderer: {fileID: 167365444}
   <MeshFilter>k__BackingField: {fileID: 0}
-  destinationIconPrefab: {fileID: 5177731149957370332, guid: 7227f35e31f1d4970981a460a50c8aeb,
-    type: 3}
+  destinationIcon: {fileID: 0}
 --- !u!1 &171749875
 GameObject:
   m_ObjectHideFlags: 0
@@ -20509,7 +20508,6 @@ MonoBehaviour:
   pathPrefab: {fileID: 0}
   <Paths>k__BackingField:
   - {fileID: 167365447}
-  - {fileID: 0}
   <MaxVehicleEfficiency>k__BackingField: 0
 --- !u!4 &1828566925
 Transform:
