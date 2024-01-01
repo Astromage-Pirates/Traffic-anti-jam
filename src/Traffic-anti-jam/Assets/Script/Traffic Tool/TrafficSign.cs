@@ -14,11 +14,12 @@ public class TrafficSign : TrafficTool
         }
     }
 
-    private void OnDestroy()
+    public override void DestroyTrafficTool()
     {
         if (trafficSignSnapPoint)
         {
             trafficSignSnapPoint.UnDoPath();
         }
+        base.DestroyTrafficTool();
     }
 }
