@@ -18,7 +18,7 @@ public class LoadSceneButton : MonoBehaviour
         btn_LoadScene.onClick.AddListener(OnBtnLoadSceneClicked);
         if(levelManager)
         {
-            gameObject.SetActive(levelManager.LevelData.currScore == 0  && levelManager.NextLevelData != null);
+            gameObject.SetActive(levelManager.LevelData.currScore != 0  && levelManager.NextLevelData != null);
         }
     }
 
