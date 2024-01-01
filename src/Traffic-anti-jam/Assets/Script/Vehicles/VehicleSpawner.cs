@@ -54,47 +54,46 @@ public class VehicleSpawner : MonoBehaviour
 
     private void Start()
     {
-        vehiclePool = new Pool<Vehicle>(
-            createFunc: () =>
-            {
-                var vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
-                var vehicle = Instantiate(vehiclePrefabs[vehicleIndex]);
-                vehicle.Pool = vehiclePool;
-
-                return vehicle;
-            },
-            actionOnGet: (vehicle) =>
-            {
-                vehicle.gameObject.SetActive(true);
-                var path = pathSystem.AvailablePath;
-
-                if (ShouldSpawnVehicle(path))
-                {
-                    vehicle.Path = path;
-
-                    vehicle.gameObject.SetActive(true);
-                    vehicle.transform.SetParent(path.transform, true);
-                    vehicle.transform.SetPositionAndRotation(
-                        path.EvaluatePosition(0),
-                        Quaternion.identity
-                    );
-
-                    currentVehicleCount += 1;
-
-                    eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount });
-                }
-            },
-            actionOnRelease: (vehicle) =>
-            {
-                vehicle.gameObject.SetActive(false);
-            },
-            actionOnDestroy: (vehicle) =>
-            {
-                Destroy(vehicle);
-            }
-        );
-
+        vehiclePool = new Pool<Vehicle>(CreateVehicle, GetVehicle, ReleaseVehicle, DestroyVehicle);
         InvokeRepeating(nameof(SpawnVehicle), 0f, spawningSeconds);
+    }
+
+    private Vehicle CreateVehicle()
+    {
+        var vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
+        var vehicle = Instantiate(vehiclePrefabs[vehicleIndex]);
+        vehicle.Pool = vehiclePool;
+
+        return vehicle;
+    }
+
+    private void GetVehicle(Vehicle vehicle)
+    {
+        vehicle.gameObject.SetActive(true);
+        var path = pathSystem.AvailablePath;
+
+        if (ShouldSpawnVehicle(path))
+        {
+            vehicle.Path = path;
+
+            vehicle.gameObject.SetActive(true);
+            vehicle.transform.SetParent(path.transform, true);
+            vehicle.transform.SetPositionAndRotation(path.EvaluatePosition(0), Quaternion.identity);
+
+            currentVehicleCount += 1;
+
+            eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount });
+        }
+    }
+
+    private void ReleaseVehicle(Vehicle vehicle)
+    {
+        vehicle.gameObject.SetActive(false);
+    }
+
+    private void DestroyVehicle(Vehicle vehicle)
+    {
+        Destroy(vehicle);
     }
 
     private void SpawnVehicle()
