@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31297147, g: 0.5498512, b: 0.82179445, a: 1}
+  m_IndirectSpecularColor: {r: 0.31281835, g: 0.5498868, b: 0.82140774, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6218,11 +6218,10 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 286346870}
   pathType: 0
   color: {r: 0.03964877, g: 1, b: 0, a: 1}
-  <MaxVehicleEfficiency>k__BackingField: 0
   <InitAvailable>k__BackingField: 1
   meshRenderer: {fileID: 286346871}
   <MeshFilter>k__BackingField: {fileID: 286346872}
-  cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
+  destinationIcon: {fileID: 5177731149957370332, guid: 7227f35e31f1d4970981a460a50c8aeb,
     type: 3}
 --- !u!114 &286346869
 MonoBehaviour:
@@ -11985,11 +11984,10 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 618699230}
   pathType: 0
   color: {r: 0.03964877, g: 1, b: 0, a: 1}
-  <MaxVehicleEfficiency>k__BackingField: 0
   <InitAvailable>k__BackingField: 0
   meshRenderer: {fileID: 618699229}
   <MeshFilter>k__BackingField: {fileID: 618699228}
-  cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
+  destinationIcon: {fileID: 5177731149957370332, guid: 7227f35e31f1d4970981a460a50c8aeb,
     type: 3}
 --- !u!33 &618699228
 MeshFilter:
@@ -14528,11 +14526,10 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 711375574}
   pathType: 0
   color: {r: 0, g: 0.3137255, b: 1, a: 0}
-  <MaxVehicleEfficiency>k__BackingField: 0
   <InitAvailable>k__BackingField: 1
   meshRenderer: {fileID: 711375575}
   <MeshFilter>k__BackingField: {fileID: 711375576}
-  cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
+  destinationIcon: {fileID: 5177731149957370332, guid: 7227f35e31f1d4970981a460a50c8aeb,
     type: 3}
 --- !u!114 &711375573
 MonoBehaviour:
@@ -17765,11 +17762,10 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 814188642}
   pathType: 0
   color: {r: 1, g: 0, b: 0, a: 0}
-  <MaxVehicleEfficiency>k__BackingField: 0
   <InitAvailable>k__BackingField: 1
   meshRenderer: {fileID: 814188641}
   <MeshFilter>k__BackingField: {fileID: 814188640}
-  cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
+  destinationIcon: {fileID: 5177731149957370332, guid: 7227f35e31f1d4970981a460a50c8aeb,
     type: 3}
 --- !u!33 &814188640
 MeshFilter:
@@ -30288,11 +30284,10 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 1382530666}
   pathType: 0
   color: {r: 1, g: 0, b: 0, a: 0}
-  <MaxVehicleEfficiency>k__BackingField: 0
   <InitAvailable>k__BackingField: 0
   meshRenderer: {fileID: 1382530667}
   <MeshFilter>k__BackingField: {fileID: 1382530668}
-  cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
+  destinationIcon: {fileID: 5177731149957370332, guid: 7227f35e31f1d4970981a460a50c8aeb,
     type: 3}
 --- !u!114 &1382530665
 MonoBehaviour:
@@ -32290,6 +32285,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5659916493828174716, guid: 9bde8630c89a486449bddae4da1b423a,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 79.99847
+      objectReference: {fileID: 0}
     - target: {fileID: 5797317679534034262, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -32319,6 +32319,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898200928021387295, guid: 9bde8630c89a486449bddae4da1b423a,
+        type: 3}
+      propertyPath: field of view
+      value: 79.99847
       objectReference: {fileID: 0}
     - target: {fileID: 5930530848945535882, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -44208,11 +44213,10 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 2035266071}
   pathType: 0
   color: {r: 1, g: 0.9557635, b: 0, a: 1}
-  <MaxVehicleEfficiency>k__BackingField: 0
   <InitAvailable>k__BackingField: 1
   meshRenderer: {fileID: 2035266070}
   <MeshFilter>k__BackingField: {fileID: 2035266069}
-  cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
+  destinationIcon: {fileID: 5177731149957370332, guid: 7227f35e31f1d4970981a460a50c8aeb,
     type: 3}
 --- !u!33 &2035266069
 MeshFilter:
