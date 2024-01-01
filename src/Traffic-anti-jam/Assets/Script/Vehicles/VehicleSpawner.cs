@@ -39,7 +39,7 @@ public class VehicleSpawner : MonoBehaviour
         eventBus.UnRegister<PlayStageEnded>(OnPlayStageEnded);
         eventBus.UnRegister<LevelStateChanged>(OnLevelStateChanged);
 
-        vehiclePool.Clear();
+        vehiclePool?.Clear();
     }
 
     private void OnLevelStateChanged(LevelStateChanged levelState)
