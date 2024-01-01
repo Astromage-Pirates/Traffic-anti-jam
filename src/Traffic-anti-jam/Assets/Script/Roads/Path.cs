@@ -88,19 +88,22 @@ public class Path : MonoBehaviour
 
     private void SetDestinationObject()
     {
-        var desiredPosition = new Vector3(
-            EvaluatePosition(1).x,
-            destinationIcon.transform.position.y,
-            EvaluatePosition(1).z
-        );
+        if (destinationIcon != null)
+        {
+            var desiredPosition = new Vector3(
+                EvaluatePosition(1).x,
+                destinationIcon.transform.position.y,
+                EvaluatePosition(1).z
+            );
 
-        var icon = Instantiate(
-            destinationIcon,
-            desiredPosition,
-            Quaternion.identity,
-            transform
-        );
-        icon.Renderer.material.color = color;
+            var icon = Instantiate(
+                destinationIcon,
+                desiredPosition,
+                Quaternion.identity,
+                transform
+            );
+            icon.Renderer.material.color = color;
+        }
     }
 
     private void Update()
