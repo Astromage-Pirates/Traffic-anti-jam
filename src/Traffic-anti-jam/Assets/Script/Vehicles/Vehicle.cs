@@ -197,7 +197,7 @@ public class Vehicle : MonoBehaviour
         if (IsAtDestination)
         {
             distancePercentage = 0f;
-            Pool.Release(this);
+            Pool?.Release(this);
 
             if (isLevelPlayed)
             {

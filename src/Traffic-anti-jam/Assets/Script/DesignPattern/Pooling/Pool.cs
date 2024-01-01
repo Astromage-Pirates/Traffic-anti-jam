@@ -136,6 +136,7 @@ public class Pool<T> : IDisposable
         else
         {
             actionOnDestroy?.Invoke(element);
+            CountAll -= 1;
         }
     }
 
