@@ -1169,6 +1169,7 @@ MonoBehaviour:
   - {fileID: 5088788386729801511}
   - {fileID: 5133905753433973519}
   - {fileID: 6728666475446054534}
+  <PathSystems>k__BackingField: []
 --- !u!114 &1104992036117859327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10589,7 +10590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb129ae32a394899972165be127e216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathSystems: []
+  levelManager: {fileID: 1599593899689537183}
   sld_EfficencyBar: {fileID: 4859916876851564744}
   img_Fill: {fileID: 4964007458712706071}
   transitionDuration: 0.2

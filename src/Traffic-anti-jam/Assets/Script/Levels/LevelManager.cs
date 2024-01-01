@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Linq;
 using AstroPirate.DesignPatterns;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -47,6 +48,12 @@ public class LevelManager : MonoBehaviour
     private List<GameObject> medals;
     private CancellationTokenSource cts;
 
+    /// <summary>
+    /// List of <see cref="PathSystem"/>s of this level.
+    /// </summary>
+    [field: SerializeField]
+    public PathSystem[] PathSystems { get; private set; }
+
     private void Awake()
     {
         overCanvas.SetActive(false);
@@ -65,12 +72,15 @@ public class LevelManager : MonoBehaviour
     }
 
     private void OnBtnPlayPressed()
-    {
-        ambientSoundAudioSource.Play();
-        btn_Play.interactable = false;
-        scrollView_Toolbar.gameObject.SetActive(false);
-        eventBus.Send(new LevelStateChanged { IsPlay = true });
-        StartPlayStageEnded().Forget();
+{
+        if (!PathSystems.Any(p => p.AvailablePaths.IsEmpty()))
+        {
+            ambientSoundAudioSource.Play();
+            btn_Play.interactable = false;
+            scrollView_Toolbar.gameObject.SetActive(false);
+            eventBus.Send(new LevelStateChanged { IsPlay = true });
+            StartPlayStageEnded().Forget();
+        }
     }
 
     private async UniTaskVoid StartPlayStageEnded()
