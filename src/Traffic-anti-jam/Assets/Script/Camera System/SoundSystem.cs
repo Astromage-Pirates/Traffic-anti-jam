@@ -28,6 +28,5 @@ public class SoundSystem : MonoBehaviour
     private void OnDestroy()
     {
         eventBus.UnRegister<AudioPlayed>(ONAudioPlayed);
-        eventBus.Register<AudioPlayed>(ONAudioPlayed);
     }
 }
