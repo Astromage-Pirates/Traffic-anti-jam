@@ -199,10 +199,7 @@ public class Vehicle : MonoBehaviour
             distancePercentage = 0f;
             Pool?.Release(this);
 
-            if (isLevelPlayed)
-            {
-                eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount - 1 });
-            }
+            eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount - 1 });
         }
     }
 
