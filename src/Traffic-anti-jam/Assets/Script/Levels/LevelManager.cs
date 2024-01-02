@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using AstroPirate.DesignPatterns;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -23,7 +24,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField]
     private LevelData levelData;
-    
+
     [SerializeField]
     private LevelData nextlevelData;
 
@@ -32,17 +33,19 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField]
     private GameObject overCanvas;
-    
+
     [SerializeField]
     private GameObject victoryOverCanvas;
 
     [SerializeField]
     private GameObject trafficJamOverCanvas;
-    
+
     [SerializeField]
     private List<Toggle> stars;
+
     [SerializeField]
     private List<GameObject> medals;
+    private CancellationTokenSource cts;
 
     private void Awake()
     {
@@ -72,33 +75,41 @@ public class LevelManager : MonoBehaviour
 
     private async UniTaskVoid StartPlayStageEnded()
     {
-        await UniTask.Delay(TimeSpan.FromSeconds(levelData.runTimeStage));
+        cts = new();
+        await UniTask.Delay(
+            TimeSpan.FromSeconds(levelData.runTimeStage),
+            cancellationToken: cts.Token
+        );
         eventBus.Send(new PlayStageEnded());
     }
 
     private void OnShowOverCanvas(PlayStageEnded playStageEnded)
     {
-		for (int i = 0; i < levelData.currScore; i++)
-		{
-			this.stars[i].isOn = true;
-		}
-		for (int i = levelData.currScore; i < this.stars.Count; i++)
-		{
-			this.stars[i].isOn = false;
-		}
-        
-        for (int i = 0; i < medals.Count; i++)
-		{
-            medals[i].SetActive(i == levelData.currScore - 1);
-		}
+        for (int i = 0; i < levelData.currScore; i++)
+        {
+            this.stars[i].isOn = true;
+        }
+        for (int i = levelData.currScore; i < this.stars.Count; i++)
+        {
+            this.stars[i].isOn = false;
+        }
 
-		victoryOverCanvas.SetActive(levelData.currScore > 0);
-		trafficJamOverCanvas.SetActive(levelData.currScore == 0);
-		overCanvas.SetActive(true);
+        for (int i = 0; i < medals.Count; i++)
+        {
+            medals[i].SetActive(i == levelData.currScore - 1);
+        }
+
+        victoryOverCanvas.SetActive(levelData.currScore > 0);
+        trafficJamOverCanvas.SetActive(levelData.currScore == 0);
+        overCanvas.SetActive(true);
     }
 
     private void OnDestroy()
     {
         eventBus.UnRegister<PlayStageEnded>(OnShowOverCanvas);
+        if (cts is not null)
+        {
+            cts.Cancel();
+        }
     }
 }

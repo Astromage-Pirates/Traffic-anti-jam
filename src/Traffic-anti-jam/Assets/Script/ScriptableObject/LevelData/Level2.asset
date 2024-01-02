@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec17859b85e0dc42b9b978445c32eee, type: 3}
   m_Name: Level2
   m_EditorClassIdentifier: 
-  highestScore: 0
-  currScore: 0
-  runTimeStage: 60
+  highestScore: 3
+  currScore: 3
+  runTimeStage: 90
   totalBudget: 400

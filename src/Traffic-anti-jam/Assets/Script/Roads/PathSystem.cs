@@ -24,6 +24,21 @@ public class PathSystem : MonoBehaviour
 
     public Path AvailablePath => Paths.FirstOrDefault(s => s.Available);
 
+    private void Update()
+    {
+        if (AvailablePaths.Length > 1)
+        {
+            foreach (var path in AvailablePaths)
+            {
+                if (path.InitAvailable)
+                {
+                    continue;
+                }
+                path.Available = false;
+            }
+        }
+    }
+
 #if UNITY_EDITOR
     [NaughtyAttributes.Button]
     private void AddNewPath()
