@@ -84,6 +84,10 @@ public class VehicleSpawner : MonoBehaviour
 
             eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount });
         }
+        else
+        {
+            vehiclePool.Release(vehicle);
+        }
     }
 
     private void ReleaseVehicle(Vehicle vehicle)
