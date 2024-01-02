@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Sides: 8
   m_SegmentsPerUnit: 100
   m_Capped: 1
-  m_Radius: 0.3
+  m_Radius: 0.05
   m_Range: {x: 0, y: 1}
 --- !u!114 &7258746964836329429
 MonoBehaviour:
@@ -162,9 +162,8 @@ MonoBehaviour:
   <Container>k__BackingField: {fileID: 2194833583937419382}
   pathType: 0
   color: {r: 0, g: 0, b: 0, a: 0}
-  <MaxVehicleEfficiency>k__BackingField: 0
-  <Available>k__BackingField: 1
+  <InitAvailable>k__BackingField: 0
   meshRenderer: {fileID: 3640813290111301131}
   <MeshFilter>k__BackingField: {fileID: 3751252918405034073}
-  cnv_Destination: {fileID: 1199188035848081139, guid: 3b3575ce6fe9e45ff861c20bec9a44b3,
+  destinationIcon: {fileID: 5177731149957370332, guid: 7227f35e31f1d4970981a460a50c8aeb,
     type: 3}
