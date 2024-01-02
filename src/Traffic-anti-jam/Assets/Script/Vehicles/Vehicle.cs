@@ -1,8 +1,5 @@
-using System;
 using AstroPirate.DesignPatterns;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 /// <summary>
 /// Represents transporting means.
@@ -35,6 +32,11 @@ public class Vehicle : MonoBehaviour
     /// The path for <see cref="Vehicle"/> to move.
     /// </summary>
     public Path Path { get; set; }
+
+    /// <summary>
+    /// The <see cref="Pool{T}"/> that contains this <see cref="Vehicle"/>.
+    /// </summary>
+    public Pool<Vehicle> Pool { get; set; }
 
     private float distancePercentage;
     private bool stopBySign;
@@ -194,7 +196,8 @@ public class Vehicle : MonoBehaviour
     {
         if (IsAtDestination)
         {
-            Destroy(gameObject);
+            distancePercentage = 0f;
+            Pool?.Release(this);
 
             if (isLevelPlayed)
             {
