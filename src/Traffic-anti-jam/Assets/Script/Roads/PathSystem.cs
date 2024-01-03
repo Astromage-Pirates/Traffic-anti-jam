@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -17,12 +16,23 @@ public class PathSystem : MonoBehaviour
     [field: SerializeField]
     public int MaxVehicleEfficiency { get; private set; }
 
+    [Header("Warning Message")]
+    [SerializeField]
+    private Canvas cnv_Warning;
+
     /// <summary>
     /// Get list of available <see cref="Path"/>s.
     /// </summary>
     public Path[] AvailablePaths => Paths.Where(s => s.Available).ToArray();
 
     public Path AvailablePath => Paths.FirstOrDefault(s => s.Available);
+
+    private Path initialAvailablePath;
+
+    private void Start()
+    {
+        initialAvailablePath = AvailablePath;
+    }
 
     private void Update()
     {
@@ -36,6 +46,17 @@ public class PathSystem : MonoBehaviour
                 }
                 path.Available = false;
             }
+        }
+
+        if (cnv_Warning)
+        {
+            cnv_Warning.enabled = AvailablePaths.IsEmpty();
+            var pathPosition = initialAvailablePath.EvaluatePosition(1);
+            cnv_Warning.transform.position = new Vector3(
+                pathPosition.x,
+                cnv_Warning.transform.position.y,
+                pathPosition.z
+            );
         }
     }
 
