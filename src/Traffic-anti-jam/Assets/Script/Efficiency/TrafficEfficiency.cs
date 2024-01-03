@@ -71,6 +71,21 @@ public class TrafficEfficiency : MonoBehaviour
         }
     }
 
+    private IEventBus eventBus;
+
+    private bool isPlayed = false;
+
+    private void Awake()
+    {
+        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
+        eventBus.Register<LevelStateChanged>(OnStateChanged);
+    }
+
+    private void OnDestroy()
+    {
+        eventBus.UnRegister<LevelStateChanged>(OnStateChanged);
+    }
+
     private void Start()
     {
         if (levelManager.PathSystems != null)
@@ -82,20 +97,30 @@ public class TrafficEfficiency : MonoBehaviour
 
     private void Update()
     {
-        var wrostEfficiency = (efficiencyVehicleCount + 1) * 3f / 2f;
-        efficiencyPercentage =
-            1f - pathSystems.Sum(x => x.AvailablePath.VehiclesOnPath.Count()) / wrostEfficiency;
+        if (isPlayed)
+        {
+            var wrostEfficiency = (efficiencyVehicleCount + 1) * 3f / 2f;
+            efficiencyPercentage =
+                1f
+                - levelManager.PathSystems.Sum(x => x.AvailablePath.VehiclesOnPath.Count())
+                    / wrostEfficiency;
 
-        DOVirtual.Float(
-            sld_EfficencyBar.value,
-            efficiencyPercentage,
-            transitionDuration,
-            value =>
-            {
-                sld_EfficencyBar.value = value;
-                ChangeSlideColor(value);
-            }
-        );
+            DOVirtual.Float(
+                sld_EfficencyBar.value,
+                efficiencyPercentage,
+                transitionDuration,
+                value =>
+                {
+                    sld_EfficencyBar.value = value;
+                    ChangeSlideColor(value);
+                }
+            );
+        }
+    }
+
+    private void OnStateChanged(LevelStateChanged levelStateChanged)
+    {
+        isPlayed = levelStateChanged.IsPlay;
     }
 
     private void ChangeSlideColor(float value)

@@ -54,6 +54,9 @@ public class LevelManager : MonoBehaviour
     [field: SerializeField]
     public PathSystem[] PathSystems { get; private set; }
 
+    [SerializeField]
+    private ScoringSystem scoringSystem;
+
     private void Awake()
     {
         overCanvas.SetActive(false);
@@ -95,6 +98,8 @@ public class LevelManager : MonoBehaviour
 
     private void OnShowOverCanvas(PlayStageEnded playStageEnded)
     {
+        scoringSystem.ScoreCaluculated();
+
         for (int i = 0; i < levelData.currScore; i++)
         {
             this.stars[i].isOn = true;
