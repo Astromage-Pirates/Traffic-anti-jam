@@ -49,7 +49,6 @@ public class TrafficEfficiency : MonoBehaviour
     private EfficiencyColor efficiencyColor;
 
     private int efficiencyVehicleCount;
-    private IEventBus eventBus;
     private float efficiencyPercentage;
 
     /// <summary>
@@ -72,12 +71,6 @@ public class TrafficEfficiency : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        GlobalServiceContainer.Resolve(out eventBus);
-        eventBus.Register<VehicleSpawned>(OnVehicleSpawned);
-    }
-
     private void Start()
     {
         if (pathSystems != null)
@@ -87,15 +80,11 @@ public class TrafficEfficiency : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void Update()
     {
-        eventBus.UnRegister<VehicleSpawned>(OnVehicleSpawned);
-    }
-
-    private void OnVehicleSpawned(VehicleSpawned vehicleSpawned)
-    {
-        var leastEfficiency = (efficiencyVehicleCount + 1) * 3f / 2f;
-        efficiencyPercentage = 1f - vehicleSpawned.CurrentVehicleCount / leastEfficiency;
+        var wrostEfficiency = (efficiencyVehicleCount + 1) * 3f / 2f;
+        efficiencyPercentage =
+            1f - pathSystems.Sum(x => x.AvailablePath.VehiclesOnPath.Count()) / wrostEfficiency;
 
         DOVirtual.Float(
             sld_EfficencyBar.value,

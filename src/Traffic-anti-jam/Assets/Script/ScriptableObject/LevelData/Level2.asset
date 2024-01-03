@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highestScore: 3
   currScore: 3
-  runTimeStage: 90
+  runTimeStage: 60
   totalBudget: 400

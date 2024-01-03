@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31281835, g: 0.5498868, b: 0.82140774, a: 1}
+  m_IndirectSpecularColor: {r: 0.31297147, g: 0.5498512, b: 0.82179445, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -504,6 +504,11 @@ PrefabInstance:
       propertyPath: '<Paths>k__BackingField.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
+        type: 3}
+      propertyPath: <MaxVehicleEfficiency>k__BackingField
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 257434366583518621, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: m_Name
@@ -512,7 +517,7 @@ PrefabInstance:
     - target: {fileID: 5393990487853268055, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: spawningSeconds
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8394549189987490690, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
@@ -11426,6 +11431,11 @@ PrefabInstance:
       propertyPath: '<Paths>k__BackingField.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
+        type: 3}
+      propertyPath: <MaxVehicleEfficiency>k__BackingField
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 257434366583518621, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: m_Name
@@ -11434,7 +11444,7 @@ PrefabInstance:
     - target: {fileID: 5393990487853268055, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: spawningSeconds
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8394549189987490690, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
@@ -13601,6 +13611,11 @@ PrefabInstance:
       propertyPath: '<Paths>k__BackingField.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
+        type: 3}
+      propertyPath: <MaxVehicleEfficiency>k__BackingField
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 257434366583518621, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: m_Name
@@ -13609,7 +13624,7 @@ PrefabInstance:
     - target: {fileID: 5393990487853268055, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: spawningSeconds
-      value: 3
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 8394549189987490690, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
@@ -20874,6 +20889,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 952306543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &962894460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1315025864}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f344d0f8a5f0b4a80a47e9946d8e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &969922725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21592,6 +21619,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 577928338}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &995043893 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
+    type: 3}
+  m_PrefabInstance: {fileID: 577928338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f344d0f8a5f0b4a80a47e9946d8e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &999864789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26159,6 +26198,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 40636435}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1214826313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
+    type: 3}
+  m_PrefabInstance: {fileID: 40636435}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f344d0f8a5f0b4a80a47e9946d8e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1224529293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28914,6 +28965,11 @@ PrefabInstance:
       propertyPath: '<Paths>k__BackingField.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
+        type: 3}
+      propertyPath: <MaxVehicleEfficiency>k__BackingField
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 257434366583518621, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: m_Name
@@ -28922,7 +28978,7 @@ PrefabInstance:
     - target: {fileID: 5393990487853268055, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: spawningSeconds
-      value: 3
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 8394549189987490690, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
@@ -32405,6 +32461,31 @@ PrefabInstance:
       propertyPath: pathSystem
       value: 
       objectReference: {fileID: 1501039075}
+    - target: {fileID: 6875551491302267360, guid: 9bde8630c89a486449bddae4da1b423a,
+        type: 3}
+      propertyPath: pathSystems.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875551491302267360, guid: 9bde8630c89a486449bddae4da1b423a,
+        type: 3}
+      propertyPath: 'pathSystems.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1501039075}
+    - target: {fileID: 6875551491302267360, guid: 9bde8630c89a486449bddae4da1b423a,
+        type: 3}
+      propertyPath: 'pathSystems.Array.data[1]'
+      value: 
+      objectReference: {fileID: 962894460}
+    - target: {fileID: 6875551491302267360, guid: 9bde8630c89a486449bddae4da1b423a,
+        type: 3}
+      propertyPath: 'pathSystems.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1214826313}
+    - target: {fileID: 6875551491302267360, guid: 9bde8630c89a486449bddae4da1b423a,
+        type: 3}
+      propertyPath: 'pathSystems.Array.data[3]'
+      value: 
+      objectReference: {fileID: 995043893}
     - target: {fileID: 7072980283734009755, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_SizeDelta.y
