@@ -143,7 +143,7 @@ public class TrafficLight : TrafficTool
         {
             foreach (TrafficLight trafficLight in trafficLightChildren)
             {
-                if (trafficLight.gameObject)
+                if (trafficLight)
                 {
                     Destroy(trafficLight.gameObject);
                 }

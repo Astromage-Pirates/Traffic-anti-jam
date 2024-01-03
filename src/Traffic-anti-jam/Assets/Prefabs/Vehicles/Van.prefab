@@ -394,11 +394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044859e35a7ad450bb4656658435f9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rgbody: {fileID: 1325823861036710415}
   collisionCheckDistance: 7
   minDistance: 0.8
   boxHalfExtent: {x: 0.3, y: 1, z: 0.2}
-  velocity: 10
+  velocity: 15
   raycastAnchor: {fileID: 743083646484867488}
 --- !u!1001 &7093177906491887563
 PrefabInstance:
