@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrafficSign : TrafficTool
 {
-    private TrafficSignSnapPoint trafficSignSnapPoint;
+    public TrafficSignSnapPoint trafficSignSnapPoint;
 
     private void OnTriggerEnter(Collider other)
     {

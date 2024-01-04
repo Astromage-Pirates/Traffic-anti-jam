@@ -238,6 +238,10 @@ public class Toolbar : MonoBehaviour
             if (trafficTool)
             {
                 eventBus.Send(new BudgetCost() { trafficTool = trafficTool, intSign = -1 });
+                if (trafficTool is TrafficSign trafficSign && trafficSign.trafficSignSnapPoint)
+                {
+                    trafficSign.trafficSignSnapPoint.UnDoPath();
+                }
                 Destroy(trafficTool.gameObject);
             }
         }
