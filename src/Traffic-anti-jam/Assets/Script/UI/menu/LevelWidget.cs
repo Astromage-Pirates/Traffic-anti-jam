@@ -11,6 +11,9 @@ public class LevelWidget : MonoBehaviour
     [SerializeField]
     private Button btn_Play;
 
+    [SerializeField]
+    private Image img_bg;
+
     private LevelData data;
 
     private void OnEnable()
@@ -40,5 +43,6 @@ public class LevelWidget : MonoBehaviour
         {
             this.stars[i].isOn = false;
         }
+        img_bg.sprite = data.image;
     }
 }

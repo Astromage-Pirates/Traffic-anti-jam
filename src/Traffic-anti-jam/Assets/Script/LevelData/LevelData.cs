@@ -7,4 +7,5 @@ public class LevelData : ScriptableObject
     public int currScore;
     public int runTimeStage;
     public int totalBudget;
+    public Sprite image;
 }
