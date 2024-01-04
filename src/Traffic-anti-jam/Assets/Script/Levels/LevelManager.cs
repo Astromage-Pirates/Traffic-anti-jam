@@ -75,7 +75,7 @@ public class LevelManager : MonoBehaviour
     }
 
     private void OnBtnPlayPressed()
-{
+    {
         if (!PathSystems.Any(p => p.AvailablePaths.IsEmpty()))
         {
             ambientSoundAudioSource.Play();
@@ -94,6 +94,7 @@ public class LevelManager : MonoBehaviour
             cancellationToken: cts.Token
         );
         eventBus.Send(new PlayStageEnded());
+        eventBus.Send(new LevelStateChanged() { IsPlay = false });
     }
 
     private void OnShowOverCanvas(PlayStageEnded playStageEnded)

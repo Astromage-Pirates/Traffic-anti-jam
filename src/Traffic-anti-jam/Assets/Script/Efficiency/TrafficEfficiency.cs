@@ -31,7 +31,7 @@ public class TrafficEfficiency : MonoBehaviour
     }
 
     private const float BadEfficiencyPercentage = 1f / 3f;
-    private const float GoodEfficiencyPercentage = 2f / 3f;
+    private const float GoodEfficiencyPercentage = 1f / 2f;
 
     [SerializeField]
     private LevelManager levelManager;
@@ -99,11 +99,11 @@ public class TrafficEfficiency : MonoBehaviour
     {
         if (isPlayed)
         {
-            var wrostEfficiency = (efficiencyVehicleCount + 1) * 3f / 2f;
+            var worstEfficiency = (efficiencyVehicleCount + 1) * 3f / 2f;
             efficiencyPercentage =
                 1f
                 - levelManager.PathSystems.Sum(x => x.AvailablePath.VehiclesOnPath.Count())
-                    / wrostEfficiency;
+                    / worstEfficiency;
 
             DOVirtual.Float(
                 sld_EfficencyBar.value,

@@ -707,7 +707,7 @@ MonoBehaviour:
   disc: {fileID: 4533059609133281309}
   traficToolCanvas: {fileID: 4670790641894073502}
   outline: {fileID: 3434883037220987015}
-  cost: 100
+  cost: 50
 --- !u!1001 &4533068158077804735
 PrefabInstance:
   m_ObjectHideFlags: 0

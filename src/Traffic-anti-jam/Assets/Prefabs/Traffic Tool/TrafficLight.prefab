@@ -251,7 +251,7 @@ MonoBehaviour:
   redLightUI: {fileID: 6054787255233912076}
   greenLightUI: {fileID: 589651726543246070}
   lightStage: 0
-  lightStageDuration: 3
+  lightStageDuration: 2
 --- !u!114 &7405265207540181437
 MonoBehaviour:
   m_ObjectHideFlags: 0
