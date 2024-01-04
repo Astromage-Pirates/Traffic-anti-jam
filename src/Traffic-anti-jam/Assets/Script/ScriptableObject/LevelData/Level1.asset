@@ -15,4 +15,5 @@ MonoBehaviour:
   highestScore: 0
   currScore: 0
   runTimeStage: 40
-  totalBudget: 300
+  totalBudget: 350
+  image: {fileID: 21300000, guid: f8d89295596fa5b488c90b65d0cc5236, type: 3}
