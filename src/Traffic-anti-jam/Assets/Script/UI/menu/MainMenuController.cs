@@ -6,23 +6,29 @@ using UnityEngine.UI;
 public class MainMenuController : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] Animator animator;
-    [SerializeField] List<LevelData> levelData;
+    [SerializeField]
+    Animator animator;
 
+    [SerializeField]
+    List<LevelData> levelData;
 
-    [SerializeField] LevelWidget levelWidgetPrefab;
-    [SerializeField] GridLayoutGroup levelSelectGrid;
+    [SerializeField]
+    LevelWidget levelWidgetPrefab;
 
-	private void Start()
-	{
-        LoadLevelSelect();
-		animator.SetTrigger("MainMenu");
-	}
-	public void LoadLevelSelect()
+    [SerializeField]
+    GridLayoutGroup levelSelectGrid;
+
+    private void Start()
     {
-        foreach(var data in levelData)
+        LoadLevelSelect();
+        animator.SetTrigger("MainMenu");
+    }
+
+    public void LoadLevelSelect()
+    {
+        foreach (var data in levelData)
         {
-            var go = Instantiate<LevelWidget>(levelWidgetPrefab,levelSelectGrid.transform);
+            var go = Instantiate<LevelWidget>(levelWidgetPrefab, levelSelectGrid.transform);
 
             go.Init(data);
         }
@@ -32,27 +38,40 @@ public class MainMenuController : MonoBehaviour
     {
         animator.SetTrigger("MainMenu");
         animator.SetTrigger("LevelSelect");
-	}
+    }
 
     public void Setting()
     {
-		animator.SetTrigger("MainMenu");
-		animator.SetTrigger("Setting");
-	}
+        animator.SetTrigger("MainMenu");
+        animator.SetTrigger("Setting");
+    }
+
+    public void Tutorial()
+    {
+        animator.SetTrigger("MainMenu");
+        animator.SetTrigger("Tutorial");
+    }
 
     public void BackFromPlay()
     {
         animator.SetTrigger("MainMenu");
         animator.SetTrigger("LevelSelect");
     }
+
     public void BackFromSetting()
     {
         animator.SetTrigger("MainMenu");
         animator.SetTrigger("Setting");
     }
 
+    public void BackFromTutorial()
+    {
+        animator.SetTrigger("MainMenu");
+        animator.SetTrigger("Tutorial");
+    }
+
     public void Exit()
     {
-
+        Application.Quit();
     }
 }
