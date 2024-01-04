@@ -31,7 +31,7 @@ public class TrafficEfficiency : MonoBehaviour
     }
 
     private const float BadEfficiencyPercentage = 1f / 3f;
-    private const float GoodEfficiencyPercentage = 2f / 3f;
+    private const float GoodEfficiencyPercentage = 1f / 2f;
 
     [SerializeField]
     private LevelManager levelManager;
@@ -49,7 +49,6 @@ public class TrafficEfficiency : MonoBehaviour
     private EfficiencyColor efficiencyColor;
 
     private int efficiencyVehicleCount;
-    private IEventBus eventBus;
     private float efficiencyPercentage;
 
     /// <summary>
@@ -72,10 +71,19 @@ public class TrafficEfficiency : MonoBehaviour
         }
     }
 
+    private IEventBus eventBus;
+
+    private bool isPlayed = false;
+
     private void Awake()
     {
-        GlobalServiceContainer.Resolve(out eventBus);
-        eventBus.Register<VehicleSpawned>(OnVehicleSpawned);
+        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
+        eventBus.Register<LevelStateChanged>(OnStateChanged);
+    }
+
+    private void OnDestroy()
+    {
+        eventBus.UnRegister<LevelStateChanged>(OnStateChanged);
     }
 
     private void Start()
@@ -87,26 +95,32 @@ public class TrafficEfficiency : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void Update()
     {
-        eventBus.UnRegister<VehicleSpawned>(OnVehicleSpawned);
+        if (isPlayed)
+        {
+            var worstEfficiency = (efficiencyVehicleCount + 1) * 3f / 2f;
+            efficiencyPercentage =
+                1f
+                - levelManager.PathSystems.Sum(x => x.AvailablePath.VehiclesOnPath.Count())
+                    / worstEfficiency;
+
+            DOVirtual.Float(
+                sld_EfficencyBar.value,
+                efficiencyPercentage,
+                transitionDuration,
+                value =>
+                {
+                    sld_EfficencyBar.value = value;
+                    ChangeSlideColor(value);
+                }
+            );
+        }
     }
 
-    private void OnVehicleSpawned(VehicleSpawned vehicleSpawned)
+    private void OnStateChanged(LevelStateChanged levelStateChanged)
     {
-        var leastEfficiency = (efficiencyVehicleCount + 1) * 3f / 2f;
-        efficiencyPercentage = 1f - vehicleSpawned.CurrentVehicleCount / leastEfficiency;
-
-        DOVirtual.Float(
-            sld_EfficencyBar.value,
-            efficiencyPercentage,
-            transitionDuration,
-            value =>
-            {
-                sld_EfficencyBar.value = value;
-                ChangeSlideColor(value);
-            }
-        );
+        isPlayed = levelStateChanged.IsPlay;
     }
 
     private void ChangeSlideColor(float value)

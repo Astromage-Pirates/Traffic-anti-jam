@@ -41,32 +41,7 @@ public class Vehicle : MonoBehaviour
     private float distancePercentage;
     private bool stopBySign;
     private int currentVehicleCount;
-    private IEventBus eventBus;
     private float velocityModifier;
-    private bool isLevelPlayed;
-
-    private void Awake()
-    {
-        GlobalServiceContainer.Resolve(out eventBus);
-        eventBus.Register<VehicleSpawned>(OnVehicleSpawned);
-        eventBus.Register<LevelStateChanged>(OnLevelStageChanged);
-        eventBus.Register<PlayStageEnded>(OnPlayStageEnded);
-    }
-
-    private void OnLevelStageChanged(LevelStateChanged levelState)
-    {
-        isLevelPlayed = levelState.IsPlay;
-    }
-
-    private void OnPlayStageEnded(PlayStageEnded ended)
-    {
-        isLevelPlayed = false;
-    }
-
-    private void OnDestroy()
-    {
-        eventBus.UnRegister<VehicleSpawned>(OnVehicleSpawned);
-    }
 
     private void Start()
     {
@@ -198,8 +173,6 @@ public class Vehicle : MonoBehaviour
         {
             distancePercentage = 0f;
             Pool?.Release(this);
-
-            eventBus.Send(new VehicleSpawned { CurrentVehicleCount = currentVehicleCount - 1 });
         }
     }
 

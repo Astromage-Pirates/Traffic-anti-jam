@@ -22,23 +22,12 @@ public class ScoringSystem : MonoBehaviour
 
     private IEventBus eventBus;
 
-    private void Awake()
+    private void Start()
     {
-        GlobalServiceContainer.Resolve<IEventBus>(out eventBus);
-        eventBus.Register<PlayStageEnded>(OnPlayStageEnded);
-    }
-
-	private void Start()
-	{
         levelData = levelManager.LevelData;
-	}
-
-	private void OnPlayStageEnded(PlayStageEnded playStageEnded)
-    {
-        ScoreCaluculated();
     }
 
-    private int ScoreCaluculated()
+    public int ScoreCaluculated()
     {
         int score = levelData.currScore = 0;
 
@@ -63,10 +52,5 @@ public class ScoringSystem : MonoBehaviour
         PlayerPrefs.SetInt(levelData.name + ".highScore", levelData.highestScore);
 
         return levelData.currScore = score;
-    }
-
-    private void OnDestroy()
-    {
-        eventBus.UnRegister<PlayStageEnded>(OnPlayStageEnded);
     }
 }

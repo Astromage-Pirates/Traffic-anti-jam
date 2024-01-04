@@ -217,8 +217,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.186163, y: 0.7, z: 1.9}
-  m_Center: {x: -1.5430816, y: -0.099999994, z: -0.40000004}
+  m_Size: {x: 4.186163, y: 0.7, z: 3.4915931}
+  m_Center: {x: -1.5430818, y: -0.099999994, z: -1.1155459}
 --- !u!114 &3186346287451790074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   redLightUI: {fileID: 6054787255233912076}
   greenLightUI: {fileID: 589651726543246070}
   lightStage: 0
-  lightStageDuration: 3
+  lightStageDuration: 2
 --- !u!114 &7405265207540181437
 MonoBehaviour:
   m_ObjectHideFlags: 0

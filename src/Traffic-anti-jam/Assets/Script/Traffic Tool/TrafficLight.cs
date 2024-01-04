@@ -70,7 +70,7 @@ public class TrafficLight : TrafficTool
     [SerializeField]
     private int lightStageDuration;
 
-    private CancellationToken cts;
+    private CancellationTokenSource cts;
 
     public LightMode LightStage
     {
@@ -123,7 +123,15 @@ public class TrafficLight : TrafficTool
 
         while (levelStateChanged.IsPlay)
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(lightStageDuration), cancellationToken: cts);
+            await UniTask.Delay(
+                TimeSpan.FromSeconds(lightStageDuration),
+                cancellationToken: cts.Token
+            );
+
+            if (cts.IsCancellationRequested)
+            {
+                break;
+            }
 
             if (lightStage == LightMode.green)
             {
@@ -138,6 +146,10 @@ public class TrafficLight : TrafficTool
 
     private void OnDestroy()
     {
+        if (cts is not null)
+        {
+            cts.Cancel();
+        }
         eventBus.UnRegister<LevelStateChanged>(OnLevelStateChanged);
         if (trafficLightChildren is not null)
         {

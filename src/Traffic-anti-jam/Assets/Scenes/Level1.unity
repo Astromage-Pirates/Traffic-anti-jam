@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31281835, g: 0.5498868, b: 0.82140774, a: 1}
+  m_IndirectSpecularColor: {r: 0.31297147, g: 0.5498512, b: 0.82179445, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,7 +136,7 @@ PrefabInstance:
     - target: {fileID: 4775309125735299533, guid: bcdc7f7b59ae01c4c9baa99f6cc7abc8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.81
+      value: -7.03
       objectReference: {fileID: 0}
     - target: {fileID: 4775309125735299533, guid: bcdc7f7b59ae01c4c9baa99f6cc7abc8,
         type: 3}
@@ -4189,7 +4189,7 @@ Transform:
   m_GameObject: {fileID: 215776902}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.109, y: 0, z: -2.097}
+  m_LocalPosition: {x: -3.27, y: 0, z: -2.097}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8831,7 +8831,7 @@ Transform:
   m_GameObject: {fileID: 480113116}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.107, y: 0, z: 1.925}
+  m_LocalPosition: {x: -2.107, y: 0, z: 3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22858,7 +22858,7 @@ PrefabInstance:
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: <MaxVehicleEfficiency>k__BackingField
-      value: 20
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 257434366583518621, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
@@ -22878,12 +22878,12 @@ PrefabInstance:
     - target: {fileID: 5393990487853268055, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: spawningSeconds
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5393990487853268055, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: spawningDistance
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8154908455194728030, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
@@ -40064,7 +40064,7 @@ PrefabInstance:
     - target: {fileID: 7072980283734009755, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00020796602
+      value: -0.0008773168
       objectReference: {fileID: 0}
     - target: {fileID: 7269032722640797658, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -40075,6 +40075,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273192246068559393, guid: 9bde8630c89a486449bddae4da1b423a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -49.96
       objectReference: {fileID: 0}
     - target: {fileID: 7957949587111460251, guid: 9bde8630c89a486449bddae4da1b423a,
         type: 3}
@@ -41677,7 +41682,7 @@ Transform:
   m_GameObject: {fileID: 1556176315}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.907, y: 0, z: 1.906}
+  m_LocalPosition: {x: 3.26, y: 0, z: 1.906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43020,7 +43025,7 @@ Transform:
   m_GameObject: {fileID: 1621726881}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.908, y: 0, z: -2.108}
+  m_LocalPosition: {x: 1.908, y: 0, z: -3.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48860,7 +48865,7 @@ PrefabInstance:
     - target: {fileID: 4775309125735299533, guid: bcdc7f7b59ae01c4c9baa99f6cc7abc8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.59
+      value: 2.36
       objectReference: {fileID: 0}
     - target: {fileID: 4775309125735299533, guid: bcdc7f7b59ae01c4c9baa99f6cc7abc8,
         type: 3}
@@ -55319,7 +55324,7 @@ PrefabInstance:
     - target: {fileID: 109051194354904075, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: <MaxVehicleEfficiency>k__BackingField
-      value: 25
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 257434366583518621, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
@@ -55344,12 +55349,12 @@ PrefabInstance:
     - target: {fileID: 5393990487853268055, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: spawningSeconds
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5393990487853268055, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
       propertyPath: spawningDistance
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8154908455194728030, guid: 8abd537f887854b84b25653b5c15593c,
         type: 3}
