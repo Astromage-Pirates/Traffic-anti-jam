@@ -14,6 +14,19 @@ public class TrafficSignSnapPoint : SnapPoint<TrafficSign>
 
     [SerializeField]
     private Path[] rightPaths;
+    
+    [SerializeField]
+    private PathNode Intersection;
+
+	[SerializeField]
+	private PathNode forwardEdge;
+	[SerializeField]
+	private PathNode rightEdge;
+	[SerializeField]
+	private PathNode leftEdge;
+
+    [SerializeField]
+    private List<BetterPath> betterPath;
 
     protected override void Awake()
     {
@@ -24,7 +37,12 @@ public class TrafficSignSnapPoint : SnapPoint<TrafficSign>
         );
     }
 
-    private void OnTrafficSignSnapPointActive(TrafficSignUIInteracted trafficSignUIInteracted)
+	private void Start()
+	{
+
+	}
+
+	private void OnTrafficSignSnapPointActive(TrafficSignUIInteracted trafficSignUIInteracted)
     {
         myMeshRenderer.enabled = trafficSignUIInteracted.isSnapPointActive;
     }
@@ -49,35 +67,56 @@ public class TrafficSignSnapPoint : SnapPoint<TrafficSign>
         switch (trafficSign)
         {
             case ForwardSign _:
+                SetNode(false, leftEdge, rightEdge);
+                SetNode(true, forwardEdge);
+
                 SetPath(false, leftPaths, rightPaths);
                 SetPath(true, forwardPaths);
                 break;
 
             case LeftSign _:
+				SetNode(false, forwardEdge, rightEdge);
+				SetNode(true, leftEdge);
+                
                 SetPath(false, forwardPaths, rightPaths);
                 SetPath(true, leftPaths);
                 break;
 
             case RightSign _:
+				SetNode(false, forwardEdge, leftEdge);
+				SetNode(true, rightEdge);
+                
                 SetPath(false, forwardPaths, leftPaths);
                 SetPath(true, rightPaths);
                 break;
 
             case NoLeftSign _:
+				SetNode(false, leftEdge);
+				SetNode(true, rightEdge, forwardEdge);
+                
                 SetPath(false, leftPaths);
                 SetPath(true, rightPaths, forwardPaths);
                 break;
 
             case NoRightSign _:
+				SetNode(false, rightEdge);
+				SetNode(true, leftEdge, forwardEdge);
+                
                 SetPath(false, rightPaths);
                 SetPath(true, leftPaths, forwardPaths);
                 break;
 
             case OneWaySign _:
+				SetNode(false, leftEdge, rightEdge, forwardEdge);
+                
                 SetPath(false, leftPaths, rightPaths, forwardPaths);
                 break;
         }
-    }
+		foreach (var path in betterPath)
+		{
+			path.evaluateRoute();
+		}
+	}
 
     private void SetPath(bool available, params Path[][] arrPaths)
     {
@@ -92,12 +131,37 @@ public class TrafficSignSnapPoint : SnapPoint<TrafficSign>
             }
         }
     }
+    
+    private void SetNode(bool available, params PathNode[] arrPaths)
+    {
+        foreach (PathNode path in arrPaths)
+        {
+            if(path)
+            {
+                foreach (var edge in Intersection.Edges)
+                {
+                    if(edge.To == path)
+                    {
+                        edge.Weight = available?0:99999;
+                    }
+                }
+            }
+        }
+    }
 
     public void UnDoPath(params Path[][] arrPaths)
     {
         if (arrPaths.Length == 0)
         {
-            UnDoPath(leftPaths, rightPaths, forwardPaths);
+			foreach (var edge in Intersection.Edges)
+			{
+			    edge.Weight = 0;
+			}
+            foreach (var path in betterPath)
+            {
+                path.evaluateRoute();
+            }
+			UnDoPath(leftPaths, rightPaths, forwardPaths);
             return;
         }
 
