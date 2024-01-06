@@ -2,4 +2,5 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForwardSign : TrafficSign { }
+public class ForwardSign : TrafficSign {
+}

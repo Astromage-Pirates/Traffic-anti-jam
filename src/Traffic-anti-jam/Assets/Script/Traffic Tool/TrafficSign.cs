@@ -16,10 +16,6 @@ public class TrafficSign : TrafficTool
 
     public override void DestroyTrafficTool()
     {
-        if (trafficSignSnapPoint)
-        {
-            trafficSignSnapPoint.UnDoPath();
-        }
         base.DestroyTrafficTool();
     }
 }

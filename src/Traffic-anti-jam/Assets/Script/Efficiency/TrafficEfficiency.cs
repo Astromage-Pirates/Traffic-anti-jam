@@ -88,9 +88,9 @@ public class TrafficEfficiency : MonoBehaviour
 
     private void Start()
     {
-        if (levelManager.PathSystems != null)
+        if (levelManager.paths != null)
         {
-            efficiencyVehicleCount = levelManager.PathSystems.Sum(x => x.MaxVehicleEfficiency);
+            efficiencyVehicleCount = levelManager.paths.Sum(x => x.MaxCar);
             img_Fill.color = efficiencyColor.Good;
         }
     }
@@ -102,7 +102,7 @@ public class TrafficEfficiency : MonoBehaviour
             var worstEfficiency = (efficiencyVehicleCount + 1) * 3f / 2f;
             efficiencyPercentage =
                 1f
-                - levelManager.PathSystems.Sum(x => x.AvailablePath.VehiclesOnPath.Count())
+                - levelManager.paths.Sum(x => x.CarCount)
                     / worstEfficiency;
 
             DOVirtual.Float(

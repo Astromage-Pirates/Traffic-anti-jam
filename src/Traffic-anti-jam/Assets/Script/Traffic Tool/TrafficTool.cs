@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TrafficTool : MonoBehaviour, IPointerClickHandler
+abstract public class TrafficTool : MonoBehaviour, IPointerClickHandler
 {
     private Camera myCamera;
 
@@ -117,4 +117,6 @@ public class TrafficTool : MonoBehaviour, IPointerClickHandler
     {
         ShowUI(false);
     }
+
+    virtual public void OnSnap() { }
 }

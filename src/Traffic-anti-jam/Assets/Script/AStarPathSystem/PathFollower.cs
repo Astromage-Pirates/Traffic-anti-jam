@@ -7,9 +7,6 @@ using UnityEngine;
 public class PathFollower : MonoBehaviour
 {
 	[SerializeField]
-	private WheelBaseVehicle vehicle;
-	
-	[SerializeField]
 	private BetterPath route;
 	
 	[SerializeField]
@@ -53,6 +50,7 @@ public class PathFollower : MonoBehaviour
 		{
 			if(isStarted)
 			{
+				route.CarCount--;
 				Destroy(gameObject);
 			}
 			else

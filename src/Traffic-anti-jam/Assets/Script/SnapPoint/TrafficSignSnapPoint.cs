@@ -18,12 +18,12 @@ public class TrafficSignSnapPoint : SnapPoint<TrafficSign>
     [SerializeField]
     private PathNode Intersection;
 
-	[SerializeField]
-	private PathNode forwardEdge;
-	[SerializeField]
-	private PathNode rightEdge;
-	[SerializeField]
-	private PathNode leftEdge;
+	[field: SerializeField]
+    public PathNode forwardEdge { get; private set; }
+    [field: SerializeField]
+    public PathNode rightEdge { get; private set; }
+    [field: SerializeField]
+    public PathNode leftEdge { get; private set; }
 
     [SerializeField]
     private List<BetterPath> betterPath;
@@ -58,7 +58,7 @@ public class TrafficSignSnapPoint : SnapPoint<TrafficSign>
         eventBus.Send(
             new TrafficSignUIInteracted() { isSnapPointActive = false, isToolBarBtnActive = true }
         );
-
+        trafficSign.OnSnap();
         TrafficSignEffect(currTrafficTool);
     }
 
