@@ -102,7 +102,7 @@ public class PathFollower : MonoBehaviour
 			var rotation = raycastAnchor.rotation * Quaternion.Euler(0.0f, minAngle * i - startAngle, 0.0f);
 			if(Physics.Raycast(raycastAnchor.position,rotation*Vector3.forward,out var hit,DistanceThreshHold,1 << LayerMask.NameToLayer("Vehicle")))
 			{
-				Debug.DrawRay(raycastAnchor.position, rotation * Vector3.forward * hit.distance, Color.red);
+				Debug.DrawRay(raycastAnchor.position, rotation * Vector3.forward * hit.distance, Color.green);
 				if(hit.distance < DistanceToOtherCar)
 				{
 					speedModifier = 0.0f;
@@ -113,6 +113,7 @@ public class PathFollower : MonoBehaviour
 				}
 				break;
 			}
+			Debug.DrawRay(raycastAnchor.position, rotation * Vector3.forward * DistanceThreshHold, Color.red);
 		}
 
 		transform.Translate(Vector3.forward * speedModifier * velocity * Time.fixedDeltaTime);

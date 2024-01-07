@@ -73,7 +73,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnBtnPlayPressed()
     {
-        if (!paths.Any(p => p.ShortestPath.Count != 0))
+        if (!paths.Any(p => p.ShortestPath.Count == 0))
         {
             ambientSoundAudioSource.Play();
             btn_Play.interactable = false;

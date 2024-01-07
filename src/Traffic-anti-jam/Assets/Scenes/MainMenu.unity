@@ -9362,7 +9362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 150, y: 0}
   m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &632300172
@@ -25987,10 +25987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1934727187}
   levelData:
-  - {fileID: 11400000, guid: 60a76360f52b1d946a6f10b4ed4ad9a5, type: 2}
-  - {fileID: 11400000, guid: cdf02578187bd4a77b5393db97acd577, type: 2}
   - {fileID: 11400000, guid: 905f54bf421a9fc4096018d35de3b1c5, type: 2}
-  - {fileID: 11400000, guid: 2c8e37c0c1ebc284ebc74762a7b91bf1, type: 2}
   levelWidgetPrefab: {fileID: 306812901321902228, guid: b96f69f99234451428fdabf264a4ffec,
     type: 3}
   levelSelectGrid: {fileID: 124693333}

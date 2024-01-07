@@ -1,3 +1,4 @@
+using AstroPirate.DesignPatterns;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,8 +30,12 @@ public class BetterPath : MonoBehaviour
 
     [SerializeField]
     private Color pathColor;
-    
-    [SerializeField]
+
+	[Header("Warning Message")]
+	[SerializeField]
+	private Canvas cnv_Warning;
+
+	[SerializeField]
     private Material baseMat;
 
     private Material material;
@@ -40,7 +45,34 @@ public class BetterPath : MonoBehaviour
 
     public List<PathNode> ShortestPath => path;
 
+    [NonSerialized]
     public int CarCount;
+
+    private IEventBus eventBus;
+
+	private void OnEnable()
+	{
+		GlobalServiceContainer.Resolve(out eventBus);
+		eventBus.Register<LevelStateChanged>(OnLevelStateChanged);
+	}
+
+	private void OnDisable()
+	{
+		eventBus.UnRegister<LevelStateChanged>(OnLevelStateChanged);
+	}
+
+	private void OnLevelStateChanged(LevelStateChanged changed)
+	{
+		if(changed.IsPlay)
+        {
+			foreach (var item in Spheres)
+			{
+				Destroy(item.gameObject);
+			}
+
+			Spheres.Clear();
+		}
+	}
 
 	private void Start()
 	{
@@ -166,4 +198,17 @@ public class BetterPath : MonoBehaviour
 		return path[0];
     }
 
+	private void Update()
+	{
+		if (cnv_Warning)
+		{
+			cnv_Warning.enabled = path.Count == 0;
+			var pathPosition = EndNode.transform.position;
+			cnv_Warning.transform.position = new Vector3(
+				pathPosition.x,
+				cnv_Warning.transform.position.y,
+				pathPosition.z
+			);
+		}
+	}
 }
